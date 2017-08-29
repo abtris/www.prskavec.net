@@ -4,7 +4,7 @@ disqusshortname = ""
 languageCode = "en-us"
 paginate = 5
 pluralizelisttitles = false
-theme = "casper"
+theme = "theme-casper"
 title = "Prskavec.Net"
 [[menu.main]]
 identifier = "blog"
