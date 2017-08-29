@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/contact/</loc>
+    <lastmod>2017-06-06T18:22:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/docker-advent/</loc>
+    <lastmod>2016-01-04T10:01:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/migrate-heroku-nodejs-website-to-heroku-docker/</loc>
+    <lastmod>2015-05-12T18:41:28+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/git-productivity-tips/</loc>
+    <lastmod>2014-12-11T18:52:13+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/dnsmasq-in-mac-os-x-10-10-yosemite/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/welcome/</loc>
+    <lastmod>2013-12-27T21:29:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/getting-started/</loc>
+    <lastmod>2013-12-27T21:29:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/getting-started/</loc>
+    <lastmod>2013-12-27T21:29:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/howto/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/howto/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/mac/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/mac/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2017-06-06T18:22:17+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/</loc>
+    <lastmod>2016-01-04T10:01:56+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+    <lastmod>2013-12-27T21:29:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

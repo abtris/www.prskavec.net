@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on My New Hugo Site</title>
+    <link>http://example.org/tags/mac/</link>
+    <description>Recent content in Mac on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Nov 2014 13:01:45 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DNSmasq in Mac OS X 10.10 Yosemite</title>
+      <link>http://example.org/post/dnsmasq-in-mac-os-x-10-10-yosemite/</link>
+      <pubDate>Sun, 02 Nov 2014 13:01:45 +0000</pubDate>
+      
+      <guid>http://example.org/post/dnsmasq-in-mac-os-x-10-10-yosemite/</guid>
+      <description>Dnsmasq I use dnsmasq at mac to setup all development sites using address as something.dev
+Install If you have new computer, only install dnsmasq.
+brew install dnsmasq  If you have older computer and upgrade from maverics. You have installed dnsmasq some time ago. Please, first remove dnsmasq and install them again. In Yosemite are some changes in plist for running services.
+brew uninstall dnsmasq brew install dnsmasq  For Yosemite is good have latest LauchRocket.</description>
+    </item>
+    
+  </channel>
+</rss>

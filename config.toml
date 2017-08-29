@@ -1,0 +1,47 @@
+baseURL = "http://www.prskavec.net/"
+copyright = "All rights reserved"
+disqusshortname = ""
+languageCode = "en-us"
+paginate = 5
+pluralizelisttitles = false
+theme = "casper"
+title = "Prskavec.Net"
+[[menu.main]]
+identifier = "blog"
+name = "Blog"
+url = "/"
+weight = -120
+[[menu.main]]
+name = "Github repos"
+pre = "<h3>Follow me</h3>"
+url = "https://github.com/abtris"
+weight = 100
+[[menu.main]]
+name = "Twitter timeline"
+url = "https://twitter.com/abtris"
+weight = 101
+[[menu.main]]
+name = "Keybase (secure msg)"
+pre = "<h3>Contact me</h3>"
+url = "https://keybase.io/abtris"
+weight = 109
+
+[params]
+author = "Ladislav Prskavec"
+authorlocation = "Prague, Czech Republic"
+authoravatar = "https://s.gravatar.com/avatar/81f4ce0a283bcb70d4aa8b6071c91f1c?s=512"
+authorwebsite = "http://www.prskavec.net"
+authorbio = "Developer and SRE Engineer"
+cover = "images/background.jpg"
+description = ""
+githubName = "abtris"
+googleAnalyticsUserID = ""
+hideHUGOSupport = false
+logo = "logos/prskavec_logo_blog.jpg"
+twitterName = "abtris"
+[permalinks]
+post = "/:slug/"
+[sitemap]
+ChangeFreq = ""
+Filename = "sitemap.xml"
+Priority = "-1"
