@@ -1,16 +1,13 @@
-+++
-author = "Ladislav Prskavec"
-date = 2016-01-04T10:01:56Z
-description = ""
-draft = false
-slug = "docker-advent"
-title = "Docker Advent 2015"
+---
+layout: post
+title:  "Day Twenty Four - Docker Advent Summary 2015"
+date:   2015-12-24 11:00:00 +0100
+---
 
-+++
+Hi everyone,<br>
+this is last post for year 2015.
 
-Here is summary all posts from [Docker Advent in 2015](http://www.dockeradvent.com):
-
-<!--more-->
+Here is summary all posts in 2015:
 
 - [Day One - What's docker?](http://www.dockeradvent.com/2015-12-01-day-one-what-is-docker)
 - [Day Two - Open Container Ekosystem](http://www.dockeradvent.com/2015-12-02-day-two-open-container-ecosystem)
@@ -36,3 +33,10 @@ Here is summary all posts from [Docker Advent in 2015](http://www.dockeradvent.c
 - [Day Twenty Two - Docker and monitoring](http://www.dockeradvent.com/2015-12-22-day-twenty-two-docker-and-monitoring)
 - [Day Twenty Three - Docker tips and tricks](http://www.dockeradvent.com/2015-12-23-day-twenty-three-docker-tips-and-tricks)
 - [Day Twenty Four - Docker Advent Summary 2015](http://www.dockeradvent.com/2015/12/24/day-twenty-four-docker-advent-summary/)
+
+I hope, these posts can be useful. The posts order is chaotic. I think next year I have more time and some co-authors to make this better.
+
+In 2016 have to docker show us how deploy docker container fast and scalable. Problems I see in containers size and I hope many containers change base from Ubuntu to Alpine.
+
+See you in 2016,<br>
+Ladislav

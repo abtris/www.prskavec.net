@@ -1,94 +1,205 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/contact/</loc>
+    <loc>http://www.prskavec.net/contact/</loc>
     <lastmod>2017-06-06T18:22:17+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/post/docker-advent/</loc>
+    <loc>http://www.prskavec.net/</loc>
+    <lastmod>2017-06-06T18:22:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/docker-advent/</loc>
     <lastmod>2016-01-04T10:01:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/post/migrate-heroku-nodejs-website-to-heroku-docker/</loc>
+    <loc>http://www.prskavec.net/post/</loc>
+    <lastmod>2016-01-04T10:01:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-twenty-four-docker-advent-summary-2015/</loc>
+    <lastmod>2015-12-24T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-twenty-three-docker-tips-and-tricks/</loc>
+    <lastmod>2015-12-23T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-twenty-two-docker-and-monitoring/</loc>
+    <lastmod>2015-12-22T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-twenty-one-docker-and-logging/</loc>
+    <lastmod>2015-12-21T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-twenty-docker-and-tutum/</loc>
+    <lastmod>2015-12-20T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-nineteen-docker-and-aws-ecs/</loc>
+    <lastmod>2015-12-19T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-eighteen-docker-and-heroku/</loc>
+    <lastmod>2015-12-18T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-seventeen-docker-and-sphinx-documentation/</loc>
+    <lastmod>2015-12-17T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-sixteen-using-docker-for-cli-tools/</loc>
+    <lastmod>2015-12-16T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-fifteen-container-lifecycle/</loc>
+    <lastmod>2015-12-15T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-fourteen-docker-lifecycle/</loc>
+    <lastmod>2015-12-14T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-thirteen-docker-and-travisci/</loc>
+    <lastmod>2015-12-13T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-twelve-circleci-and-docker/</loc>
+    <lastmod>2015-12-12T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-eleven-docker-version-manager/</loc>
+    <lastmod>2015-12-11T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-ten-docker-swarm/</loc>
+    <lastmod>2015-12-10T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-nine-docker-registry/</loc>
+    <lastmod>2015-12-09T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-eight-docker-compose-part-2/</loc>
+    <lastmod>2015-12-08T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-seven-dockerfile/</loc>
+    <lastmod>2015-12-07T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-six-docker-hub/</loc>
+    <lastmod>2015-12-06T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-five-docker-compose-part-1/</loc>
+    <lastmod>2015-12-05T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-four-docker-machine/</loc>
+    <lastmod>2015-12-04T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-three-docker-install-and-upgrade/</loc>
+    <lastmod>2015-12-03T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-two-open-container-ekosystem/</loc>
+    <lastmod>2015-12-02T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/day-one-whats-docker/</loc>
+    <lastmod>2015-12-01T11:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/migrate-heroku-nodejs-website-to-heroku-docker/</loc>
     <lastmod>2015-05-12T18:41:28+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/post/git-productivity-tips/</loc>
+    <loc>http://www.prskavec.net/git-productivity-tips/</loc>
     <lastmod>2014-12-11T18:52:13+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/post/dnsmasq-in-mac-os-x-10-10-yosemite/</loc>
+    <loc>http://www.prskavec.net/categories/</loc>
     <lastmod>2014-11-02T13:01:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/post/welcome/</loc>
+    <loc>http://www.prskavec.net/dnsmasq-in-mac-os-x-10-10-yosemite/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/categories/howto/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/tags/howto/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/categories/mac/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/tags/mac/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/tags/</loc>
+    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.prskavec.net/categories/getting-started/</loc>
     <lastmod>2013-12-27T21:29:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/tags/getting-started/</loc>
+    <loc>http://www.prskavec.net/tags/getting-started/</loc>
     <lastmod>2013-12-27T21:29:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/categories/getting-started/</loc>
+    <loc>http://www.prskavec.net/welcome/</loc>
     <lastmod>2013-12-27T21:29:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/tags/howto/</loc>
-    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/categories/howto/</loc>
-    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/tags/mac/</loc>
-    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/categories/mac/</loc>
-    <lastmod>2014-11-02T13:01:45+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/</loc>
-    <lastmod>2017-06-06T18:22:17+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/post/</loc>
-    <lastmod>2016-01-04T10:01:56+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.org/tags/</loc>
-    <lastmod>2013-12-27T21:29:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>
