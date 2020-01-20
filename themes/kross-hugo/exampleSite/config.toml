@@ -1,20 +1,9 @@
-baseURL = "http://www.prskavec.net/"
-copyright = "All rights reserved"
-disqusshortname = ""
+# default configuration
+baseURL = "http://examplesite.com"
 languageCode = "en-us"
-paginate = 5
 summaryLength = "10"
-
-pluralizelisttitles = false
 theme = "kross-hugo"
-title = "Prskavec.Net"
-
-[permalinks]
-post = "/:year/:slug/"
-[sitemap]
-ChangeFreq = ""
-Filename = "sitemap.xml"
-Priority = "-1"
+title = "Kross | Hugo Portfolio Template"
 
 # css plugins
 [[params.plugins.css]]
@@ -53,8 +42,8 @@ name = "Blog"
 weight = 3
 
 [[menu.main]]
-URL = "talks"
-name = "Talks"
+URL = "portfolio"
+name = "Portfolio"
 weight = 4
 
 [[menu.main]]
@@ -66,25 +55,26 @@ weight = 5
 # default parameters
 [params]
 home = "Home"
-logo = "logos/prskavec_logo_blog.jpg"
+logo = "images/logo.png"
 # theme color
 theme_color = "#41228e"
 # contact info
-phone = "+420 604 419 262"
-email = "ladislav@prskavec.net"
-address = "Prague, Czech Republic"
+phone = "+880 2544 658 256"
+email = "steve.fruits@email.com"
+address = "125/A, CA Commercial Area, California, USA"
 # meta description
-author = "Ladislav Prskavec"
-description = "Developer and SRE Engineer"
+author = "Johnathan Smith"
+description = "This is meta description"
 # google analitycs
-google_analitycs_id = "UA-79221-1"
+google_analitycs_id = "Your ID"
 # copyright
 copyright = "Copyrighht &copy; 2020 a theme by [gethugothemes](https://gethugothemes.com)"
 
+
 # contact
 [params.contact]
-enable = false
-form_action = "https://formspree.io/xknjkrdl" # contact form works with : https://formspree.io
+enable = true
+form_action = "#" # contact form works with : https://formspree.io
 
 # preloader
 [params.preloader]
@@ -93,5 +83,17 @@ preloader = "" # use png, jpg, svg or gif format
 
 # social site
 [[params.social]]
-URL = "https://twitter.com/abtris"
+URL = "#"
+icon = "ti-facebook"
+
+[[params.social]]
+URL = "#"
+icon = "ti-instagram"
+
+[[params.social]]
+URL = "#"
+icon = "ti-dribbble"
+
+[[params.social]]
+URL = "#"
 icon = "ti-twitter-alt"
