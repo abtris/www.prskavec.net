@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Getting Started on My New Hugo Site</title>
-    <link>http://example.org/categories/getting-started/</link>
-    <description>Recent content in Getting Started on My New Hugo Site</description>
+    <title>Getting Started on Prskavec.Net</title>
+    <link>http://www.prskavec.net/categories/getting-started/</link>
+    <description>Recent content in Getting Started on Prskavec.Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>All rights reserved</copyright>
     <lastBuildDate>Fri, 27 Dec 2013 21:29:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/categories/getting-started/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.prskavec.net/categories/getting-started/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Welcome to our sites</title>
-      <link>http://example.org/post/welcome/</link>
+      <link>http://www.prskavec.net/welcome/</link>
       <pubDate>Fri, 27 Dec 2013 21:29:00 +0000</pubDate>
       
-      <guid>http://example.org/post/welcome/</guid>
-      <description> You&amp;rsquo;re in! Nice.
-Czech sites  Ahuta - http://www.ahuta.cz Fimostudio - http://www.fimostudio.cz Ladislav Prskavec blog - http://blog.prskavec.net Subversion pro každého - http://svn.prskavec.net/  English sites  TopTopic - http://toptopic.wordpress.com  </description>
+      <guid>http://www.prskavec.net/welcome/</guid>
+      <description>&lt;p&gt;You&#39;re in! Nice.&lt;/p&gt;</description>
     </item>
     
   </channel>

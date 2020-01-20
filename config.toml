@@ -40,7 +40,7 @@ hideHUGOSupport = false
 logo = "logos/prskavec_logo_blog.jpg"
 twitterName = "abtris"
 [permalinks]
-post = "/:slug/"
+post = "/:year/:slug/"
 [sitemap]
 ChangeFreq = ""
 Filename = "sitemap.xml"

@@ -1,71 +1,329 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My New Hugo Site</title>
-    <link>http://example.org/post/</link>
-    <description>Recent content in Posts on My New Hugo Site</description>
+    <title>Post on Prskavec.Net</title>
+    <link>http://www.prskavec.net/post/</link>
+    <description>Recent content in Post on Prskavec.Net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright>All rights reserved</copyright>
     <lastBuildDate>Mon, 04 Jan 2016 10:01:56 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.prskavec.net/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker Advent 2015</title>
-      <link>http://example.org/post/docker-advent/</link>
+      <link>http://www.prskavec.net/docker-advent/</link>
       <pubDate>Mon, 04 Jan 2016 10:01:56 +0000</pubDate>
       
-      <guid>http://example.org/post/docker-advent/</guid>
-      <description>Here is summary all posts from Docker Advent in 2015:
- Day One - What&amp;rsquo;s docker? Day Two - Open Container Ekosystem Day Three - Docker install and upgrade Day Four - Docker Machine Day Five - Docker Compose Part 1 Day Six - Docker Hub Day Seven - Dockerfile Day Eight - Docker Compose Part 2 Day Nine - Docker Registry Day Ten - Docker Swarm Day Eleven - Docker Version Manager Day Twelve - CircleCI and Docker Day Thirteen - Docker and TravisCI Day Fourteen - Docker Lifecycle Day Fifteen - Container Lifecycle Day Sixteen - Using docker for CLI Tools Day Seventeen - Docker and Sphinx documentation Day Eighteen - Docker and Heroku Day Nineteen - Docker and AWS ECS Day Twenty - Docker and Tutum Day Twenty One - Docker and logging Day Twenty Two - Docker and monitoring Day Twenty Three - Docker tips and tricks Day Twenty Four - Docker Advent Summary 2015  </description>
+      <guid>http://www.prskavec.net/docker-advent/</guid>
+      <description>&lt;p&gt;Here is summary all posts from &lt;a href=&#34;http://www.dockeradvent.com&#34;&gt;Docker Advent in 2015&lt;/a&gt;:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Day Twenty Four - Docker Advent Summary 2015</title>
+      <link>http://www.prskavec.net/day-twenty-four-docker-advent-summary-2015/</link>
+      <pubDate>Thu, 24 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-twenty-four-docker-advent-summary-2015/</guid>
+      <description>Hi everyone,this is last post for year 2015.
+Here is summary all posts in 2015:
+ Day One - What&#39;s docker? Day Two - Open Container Ekosystem Day Three - Docker install and upgrade Day Four - Docker Machine Day Five - Docker Compose Part 1 Day Six - Docker Hub Day Seven - Dockerfile Day Eight - Docker Compose Part 2 Day Nine - Docker Registry Day Ten - Docker Swarm Day Eleven - Docker Version Manager Day Twelve - CircleCI and Docker Day Thirteen - Docker and TravisCI Day Fourteen - Docker Lifecycle Day Fifteen - Container Lifecycle Day Sixteen - Using docker for CLI Tools Day Seventeen - Docker and Sphinx documentation Day Eighteen - Docker and Heroku Day Nineteen - Docker and AWS ECS Day Twenty - Docker and Tutum Day Twenty One - Docker and logging Day Twenty Two - Docker and monitoring Day Twenty Three - Docker tips and tricks Day Twenty Four - Docker Advent Summary 2015  I hope, these posts can be useful.</description>
+    </item>
+    
+    <item>
+      <title>Day Twenty Three - Docker tips and tricks</title>
+      <link>http://www.prskavec.net/day-twenty-three-docker-tips-and-tricks/</link>
+      <pubDate>Wed, 23 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-twenty-three-docker-tips-and-tricks/</guid>
+      <description>Hi everyone,this is last but one post before Christmas.
+1. Get IP address of your container docker inspect -f &#39;{{ json .NetworkSettings }}&#39; $ID example:
+$ docker inspect -f &#39;{{ json .NetworkSettings }}&#39; 9dd74d9998bb {&amp;quot;Bridge&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;SandboxID&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;HairpinMode&amp;quot;:false,&amp;quot;LinkLocalIPv6Address&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;LinkLocalIPv6PrefixLen&amp;quot;:0,&amp;quot;Ports&amp;quot;:null,&amp;quot;SandboxKey&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;SecondaryIPAddresses&amp;quot;:null,&amp;quot;SecondaryIPv6Addresses&amp;quot;:null,&amp;quot;EndpointID&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Gateway&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;GlobalIPv6Address&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;GlobalIPv6PrefixLen&amp;quot;:0,&amp;quot;IPAddress&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;IPPrefixLen&amp;quot;:0,&amp;quot;IPv6Gateway&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;MacAddress&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Networks&amp;quot;:{&amp;quot;bridge&amp;quot;:{&amp;quot;EndpointID&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Gateway&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;IPAddress&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;IPPrefixLen&amp;quot;:0,&amp;quot;IPv6Gateway&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;GlobalIPv6Address&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;GlobalIPv6PrefixLen&amp;quot;:0,&amp;quot;MacAddress&amp;quot;:&amp;quot;&amp;quot;}}} if you can have nice output you can use python or jq.
+$ docker inspect -f &#39;{{ json .NetworkSettings }}&#39; $ID | python -mjson.tool or
+$ docker inspect -f &#39;{{ json .NetworkSettings }}&#39; $ID | jq jq have nice colored output:</description>
+    </item>
+    
+    <item>
+      <title>Day Twenty Two - Docker and monitoring</title>
+      <link>http://www.prskavec.net/day-twenty-two-docker-and-monitoring/</link>
+      <pubDate>Tue, 22 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-twenty-two-docker-and-monitoring/</guid>
+      <description>Hi everyone,Docker have runtime metrics, you can see CPU, MEM, IO and network for every container.
+$ docker stats determined_shockley determined_wozniak prickly_hypatia CONTAINER CPU % MEM USAGE/LIMIT MEM % NET I/O determined_shockley 0.00% 884 KiB/1.961 GiB 0.04% 648 B/648 B determined_wozniak 0.00% 1.723 MiB/1.961 GiB 0.09% 1.266 KiB/648 B prickly_hypatia 0.00% 740 KiB/1.961 GiB 0.04% 1.898 KiB/648 B It&#39;s many tools for monitoring:
+ cAdvisor from google have web UI. I&#39;m using Datadog.</description>
+    </item>
+    
+    <item>
+      <title>Day Twenty One - Docker and logging</title>
+      <link>http://www.prskavec.net/day-twenty-one-docker-and-logging/</link>
+      <pubDate>Mon, 21 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-twenty-one-docker-and-logging/</guid>
+      <description>Hi everyone,every container can have different logging driver.
+In version 1.9 is supported this drivers:
+ json-file (Default logging driver for Docker. Writes JSON messages to file.) syslog (Syslog logging driver for Docker. Writes log messages to syslog.) journald (Journald logging driver for Docker. Writes log messages to journald.) gelf (Graylog Extended Log Format (GELF) logging driver for Docker. Writes log messages to a GELF endpoint likeGraylog or Logstash.) fluentd (Fluentd logging driver for Docker.</description>
+    </item>
+    
+    <item>
+      <title>Day Twenty - Docker and Tutum</title>
+      <link>http://www.prskavec.net/day-twenty-docker-and-tutum/</link>
+      <pubDate>Sun, 20 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-twenty-docker-and-tutum/</guid>
+      <description>Hi everyone,Tutum is docker platform for Dev and Ops. Tutum join Docker in October 2015.
+Tutum have some cool features:
+ internal docker registry build from git deploy to different cloud providers  Amazon Web Services Microsoft Azure Digital Ocean IBM Softlayer   logging, monitoring, scaling API support for docker-compose CLI client  I think this abstraction is very cool for many starting developers. You can use standard docker tools and all works out of the box.</description>
+    </item>
+    
+    <item>
+      <title>Day Nineteen - Docker and AWS ECS</title>
+      <link>http://www.prskavec.net/day-nineteen-docker-and-aws-ecs/</link>
+      <pubDate>Sat, 19 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-nineteen-docker-and-aws-ecs/</guid>
+      <description>Hi everyone,Amazon Web Services (AWS) is biggest cloud provider and you can use docker with Elastic Compute Cloud (EC2), use Amazon EC2 Container Service (ECS) or AWS Elastic Beanstalk. AWS Elastic Beanstalk is very similar to Heroku. It&#39;s Platform as a Service (PaaS).
+I write post about ECS. ECS is new service exists two years. You have to use your EC2 instances to provide cluster. No price for service itself only for resources (EC2, ELB, EBS).</description>
+    </item>
+    
+    <item>
+      <title>Day Eighteen - Docker and Heroku</title>
+      <link>http://www.prskavec.net/day-eighteen-docker-and-heroku/</link>
+      <pubDate>Fri, 18 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-eighteen-docker-and-heroku/</guid>
+      <description>Hi everyone,many PaaS (platform as service) support docker for deployment. I can write some posts about this. I start with Heroku.
+Heroku introduce have own container solution for many years and docker solution converts docker images into their format. You can combine git push heroku master with heroku docker:release and both works together.
+First, you have to update your heroku client and add docker plugin.
+heroku plugins:install heroku-docker second, edit or create your app.</description>
+    </item>
+    
+    <item>
+      <title>Day Seventeen - Docker and Sphinx documentation</title>
+      <link>http://www.prskavec.net/day-seventeen-docker-and-sphinx-documentation/</link>
+      <pubDate>Thu, 17 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-seventeen-docker-and-sphinx-documentation/</guid>
+      <description>Hi everyone,if you write the docs, you can use Sphinx. You can share your documentation using Read the Docs portal.
+If you look at quickstart how write the docs, you can install python and some tools. This can be complicated if you can use latex for creating PDF version and do you need another version python for your development and some another for write the docs. Some members of your team can&#39;t install anything for update just a few lines.</description>
+    </item>
+    
+    <item>
+      <title>Day Sixteen - Using docker for CLI Tools</title>
+      <link>http://www.prskavec.net/day-sixteen-using-docker-for-cli-tools/</link>
+      <pubDate>Wed, 16 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-sixteen-using-docker-for-cli-tools/</guid>
+      <description>Hi everyone,I like one thing at docker and that is isolation. For example we have project Polls API written in Python. For testing API we use tool named Dredd written in NodeJS. I can&#39;t install NodeJS to our system. But you can easy use Docker to solve this problem.
+Here is circle.yml file for project:
+machine: pre: - echo &amp;#39;DOCKER_OPTS=&amp;#34;-s btrfs -e lxc -D --userland-proxy=false&amp;#34;&amp;#39; | sudo tee -a /etc/default/docker - sudo curl -L -o /usr/bin/docker &amp;#39;https://s3-external-1.</description>
+    </item>
+    
+    <item>
+      <title>Day Fifteen - Container Lifecycle</title>
+      <link>http://www.prskavec.net/day-fifteen-container-lifecycle/</link>
+      <pubDate>Tue, 15 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-fifteen-container-lifecycle/</guid>
+      <description>Hi everyone,I can write some details about docker containers lifecycle.
+Container statuses  running stopped paused killed removed  How change status  image -&amp;gt; docker run -&amp;gt; running running -&amp;gt; docker pause -&amp;gt; paused -&amp;gt; docker unpause -&amp;gt; running running -&amp;gt; docker stop -&amp;gt; stopped -&amp;gt; docker start -&amp;gt; running stopped -&amp;gt; docker rm -&amp;gt; removed running -&amp;gt; docker kill -&amp;gt; killed -&amp;gt; docker rm -&amp;gt; removed running -&amp;gt; docker rm --force -&amp;gt; removed running -&amp;gt; docker restart -&amp;gt; stopped -&amp;gt; running  Docker container lifecycle schema You can see you have many containers, sometimes problems with space in VM.</description>
+    </item>
+    
+    <item>
+      <title>Day Fourteen - Docker Lifecycle</title>
+      <link>http://www.prskavec.net/day-fourteen-docker-lifecycle/</link>
+      <pubDate>Mon, 14 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-fourteen-docker-lifecycle/</guid>
+      <description>Hi everyone,I can write some details about docker containers. How images and containers born and die.
+Steps in lifecycle  You have to build image. Make Dockerfile and run docker build.   you can run docker build . or you add tag name docker build -t username/my-imagename . or you can have Dockerfile somewhere at path docker build -t username/my-imagename -f /path/Dockerfile   If you run image by docker run you create container.</description>
+    </item>
+    
+    <item>
+      <title>Day Thirteen - Docker and TravisCI</title>
+      <link>http://www.prskavec.net/day-thirteen-docker-and-travisci/</link>
+      <pubDate>Sun, 13 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-thirteen-docker-and-travisci/</guid>
+      <description>Hi everyone,Docker is great for testing. In last post I write about CircleCI.
+Travis CI TravisCI is most used in Open Source projects at GitHub.
+To use Docker add the following settings to your .travis.yml:
+sudo: required services: - docker You can use docker-compose in similar way as in CircleCI.
+env: DOCKER_COMPOSE_VERSION: 1.4.2 before_install: - sudo rm /usr/local/bin/docker-compose - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` &amp;gt; docker-compose - chmod +x docker-compose - sudo mv docker-compose /usr/local/bin I&#39;m not sure about TravisCI and caching used for docker.</description>
+    </item>
+    
+    <item>
+      <title>Day Twelve - CircleCI and Docker</title>
+      <link>http://www.prskavec.net/day-twelve-circleci-and-docker/</link>
+      <pubDate>Sat, 12 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-twelve-circleci-and-docker/</guid>
+      <description>Hi everyone,Docker is great for testing. I make a few posts about support in Continues Integration Engines.
+ CircleCI TravisCI Jenkins Drone BuildKite  Circle CI To use Docker add required service into circle.yml file:
+machine: services: - docker you can use this for install different version docker than default (1.8.3):
+machine: pre: - echo &#39;DOCKER_OPTS=&amp;quot;-s btrfs -e lxc -D --userland-proxy=false&amp;quot;&#39; | sudo tee -a /etc/default/docker - sudo curl -L -o /usr/bin/docker &#39;https://s3-external-1.</description>
+    </item>
+    
+    <item>
+      <title>Day Eleven - Docker Version Manager</title>
+      <link>http://www.prskavec.net/day-eleven-docker-version-manager/</link>
+      <pubDate>Fri, 11 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-eleven-docker-version-manager/</guid>
+      <description>Hi everyone,Rackspace created docker version manager, this helps you use more version docker.
+I tested on mac and works good. My college try it at linux and have problems combine with package version. But at linux is easy use normal package system to switch native version.
+Install on Mac or Linux curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh Usage After dvm is installed, list all installed versions of the Docker client:
+$ dvm ls 1.</description>
+    </item>
+    
+    <item>
+      <title>Day Ten - Docker Swarm</title>
+      <link>http://www.prskavec.net/day-ten-docker-swarm/</link>
+      <pubDate>Thu, 10 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-ten-docker-swarm/</guid>
+      <description>Hi everyone,next tool from Docker is Docker Swarm. It&#39;s native clustering for Docker. You need service discovery based on some software as consul, etcd or zookeeper.
+Setup swarm You need docker and first you need generate token.
+$ docker run swarm create Unable to find image &#39;swarm:latest&#39; locally latest: Pulling from library/swarm d681c900c6e3: Pull complete 188de6f24f3f: Pull complete 90b2ffb8d338: Pull complete 237af4efea94: Pull complete 3b3fc6f62107: Pull complete 7e6c9135b308: Pull complete 986340ab62f0: Pull complete a9975e2cc0a3: Pull complete Digest: sha256:c21fd414b0488637b1f05f13a59b032a3f9da5d818d31da1a4ca98a84c0c781b Status: Downloaded newer image for swarm:latest ca5c13a8cb0d2a1da427024b032a138a Next step is launch swarm manager:</description>
+    </item>
+    
+    <item>
+      <title>Day Nine - Docker Registry</title>
+      <link>http://www.prskavec.net/day-nine-docker-registry/</link>
+      <pubDate>Wed, 09 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-nine-docker-registry/</guid>
+      <description>Hi everyone,if you need own docker registry. You can use official docker registry image.
+The registry 2.0 implementation provides the following benefits:
+ faster push and pull new, more efficient implementation simplified deployment pluggable storage backend webhook notifications  I love better security included in direct in Registry 2.0. In old version I have Nginx before registry for basic auth. In new version you can use basic auth or OAuth2.</description>
+    </item>
+    
+    <item>
+      <title>Day Eight - Docker Compose Part 2</title>
+      <link>http://www.prskavec.net/day-eight-docker-compose-part-2/</link>
+      <pubDate>Tue, 08 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-eight-docker-compose-part-2/</guid>
+      <description>Hello everyone,I&#39;m back with Docker Compose. In previous post we have some basics. Today, I can show how you can combine Dockerfile and docker-compose.yml file. This is useful for development. Can&#39;t be used in production.
+My example is simple Ruby application. I can use Redis for caching and queues. I can use image with Redis from Docker Hub. I use hosted Redis in production and this is only for development. But app is specific.</description>
+    </item>
+    
+    <item>
+      <title>Day Seven - Dockerfile</title>
+      <link>http://www.prskavec.net/day-seven-dockerfile/</link>
+      <pubDate>Mon, 07 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-seven-dockerfile/</guid>
+      <description>Hi everyone,if you can start making own images you need Dockerfile. This file describe how is image created. Every command is cachable in separate layer and this is helpful if adding new commands, rebuild is more faster than you use tools as Puppet, Chef or Ansible.
+Dockerfile can contains many commands.
+Structure Minimum file is for example used in Heroku:
+fromheroku/nodejsand this is only one line! This image has parent image with Dockerfile contains:</description>
+    </item>
+    
+    <item>
+      <title>Day Six - Docker Hub</title>
+      <link>http://www.prskavec.net/day-six-docker-hub/</link>
+      <pubDate>Sun, 06 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-six-docker-hub/</guid>
+      <description>Hi everyone,Docker Hub is place to store container images. If you create new image, you need push them into registry. Registry can be public (default is Docker Hub) or private.
+Registry you can have as service:
+ Docker Hub Docker Trusted Registry Quay Tutum  or you can run them alone:
+ Docker Registry 2.0  It&#39;s easy to run registry myself using docker too. I used docker registry with S3 and Nginx for authentication.</description>
+    </item>
+    
+    <item>
+      <title>Day Five - Docker Compose Part 1</title>
+      <link>http://www.prskavec.net/day-five-docker-compose-part-1/</link>
+      <pubDate>Sat, 05 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-five-docker-compose-part-1/</guid>
+      <description>Hi everyone,I start parts about docker compose. This tools is used for creating stacks. Application have more than one container. Best practice is every container has single purpose.
+For example Wordpress in Docker:
+ you need MySQL or MariaDb you need PHP you need web server nginx or apache  How to do it? Docker compose introduce file docker-compose.yml where you can describe more than one container. This is Wordpress official docker-compose.</description>
+    </item>
+    
+    <item>
+      <title>Day Four - Docker Machine</title>
+      <link>http://www.prskavec.net/day-four-docker-machine/</link>
+      <pubDate>Fri, 04 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-four-docker-machine/</guid>
+      <description>Hi everyone,if you install docker. I recommend install docker-machine. If you are using Mac or Windows you need virtualization for working with docker. Docker machine (DM) created virtual machine for you and setup docker daemon there. This works for list of cloud services too.
+First for local development at Mac, Windows or Linux. In linux you can use this but you don&#39;t need it.
+docker-machine create --driver virtualbox &amp;lt;VM-name&amp;gt; I&#39;m using as VM-name name dev.</description>
+    </item>
+    
+    <item>
+      <title>Day Three - Docker install and upgrade</title>
+      <link>http://www.prskavec.net/day-three-docker-install-and-upgrade/</link>
+      <pubDate>Thu, 03 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-three-docker-install-and-upgrade/</guid>
+      <description>Hi everyone,you need use stable docker version. Be careful about upgrade. For example from 1.8 to 1.9 was big problem with performance and network bridge had change default IP address from 172.17.42.1/24 to 172.17.0.1/24.
+Install Docker I don&#39;t like Docker Kitematic. This isn&#39;t tool for developers. But you can try if you helps. It&#39;s available as part Docker Toolbox.
+Mac Use homebrew, you can install Docker Toolbox, but I recommend install tools separately.</description>
+    </item>
+    
+    <item>
+      <title>Day Two - Open Container Ekosystem</title>
+      <link>http://www.prskavec.net/day-two-open-container-ekosystem/</link>
+      <pubDate>Wed, 02 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-two-open-container-ekosystem/</guid>
+      <description>Hi everyone,I can write about Open Container Ecosystem, today.
+If you look at mindmap created by Krishnan Subramanian. You can see how is open container ecosystem wide.
+You have in mindmap big categories:
+ Container OS Application Deployment/Development platforms Developer tools Hosting/Service providers Database/Big data Config Management Tools with Docker support Networking Image registry Monitoring Security Scheduler/Orchestration/Management/Monitoring Misc  Some of them are cool and I make some posts about them, some can be split into more categories.</description>
+    </item>
+    
+    <item>
+      <title>Day One - What&#39;s docker?</title>
+      <link>http://www.prskavec.net/day-one-whats-docker/</link>
+      <pubDate>Tue, 01 Dec 2015 11:00:00 +0100</pubDate>
+      
+      <guid>http://www.prskavec.net/day-one-whats-docker/</guid>
+      <description>Hi everyone,I see docker as two things. First is Docker platform created by Docker, Inc that includes Docker client/server, Dockerhub and docker tools (machine, swarm, compose). I make post about every tool.
+Second is The Open Container Initiative about definition what is container and runc as first implementation. Docker made this with others companies and this is big.
+Open Container ecosystem is huge and you see them in next post.</description>
     </item>
     
     <item>
       <title>Migrate Heroku NodeJS website to Heroku Docker</title>
-      <link>http://example.org/post/migrate-heroku-nodejs-website-to-heroku-docker/</link>
+      <link>http://www.prskavec.net/migrate-heroku-nodejs-website-to-heroku-docker/</link>
       <pubDate>Tue, 12 May 2015 18:41:28 +0000</pubDate>
       
-      <guid>http://example.org/post/migrate-heroku-nodejs-website-to-heroku-docker/</guid>
-      <description>I&amp;rsquo;m using docker for some time. I like Heroku. Heroku introduction docker support and I try at PragueJS website.
-Prerequisites  You need heroku toolbelt and install plugin for docker  heroku plugins:install heroku-docker
- Install boot2docker and run it  boot2docker up
-Development  Create Dockerfile for your nodejs app  heroku docker:init
- Start development server  heroku docker:start
-First run and these errors:
- Step 0 : RUN npm install ---&amp;gt; Running in 102e9de70ce6 npm WARN package.</description>
+      <guid>http://www.prskavec.net/migrate-heroku-nodejs-website-to-heroku-docker/</guid>
+      <description>&lt;p&gt;I&#39;m using &lt;a href=&#34;http://docker.io&#34;&gt;docker&lt;/a&gt; for some time. I like Heroku. Heroku &lt;a href=&#34;https://blog.heroku.com/archives/2015/5/5/introducing_heroku_docker_release_build_deploy_heroku_apps_with_docker&#34;&gt;introduction docker support&lt;/a&gt; and I try at &lt;a href=&#34;http://www.praguejs.cz&#34;&gt;PragueJS&lt;/a&gt; website.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Git productivity tips</title>
-      <link>http://example.org/post/git-productivity-tips/</link>
+      <link>http://www.prskavec.net/git-productivity-tips/</link>
       <pubDate>Thu, 11 Dec 2014 18:52:13 +0000</pubDate>
       
-      <guid>http://example.org/post/git-productivity-tips/</guid>
-      <description>I’m using git for 5 years. I have many aliases and commands for better work with git. I used git command still quite often.
-$ history | awk &#39;{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] &amp;quot; &amp;quot; CMD[a]/count*100 &amp;quot;% &amp;quot; a;}&#39; | grep -v &amp;quot;./&amp;quot; | column -c3 -s &amp;quot; &amp;quot; -t | sort -nr | nl | head -n20 1 2521 25.2125% git 2 776 7.76078% gco 3 582 5.</description>
+      <guid>http://www.prskavec.net/git-productivity-tips/</guid>
+      <description>&lt;p&gt;I’m using git for 5 years. I have many aliases and commands for better work with git. I used git command still quite often.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>DNSmasq in Mac OS X 10.10 Yosemite</title>
-      <link>http://example.org/post/dnsmasq-in-mac-os-x-10-10-yosemite/</link>
+      <link>http://www.prskavec.net/dnsmasq-in-mac-os-x-10-10-yosemite/</link>
       <pubDate>Sun, 02 Nov 2014 13:01:45 +0000</pubDate>
       
-      <guid>http://example.org/post/dnsmasq-in-mac-os-x-10-10-yosemite/</guid>
-      <description>Dnsmasq I use dnsmasq at mac to setup all development sites using address as something.dev
-Install If you have new computer, only install dnsmasq.
-brew install dnsmasq  If you have older computer and upgrade from maverics. You have installed dnsmasq some time ago. Please, first remove dnsmasq and install them again. In Yosemite are some changes in plist for running services.
-brew uninstall dnsmasq brew install dnsmasq  For Yosemite is good have latest LauchRocket.</description>
+      <guid>http://www.prskavec.net/dnsmasq-in-mac-os-x-10-10-yosemite/</guid>
+      <description>&lt;p&gt;I use dnsmasq at mac to setup all development sites using address as &lt;code&gt;something.dev&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Welcome to our sites</title>
-      <link>http://example.org/post/welcome/</link>
+      <link>http://www.prskavec.net/welcome/</link>
       <pubDate>Fri, 27 Dec 2013 21:29:00 +0000</pubDate>
       
-      <guid>http://example.org/post/welcome/</guid>
-      <description> You&amp;rsquo;re in! Nice.
-Czech sites  Ahuta - http://www.ahuta.cz Fimostudio - http://www.fimostudio.cz Ladislav Prskavec blog - http://blog.prskavec.net Subversion pro každého - http://svn.prskavec.net/  English sites  TopTopic - http://toptopic.wordpress.com  </description>
+      <guid>http://www.prskavec.net/welcome/</guid>
+      <description>&lt;p&gt;You&#39;re in! Nice.&lt;/p&gt;</description>
     </item>
     
   </channel>
