@@ -1,0 +1,19 @@
+# portfolio item
+item:
+  - image : "https://speakerd.s3.amazonaws.com/presentations/b60efb59edda477785395a8ec8d99b39/preview_slide_0.jpg"
+    project_url : "https://speakerdeck.com/abtris/jamstack-in-2019"
+    category: "jamstack"
+
+  - image : "https://speakerd.s3.amazonaws.com/presentations/0836088dff1241fba392ca30b984a0aa/preview_slide_0.jpg"
+    project_url : "https://speakerdeck.com/abtris/tinygo"
+    category: "golang"
+
+  - image : "https://speakerd.s3.amazonaws.com/presentations/d4d2d05bd03b4ca2a525aefd34b2532d/preview_slide_0.jpg"
+    project_url : "https://speakerdeck.com/abtris/testing-cloud-infrastructure"
+    category: "cloud"
+
+# client logo slider
+clients_logo_slider:
+  enable : false
+  title : "My Clients"
+  # clients logo comes from 'data/homepage.yml' file
