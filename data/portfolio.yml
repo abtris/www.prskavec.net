@@ -1,19 +1,37 @@
 # portfolio item
 item:
-  - image : "https://speakerd.s3.amazonaws.com/presentations/b60efb59edda477785395a8ec8d99b39/preview_slide_0.jpg"
-    project_url : "https://speakerdeck.com/abtris/jamstack-in-2019"
+  - image: "https://speakerd.s3.amazonaws.com/presentations/b60efb59edda477785395a8ec8d99b39/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/jamstack-in-2019"
     category: "jamstack"
 
-  - image : "https://speakerd.s3.amazonaws.com/presentations/0836088dff1241fba392ca30b984a0aa/preview_slide_0.jpg"
-    project_url : "https://speakerdeck.com/abtris/tinygo"
+  - image: "https://speakerd.s3.amazonaws.com/presentations/0836088dff1241fba392ca30b984a0aa/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/tinygo"
     category: "golang"
 
-  - image : "https://speakerd.s3.amazonaws.com/presentations/d4d2d05bd03b4ca2a525aefd34b2532d/preview_slide_0.jpg"
-    project_url : "https://speakerdeck.com/abtris/testing-cloud-infrastructure"
+  - image: "https://speakerd.s3.amazonaws.com/presentations/d4d2d05bd03b4ca2a525aefd34b2532d/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/testing-cloud-infrastructure"
     category: "cloud"
 
-# client logo slider
-clients_logo_slider:
-  enable : false
-  title : "My Clients"
-  # clients logo comes from 'data/homepage.yml' file
+  - image: "https://speakerd.s3.amazonaws.com/presentations/87d880f39f534d2b9c00fd3a6257006b/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/to-be-or-not-to-be-a-full-stack-developer"
+    category: "cloud"
+
+  - image: "https://speakerd.s3.amazonaws.com/presentations/c7acdcef4f274648ada23e0265bd2d11/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/cie-as-saas-why-is-apiary-using-circleci"
+    category: "cicd"
+
+  - image: "https://speakerd.s3.amazonaws.com/presentations/3e2c8bfd3dab46fd9af9c5fe7d17fad4/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/hacking-drone-with-golang"
+    category: "golang"
+
+  - image: "https://speakerd.s3.amazonaws.com/presentations/85a88831e8064edb800a5fbc562d8a96/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/jamstack-posobota-29-dot-9-2018"
+    category: "jamstack"
+
+  - image: "https://speakerd.s3.amazonaws.com/presentations/a304be1dcc354e2f93eb30938c8e4d9f/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/golang-meetup-prague-gobot"
+    category: "golang"
+
+  - image: "https://speakerd.s3.amazonaws.com/presentations/a2717ec7eca4460192c04feb30f05493/preview_slide_0.jpg"
+    project_url: "https://speakerdeck.com/abtris/how-you-can-kill-wordpress"
+    category: "jamstack"
