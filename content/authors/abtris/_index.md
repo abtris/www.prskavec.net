@@ -4,7 +4,7 @@ name: Ladislav Prskavec
 avatar_image: "ladislav_2015.jpg"
 # Username (this should match the folder name)
 authors:
-- admin
+- abtris
 # resume download button
 # btn:
 # - url : "https://sourcethemes.com/academic/docs/install/"
