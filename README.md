@@ -3,3 +3,4 @@
 # Blog - www.prskavec.net
 
 - using [Hugo](https://gohugo.io/)
+- using [Academic](https://sourcethemes.com/academic/docs/) theme
