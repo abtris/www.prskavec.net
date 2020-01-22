@@ -1,8 +1,7 @@
 ---
 title: "An example conference paper"
 authors:
-- admin
-- Robert Ford
+- abtris
 date: "2013-07-01T00:00:00Z"
 doi: ""
 
@@ -41,7 +40,7 @@ links:
 # url_video: '#'
 
 # Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder. 
+# To use, add an image named `featured.jpg/png` to your page's folder.
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
   focal_point: ""

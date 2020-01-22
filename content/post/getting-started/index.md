@@ -3,7 +3,7 @@ title: 'New start in 2020'
 subtitle: 'Restart with new theme and blog.'
 summary: New start in 2020.
 authors:
-- admin
+- abtris
 tags:
 - academia
 categories: []
