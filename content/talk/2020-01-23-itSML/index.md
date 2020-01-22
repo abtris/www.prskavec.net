@@ -1,15 +1,15 @@
 ---
-title: Coding and Analyzing Qualitative Data
-event: academia Theme Conference
-event_url: https://example.org
-location: London, United Kingdom
-summary: An example talk using academia's Markdown slides feature.
-abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam."
+title: Compliance as Code
+event:  IT Service Management (ITSM) Conference
+event_url: https://conference.itsmf.cz/en/
+location: Prague, Czech Republic
+summary: Talks is about Compliance as Code in general.
+abstract: "Compliance is an important part of IT systems. It is often performed only as a regular annual audit. The auditors pick up samples of data to check. They can’t check all the data."
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2030-06-01T13:00:00Z"
-date_end: "2030-06-01T15:00:00Z"
+date: "2020-01-23T14:00:00Z"
+date_end: "2020-01-23T14:30:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
@@ -22,7 +22,7 @@ tags: []
 featured: false
 
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
+  caption: ''
   focal_point: Right
 
 links:
@@ -51,9 +51,11 @@ projects:
 # - internal-project
 
 # Enable math on this page?
-math: true
+math: false
 ---
 
 
-Slides can be added in a few ways:
+I went through classical audits, where you fill tens of excel sheets and then consult with internal audit what and how to improve etc. As SRE (Site Reliability Engineer) deals with monitoring and automation, there is also depriving people of manual work. I have seen how the problem is solved on a large scale (cloud providers). I have experience with Oracle Cloud Infrastructure (OCI) and Amazon Web Services (AWS). I’ll show you how to move from Excel to an automatic, near real-time compliance check solution.
+
+Slides can be added in a few days.
 

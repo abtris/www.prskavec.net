@@ -22,7 +22,7 @@ organizations:
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: I'm working in Oracle Cloud Infrastructure and main focus is on Site Reliability, Cloud Computing and CI/CD.
 
 # Should the user's education and interests be displayed?
 display_education: true
