@@ -32,7 +32,7 @@ links:
 #  url: https://twitter.com/georgecushen
 url_code: ""
 url_pdf: ""
-url_slides: ""
+url_slides: "https://speakerdeck.com/abtris/compliance-as-code"
 url_video: ""
 
 # Markdown Slides (optional).
@@ -55,7 +55,4 @@ math: false
 ---
 
 
-I went through classical audits, where you fill tens of excel sheets and then consult with internal audit what and how to improve etc. As SRE (Site Reliability Engineer) deals with monitoring and automation, there is also depriving people of manual work. I have seen how the problem is solved on a large scale (cloud providers). I have experience with Oracle Cloud Infrastructure (OCI) and Amazon Web Services (AWS). I’ll show you how to move from Excel to an automatic, near real-time compliance check solution.
-
-Slides can be added in a few days.
-
+I went through classical audits, where you fill tens of excel sheets and then consult with internal audit what and how to improve etc. As SRE (Site Reliability Engineer) deals with monitoring and automation, there is also depriving people of manual work. I have seen how the problem is solved on a large scale (cloud providers). I have experience with Oracle Cloud Infrastructure (OCI) and Amazon Web Services (AWS). I’ll show you how to move from Excel to an automatic, near real-time compliance check solution. Proposed solution using Chef [Inspec](https://inspec.io) Framework.
