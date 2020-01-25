@@ -1,6 +1,6 @@
 ---
 title: 'New start in 2020'
-subtitle: 'Restart with new theme and blog.'
+subtitle: 'Restart with a new theme and blog.'
 summary: New start in 2020.
 authors:
 - abtris
@@ -29,4 +29,8 @@ projects: []
 
 ---
 
-I cleanup old posts and restart this with new look. I can focus on some best practices that I collected over year that can help multiple people.
+I clean up old posts and restart this with a new look. I can focus on some best practices that I collected over a year that can help multiple people.
+
+This blog is powered by [JAMStack](https://jamstack.org). I'm using static generator [Hugo](https://gohugo.io) and theme [Academic](https://sourcethemes.com/academic/docs/).
+
+My workflow using Github and deploy and publish is using [Netlify](https://www.netlify.com/). Netlify makes a preview site for every PR and that helps me review every change in site.
