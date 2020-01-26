@@ -1,19 +1,19 @@
 ---
-title: JAMStack in 2019
-event:  ReactiveConf 2019
-event_url: https://reactiveconf.com/
+title: TinyGo
+event:  Golang Meetup Prague
+event_url: https://www.meetup.com/Prague-Golang-Meetup/events/263611817/
 location: Prague, Czech Republic
-summary: Talk is JAMStack and tools about them in 2019.
-abstract: "JAMStack is the term for tools based on Javascript, APIs, and Markup. Talk mapping the current state of the ecosystem in 2019."
+summary: Talk is about TinyGo project and demo with Micro:Bit controller.
+abstract: "TinyGo is a project to bring the Go programming language to microcontrollers and modern web browsers by creating a new compiler based on LLVM. We will show how TinyGo works with Micro:Bit controller"
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2019-11-01T13:00:00Z"
-date_end: "2019-11-01T13:30:00Z"
+date: "2019-08-04T19:00:00Z"
+date_end: "2019-08-04T19:30:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2017-08-04T00:00:00Z"
 
 authors: []
 tags: []
@@ -32,7 +32,7 @@ links:
 #  url: https://twitter.com/georgecushen
 url_code: ""
 url_pdf: ""
-url_slides: "https://speakerdeck.com/abtris/jamstack-in-2019"
+url_slides: "https://speakerdeck.com/abtris/tinygo"
 url_video: ""
 
 # Markdown Slides (optional).

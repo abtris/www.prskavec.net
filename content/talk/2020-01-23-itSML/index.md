@@ -3,7 +3,7 @@ title: Compliance as Code
 event:  IT Service Management (ITSM) Conference
 event_url: https://conference.itsmf.cz/en/
 location: Prague, Czech Republic
-summary: Talks is about Compliance as Code in general.
+summary: Talk is about Compliance as Code in general.
 abstract: "Compliance is an important part of IT systems. It is often performed only as a regular annual audit. The auditors pick up samples of data to check. They can’t check all the data."
 
 # Talk start and end times.

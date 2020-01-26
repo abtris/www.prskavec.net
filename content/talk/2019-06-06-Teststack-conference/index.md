@@ -1,19 +1,19 @@
 ---
-title: JAMStack in 2019
-event:  ReactiveConf 2019
-event_url: https://reactiveconf.com/
+title: Testing Cloud Infrastructure
+event:  Teststack Conference
+event_url: http://www.datascript.cz/test-stack/
 location: Prague, Czech Republic
-summary: Talk is JAMStack and tools about them in 2019.
-abstract: "JAMStack is the term for tools based on Javascript, APIs, and Markup. Talk mapping the current state of the ecosystem in 2019."
+summary: Talk is focused on Compliance as Code and Infrastructure as Code.
+abstract: "Every developer testing own code today. It doesn't matter if is on the frontend or backend. For DevOps, you need to go to the next level and start testing security and infrastructure. I will show tools that help with that."
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: "2019-11-01T13:00:00Z"
-date_end: "2019-11-01T13:30:00Z"
+date: "2019-06-06T13:30:00Z"
+date_end: "2019-06-06T14:30:00Z"
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2017-06-06T00:00:00Z"
 
 authors: []
 tags: []
@@ -32,7 +32,7 @@ links:
 #  url: https://twitter.com/georgecushen
 url_code: ""
 url_pdf: ""
-url_slides: "https://speakerdeck.com/abtris/jamstack-in-2019"
+url_slides: "https://speakerdeck.com/abtris/testing-cloud-infrastructure"
 url_video: ""
 
 # Markdown Slides (optional).
