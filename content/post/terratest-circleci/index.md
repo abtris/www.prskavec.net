@@ -61,6 +61,7 @@ jobs:
 But the issue is the network that is limit for security reasons and this helper will not work in DIND mode.
 
 ```go
+import http_helper "github.com/gruntwork-io/terratest/modules/http-helper"
 // It can take a few seconds for the Docker container boot up, so retry a few times
 maxRetries := 5
 timeBetweenRetries := 2 * time.Second
@@ -85,4 +86,4 @@ output := docker.Run(t, tag, opts)
 assert.Equal(t, expectedServerText, output)
 ```
 
-The main thing is to have the same network with docker-compose that I'm using in the application and this container with curl with correct network parameter.
+The important thing is to have the same network with docker-compose that I'm using in the application and this container with curl with correct network parameter. Curl have advantage for support an exponential backoff algorithm.
