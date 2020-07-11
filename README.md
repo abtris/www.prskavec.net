@@ -11,3 +11,9 @@
 - https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post
 
 - `hugo new  --kind post post/my-article-name`
+
+
+# FAQ
+
+Q - Getting error on Netlify: `Transformation failed: TOCSS: failed to transform "main_parsed.scss"`
+A  - Workaround https://github.com/netlify/build-image/issues/183#issuecomment-554689821
