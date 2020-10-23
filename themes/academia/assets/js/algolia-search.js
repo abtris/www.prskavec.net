@@ -35,7 +35,7 @@ if ((typeof instantsearch === 'function') && $('#search-box').length) {
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-box',
-      autofocus: false,
+      autofocus: true,
       reset: true,
       poweredBy: algoliaConfig.poweredBy,
       placeholder: i18n.placeholder
