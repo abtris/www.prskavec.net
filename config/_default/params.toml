@@ -148,12 +148,12 @@ sharing = false
   #   0: No search engine
   #   1: academia (built-in)
   #   2: Algolia (https://www.algolia.com)
-  engine = 0
+  engine = 2
 
   # Configuration of Algolia search engine.
   # Paste the values from your Algolia dashboard.
   [search.algolia]
-    app_id = ""
-    api_key = ""
-    index_name = ""
+    app_id = "MVMZX0V323"
+    api_key = "fb75ba39d4a2a4dbd39e69a66cff0777"
+    index_name = "blog_hugo"
     show_logo = false
