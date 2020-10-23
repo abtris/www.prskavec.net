@@ -45,5 +45,7 @@ func main() {
 	_, err := index.SaveObjects(records)
 	if err != nil {
 		fmt.Println(err)
-	}
+	} else {
+    fmt.Println("Index uploaded.")
+  }
 }
