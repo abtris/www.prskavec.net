@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"os"
 
@@ -9,21 +10,21 @@ import (
 )
 
 type Index struct {
-	Authors      string `json:"authors"`
-	Categories   string `json:"categories"`
-	Content      string `json:"content"`
-	Date         string `json:"date"`
-	Publishdate  string `json:"publishdate"`
-	Kind         string `json:"kind"`
-	Lang         string `json:"lang"`
-	ObjectID     string `json:"objectID"`
-	Summary      string `json:"summary"`
-	Tags         string `json:"tags"`
-	Title        string `json:"title"`
-	Section      string `json:"section"`
-	Type         string `json:"type"`
-	Permalink    string `json:"permalink"`
-	Relpermalink string `json:"relpermalink"`
+	Authors      []string `json:"authors"`
+	Categories   []string `json:"categories"`
+	Content      string   `json:"content"`
+	Date         int      `json:"date"`
+	Publishdate  string   `json:"publishdate"`
+	Kind         string   `json:"kind"`
+	Lang         string   `json:"lang"`
+	ObjectID     string   `json:"objectID"`
+	Summary      string   `json:"summary"`
+	Tags         []string `json:"tags"`
+	Title        string   `json:"title"`
+	Section      string   `json:"section"`
+	Type         string   `json:"type"`
+	Permalink    string   `json:"permalink"`
+	Relpermalink string   `json:"relpermalink"`
 }
 
 func main() {
@@ -36,7 +37,13 @@ func main() {
 
 	var records []Index
 	data, _ := ioutil.ReadFile("public/index.json")
-	_ = json.Unmarshal(data, &records)
-  // MAYBE(abtris): filter by type (get only type=post,talk)?
-	_, _ = index.SaveObjects(records)
+	errJSON := json.Unmarshal(data, &records)
+	if errJSON != nil {
+		fmt.Println(errJSON)
+	}
+	// MAYBE(abtris): filter by type (get only type=post,talk)?
+	_, err := index.SaveObjects(records)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
