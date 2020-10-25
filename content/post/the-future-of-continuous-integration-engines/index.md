@@ -30,7 +30,7 @@ projects: []
 
 > Thanks to Daria Grudzien for correction and comments.
 
-Continuous Integration Engines (CIEs) have a long history. The term Continuous Integration (CI) has been used for the first time by Grady Booch in 1991. Personally I started using CruiseControl (launched in 2001) around 2003. After 2005 Java programmers switched from CruseControl to Hudson. Few years later phpUnderControl (2007) became  a popular tool, and later on Hudson gave way to Jenkins (released in 2011). These days Jenkins is being  replaced by JenkinsX (2017). Many other CIEs have been developed in the  meantime:  Teamcity (2006), Bamboo (2008), as well as other commercial versions and cloud first CIEs like Travis (2011) , CircleCI (2016) and Github Actions (2018).
+Continuous Integration Engines (CIEs) have a long history. The term Continuous Integration (CI) has been used for the first time by Grady Booch in 1991 [^1][^2]. First known CIE is Tinderbox [^3] (1997). Personally I started using CruiseControl (launched in 2001) around 2003. After 2005 Java programmers switched from CruseControl to Hudson. Few years later phpUnderControl (2007) became  a popular tool, and later on Hudson gave way to Jenkins (released in 2011). These days Jenkins is being  replaced by JenkinsX (2017). Many other CIEs have been developed in the  meantime:  Teamcity (2006), Bamboo (2008), as well as other commercial versions and cloud first CIEs like Travis (2011) , CircleCI (2016) and Github Actions (2018).
 
 Nowadays we have a wide range of CIEs  available on every platform, which solve a variety of problems. To help select the best one for the job, in 2019 I wrote a post ["What you need from your CI"](https://blog.apiary.io/What-you-need-from-your-CI) which is still valid.
 
@@ -63,3 +63,6 @@ It’s possible to keep the same spending level while improving developer experi
 
 There are multiple CIEs available in the market today addressing some of the considerations I listed above. Do you know of a Continuous Integration Engine which addresses all those, or do still we have gaps in the market? Is there space for someone to make a significant impact on the market?
 
+[^1]: https://en.wikipedia.org/wiki/Continuous_integration
+[^2]: In 1994, Grady Booch used the phrase continuous integration in Object-Oriented Analysis and Design with Applications (2nd edition)
+[^3]: TinderBox by Mozilla - https://oduinn.com/2014/06/04/farewell-to-tinderbox/
