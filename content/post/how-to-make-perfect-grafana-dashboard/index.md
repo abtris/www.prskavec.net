@@ -46,6 +46,8 @@ Maintaining dashboards is not an easy task. Creating hundreds of dashboards is s
 
 What is a drill-down strategy? It means that you have a central dashboard with overview as a single point of contact for your oncall engineers and then there are more detailed dashboards linked from the central dashboard.
 
+![](/post/dashboard-drilldown.jpg)
+
 In this dashboard, they see the most important things. You need work to minimize the noise there and focus only on important signals.
 
 You have to keep in mind that nobody is constantly looking at the dashboard (except the guys working in NOC[^6]). You have to think about it and make the visualization and error signaling significant to the person at 2am in the morning, after the pager woke them up. If a signal is visible, the operator can click on a graph and to get to another dashboard that gives more insight into the problem. This can be repeated for more levels of depth. Based on my experience, it is only useful to stick to a maximum of 2 to 4 levels of depth.
