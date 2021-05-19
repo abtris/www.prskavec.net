@@ -13,9 +13,9 @@ menu:
 weight: 4
 ---
 
-If you have primary and secondary you need consider a few things
+If you have primary and secondary you need to consider a few things
 
-  - Will rotate the same people on both?
-  - Give more junior people to primary and more experience to secondary
-  - If people rotating on both what happened that both people doesn’t know what to do
-  - How make escalations if both levels failed, do I need some tenary on-call or not
+  - Will rotate the same people on both rosters?
+  - Give more junior people to primary and more experience to secondary?
+  - If people do rotate on both rosters what happened that both people don’t know what to do?
+  - How make escalations if both levels failed, do I need some ternary on-call or not?

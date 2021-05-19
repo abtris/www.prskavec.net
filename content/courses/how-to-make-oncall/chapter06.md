@@ -13,4 +13,4 @@ menu:
 weight: 7
 ---
 
-This is an extra layer of oncall. You can have escalations that after a Secondary escalation fail you escalate to your CTO or Team manager or all members of your startup. I heard about all team escalation in some companies but I don’t think that is useful and it’s always good to have a defined responsible person.
+This is an extra layer of oncall. You can have escalations that after a Secondary escalation fail you escalate to your CTO or Team manager or all members of your startup. I heard about all team escalation in some companies, but I don’t think that is useful, and it’s always good to have a defined responsible person.

@@ -20,11 +20,11 @@ But now to my example:
 - We have team with primary and secondary roster
 - We can find what is best for us using 1 - 3 sites
 - We are looking how many people we need and how we calculate costs
-- We don’t try focus on daily shifts that will make example more complicated
+- We don’t try to focus on daily shifts that will make example more complicated
 - We don’t use combinations as primary in daily and secondary weekly that make example more complicated too
-- We skipping many possible combination, don’t think that is only good way how to do it, this is more about how you think for your use case
+- We're skipping many possible combinations, don’t think that is only good way how to do it, this is more about how you think for your use case
 
-Some numbers first, calculate and think what is important to you and if you have enough people to achieve at least this minimum number of people with your conditions. My example calculates with two roasters and we can choose between 1-3 sites.
+Some numbers first, calculate and think what is important to you and if you have enough people to achieve at least this minimum number of people with your conditions. My example calculates with two roasters, and we can choose between 1-3 sites.
 
 ![](/courses/chapter-7.png)
 
@@ -50,7 +50,7 @@ Many other scenarios you can find here in [PagerDuty documentation](https://supp
 
 ## Time Zones
 
-Last important thing to multi sites are time zones. You can’t often choose where your teams are located. If you can try to make it work for oncall and that needs enough distance for shifts, but less gaps for communication. It’s hard to find an optimal way.
+Last important thing to multi sites are time zones. You can’t often choose where your teams are located. If you can try to make it work for oncall and that needs enough distance for shifts, but fewer gaps for communication. It’s hard to find an optimal way.
 
 I think the 8 hours time zone difference works well from my perspective. I make an example with a few time zones and how 3 sites and 2 sites look like.
 

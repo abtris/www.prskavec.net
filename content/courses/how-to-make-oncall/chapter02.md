@@ -13,6 +13,6 @@ menu:
 weight: 3
 ---
 
-One of the hard problems of on-call design is controlling the amount of times engineers are paged during the night. This is especially important for single site teams.  Having a high number of pages can easily cause alarm fatigue and having people answer pages at 2AM only to realize they are responding to something that isn’t urgent or actionable can damage the team’s morale very fast.
+One of the hard problems of on-call design is controlling the amount of times engineers are paged during the night. This is especially important for single site teams.  Having a high number of pages can cause alarm fatigue and having people answer pages at 2AM only to realize they are responding to something that isn’t urgent or actionable can damage the team’s morale very fast.
 
-You have to work on fine tuning the alerting, to make sure that anything that isn’t urgent or critical will wait until the on-call engineer wakes up. Sometimes this may require increasing alarm thresholds, in other cases it may require code changes to improve error handling. While this may look like additional work, it can help you ensure that on-call work is sustainable and protect your team from burnout.
+You have to work on fine-tuning the alerting, to make sure that anything that isn’t urgent or critical will wait until the on-call engineer wakes up. Sometimes this may require increasing alarm thresholds, in other cases it may require code changes to improve error handling. While this may look like additional work, it can help you ensure that on-call work is sustainable and protect your team from burnout.
