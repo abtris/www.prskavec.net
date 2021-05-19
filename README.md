@@ -3,15 +3,12 @@
 # Blog - www.prskavec.net
 
 - using [Hugo](https://gohugo.io/)
-- using [Academic](https://sourcethemes.com/academic/docs/) theme
+- using [Academia](https://gethugothemes.com/products/academia/) theme
 
 
 # Add new blog post
 
-- https://sourcethemes.com/academic/docs/managing-content/#create-a-blog-post
-
-- `hugo new  --kind post post/my-article-name`
-
+- `make post name=TITLE`
 
 # FAQ
 

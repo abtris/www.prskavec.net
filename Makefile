@@ -15,5 +15,5 @@ build: ## Build the project
 watch: ## Watch file changes and build
 	hugo server -w
 
-post: ## Make new post: make new name="Title"
+post: ## Make new post: make post name="Title"
 	hugo new  --kind post post/$(TITLE)
