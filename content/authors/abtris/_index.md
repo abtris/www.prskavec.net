@@ -14,15 +14,15 @@ authors:
 superuser: true
 
 # Role/position
-role: Senior Developer Manager
+role: Senior Engineering Manager
 
 # Organizations/Affiliations
 organizations:
-- name: Oracle
+- name: Productboard
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: I'm working in Oracle Cloud Infrastructure and main focus is on Site Reliability, Cloud Computing and CI/CD.
+bio: I'm working in Productboard Platform team and main focus is on Incident Management, Observability, Service Maturity, GitOps and CD.
 
 # Should the user's education and interests be displayed?
 display_education: true
