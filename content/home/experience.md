@@ -44,7 +44,16 @@ date_format = "Jan 2006"
   company_url = "https://www.oracle.com"
   location = "Prague/California"
   date_start = "2017-07-01"
-  date_end = ""
+  date_end = "2021-11-30"
   description = """Working on API Services for Oracle Cloud."""
+
+[[experience]]
+  title = "Senior Engineering Manager"
+  company = "Productboard"
+  company_url = "https://www.productboard.com"
+  location = "Prague/California"
+  date_start = "2021-12-01"
+  date_end = ""
+  description = """Leading Production Engineering team in Platform tribe."""
 
 +++
