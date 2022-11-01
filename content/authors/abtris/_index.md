@@ -31,6 +31,7 @@ interests:
 - Site Reliability Engineering
 - Distributed Systems
 - Continuous Integration and Delivery
+- Go programming language
 
 education:
   courses:
@@ -70,8 +71,8 @@ user_groups:
 - []
 ---
 
-I'm developer and engineer that are focus on site reliability and all about it. I like backend programming in Golang and Node.JS.
+I’m a software engineer focused on site reliability and product development (SaaS, PaaS or IaaS). I like backend programming in Go and NodeJS.
 
-I'm improving processes and workflows about oncall, monitoring and development in general.
+I’m improving processes and workflows about oncall, monitoring, and development in general.
 
-Site reliability and how lead engineers to get better reliability is my daily work.
+My daily work is Site reliability engineering and helping engineers to get better reliability.
