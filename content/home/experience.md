@@ -24,7 +24,7 @@ date_format = "Jan 2006"
   location = "Prague, CZ"
   date_start = "2009-01-01"
   date_end = "2014-01-31"
-  description = """Working on best Czech Job Portal."""
+  description = """I work in Architecture team at supported systems as Puppet, Swift, Jenkins, Git, Graylog etc."""
 
 
 [[experience]]
@@ -34,8 +34,7 @@ date_format = "Jan 2006"
   location = "Prague/California"
   date_start = "2014-02-01"
   date_end = "2017-06-30"
-  description = """
-  Working on best API Design Developer tool as Full Stack Developer and later as SRE Teamleader."""
+  description = """Leading team Site Reliability Engineers (SRE). Main responsibilities are monitoring, security, reliability and software development processes. We are using infrastructure on Heroku and AWS cloud."""
 
 
 [[experience]]
@@ -45,7 +44,8 @@ date_format = "Jan 2006"
   location = "Prague/California"
   date_start = "2017-07-01"
   date_end = "2021-11-30"
-  description = """Working on API Services for Oracle Cloud."""
+  description = """Service Owner Apiary Cloud Service (2021)
+Leading SRE team in Oracle Apiary Cloud Service. We migrated service from AWS to OCI (2019)."""
 
 [[experience]]
   title = "Senior Engineering Manager"
@@ -54,6 +54,6 @@ date_format = "Jan 2006"
   location = "Prague/California"
   date_start = "2021-12-01"
   date_end = "2022-10-24"
-  description = """Leading Production Engineering team in Platform tribe."""
+  description = """Leading Production Engineering team who is focused on Observability, Incident management, Service Maturity and Continuous Delivery."""
 
 +++
