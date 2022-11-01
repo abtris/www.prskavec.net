@@ -53,7 +53,7 @@ date_format = "Jan 2006"
   company_url = "https://www.productboard.com"
   location = "Prague/California"
   date_start = "2021-12-01"
-  date_end = ""
+  date_end = "2022-10-24"
   description = """Leading Production Engineering team in Platform tribe."""
 
 +++

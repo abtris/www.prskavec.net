@@ -14,15 +14,15 @@ authors:
 superuser: true
 
 # Role/position
-role: Senior Engineering Manager
+role: Software Engineer and SRE
 
 # Organizations/Affiliations
-organizations:
-- name: Productboard
-  url: ""
+# organizations:
+# - name: ""
+#   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: I'm working in Productboard Platform team and main focus is on Incident Management, Observability, Service Maturity, GitOps and CD.
+bio: ""
 
 # Should the user's education and interests be displayed?
 display_education: true
