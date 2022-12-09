@@ -33,7 +33,7 @@ links:
 url_code: ""
 url_pdf: ""
 url_slides: "https://speakerdeck.com/abtris/getting-started-with-fuzzing"
-url_video: ""
+url_video: "https://www.youtube.com/watch?v=BF_RjhUzchE"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
