@@ -58,15 +58,18 @@ address = "Prague, Czech Republic"
 office_hours = ""
 
 # Enter an optional link for booking appointments (e.g. calendly.com).
-appointment_url = ""
+appointment_url = "https://calendly.com/abtris"
 
 # Contact links
 #   Set to `[]` to disable, or comment out unwanted lines with a hash `#`.
 contact_links = [
-  {icon = "twitter", icon_pack = "fab", name = "DM Me", link = "https://twitter.com/abtris"},
+  {icon = "twitter", icon_pack = "fab", name = "Follow me on Twitter", link = "https://twitter.com/abtris"},
   {icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/abtris"},
-  # {icon = "telegram", icon_pack = "fab", name = "Telegram Me", link = "https://telegram.me/@Telegram"},
-  ]
+  {icon = "mastodon", icon_pack = "fab", name = "Follow me on Mastodon", link = "https://mastodonczech.cz/@abtris"},
+  {icon = "linkedin", icon_pack = "fab", name = "Follow me on LinkedIN", link = "https://www.linkedin.com/in/ladislavprskavec/"},
+  {icon = "github", icon_pack = "fab", name = "Follow me on Github", link = "https://www.github.com/abtris/"},
+  {icon = "youtube", icon_pack = "fab", name = "Follow me on Youtube", link = "https://www.youtube.com/@abtris"},
+]
 
 # Display a map.
 # To show your address on a map in the contact widget, you need to enter your latitude, longitude and choose
