@@ -71,8 +71,8 @@ user_groups:
 - []
 ---
 
-I’m a software engineer focused on site reliability and product development (SaaS, PaaS or IaaS). I like backend programming in Go and NodeJS.
+I’m a software engineer focused on site reliability and product development (SaaS, PaaS or IaaS). I like backend programming in Go, Ruby and Node.JS.
 
-I’m improving processes and workflows about oncall, monitoring, and development in general.
+I’m improving processes and workflows about oncall, monitoring, development and software architecture in cloud. 
 
-My daily work is Site reliability engineering and helping engineers to get better reliability.
+I'm Prague Golang Meetup Organizer. Want to learn more about Golang? Check our [website](https://www.gomeetupprague.cz/) and join us on [meetup.com](https://www.meetup.com/prague-golang-meetup/). Recording are available on [youtube](https://www.youtube.com/@gomeetupprague).
