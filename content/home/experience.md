@@ -56,4 +56,23 @@ Leading SRE team in Oracle Apiary Cloud Service. We migrated service from AWS to
   date_end = "2022-10-24"
   description = """Leading Production Engineering team who is focused on Observability, Incident management, Service Maturity and Continuous Delivery."""
 
+[[experience]]
+  title = "Prague Golang Meetup Organizer"
+  company = "Prague Golang Meetup"
+  company_url = "https://www.gomeetupprague.cz"
+  location = "Prague/California"
+  date_start = "2015-11-01"
+  date_end = ""
+  description = """Want to learn more about Golang? Join our (online) meetups: Check out Prague Golang Meetup on [Meetup.com](https://www.meetup.com/prague-golang-meetup/)"""
+
+
+[[experience]]
+  title = "Senior Software Engineer"
+  company = "Pure Storage"
+  company_url = "https://www.purestorage.com"
+  location = "Prague/California"
+  date_start = "2023-01-01"
+  date_end = ""
+  description = """Go developer in PDS Portworx team"""
+
 +++
