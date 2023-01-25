@@ -78,9 +78,9 @@ you need to replace `http_helper` with docker container with curl:
 
 ```go
 opts := &docker.RunOptions{
-		Command:      []string{"--retry", "5", "--retry-connrefused", "-s", "http://production_nginx:80/hello"},
-		OtherOptions: []string{"--network", "testdockercomposelocal_teststack-network"},
-	}
+  Command:      []string{"--retry", "5", "--retry-connrefused", "-s", "http://production_nginx:80/hello"},
+  OtherOptions: []string{"--network", "testdockercomposelocal_teststack-network"},
+ }
 tag = "appropriate/curl"
 output := docker.Run(t, tag, opts)
 assert.Equal(t, expectedServerText, output)
