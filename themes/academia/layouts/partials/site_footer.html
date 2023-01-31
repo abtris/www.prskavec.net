@@ -32,7 +32,7 @@
           {{ $target = "target=\"_blank\""}}
           {{ end }}
           <li class="list-inline-item">
-            <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} rel="{{.rel}}" title="{{.name}}"><i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }}" aria-hidden="true"></i></a>
+            <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} rel="{{.rel | safeHTMLAttr }}" title="{{.name}}"><i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }}" aria-hidden="true"></i></a>
           </li>
           {{ end }}
         </ul>
