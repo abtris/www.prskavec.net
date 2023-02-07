@@ -55,7 +55,7 @@ social:
   link: https://twitter.com/abtris
 - icon: mastodon
   icon_pack: fab
-  link: https://mastodonczech.cz/@abtris
+  link: https://hachyderm.io/@abtris
 - icon: github
   icon_pack: fab
   link: https://github.com/abtris

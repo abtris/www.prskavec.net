@@ -65,7 +65,7 @@ appointment_url = "https://calendly.com/abtris"
 contact_links = [
   {icon = "twitter", icon_pack = "fab", name = "Follow me on Twitter", link = "https://twitter.com/abtris", rel = "noopener"},
   {icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/abtris", rel = "noopener"},
-  {icon = "mastodon", icon_pack = "fab", name = "Follow me on Mastodon", link = "https://mastodonczech.cz/@abtris", rel="me"},
+  {icon = "mastodon", icon_pack = "fab", name = "Follow me on Mastodon", link = "https://hachyderm.io/@abtris", rel="me"},
   {icon = "linkedin", icon_pack = "fab", name = "Follow me on LinkedIN", link = "https://www.linkedin.com/in/ladislavprskavec/", rel = "noopener"},
   {icon = "github", icon_pack = "fab", name = "Follow me on Github", link = "https://www.github.com/abtris/", rel = "noopener"},
   {icon = "youtube", icon_pack = "fab", name = "Follow me on Youtube", link = "https://www.youtube.com/@abtris", rel = "noopener"},
