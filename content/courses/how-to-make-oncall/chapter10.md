@@ -13,7 +13,7 @@ menu:
 weight: 15
 ---
 
-We can split tools into multiple categories as pagers, incident response, utility and postmortems. More and more tools trying be more universal and covers more of it. Here is always what suits you best and how you can combine it.
+We can split tools into multiple categories as pagers, incident response, utility and postmortems. More and more tools are trying to be more universal and cover more of it. Here is always what suits you best and how you can combine it.
 
 There are many tools on the market, to pagers you can assign ([PagerDuty](https://www.pagerduty.com/), [OpsGenie](https://www.atlassian.com/software/opsgenie), [Splunk On Call - former VictorOps](https://www.splunk.com/en_us/software/splunk-on-call.html) and [Grafana OnCall](https://grafana.com/products/oncall/). For incident response you can use [Rootly](https://rootly.com/), [incident.io](https://incident.io/), [FireHydrant](https://firehydrant.com/) and others for example [Jeli Slack bot](https://www.jeli.io/slack-app). As utility I see [Backstage](https://backstage.io/), [Statuspage](https://www.atlassian.com/software/statuspage), [Status.io](https://status.io/). For postmortem is [Jeli](https://www.jeli.io/) but many others tools have some functions that can help with postmortem too. There plenty others that I don't know. Just during getting links for article I find [zenduty](https://www.zenduty.com/), [pagertree](https://pagertree.com/), many observability tools adding oncall functions as Grafana and [Datadog](https://www.datadoghq.com/blog/incident-response-with-datadog/).
 
