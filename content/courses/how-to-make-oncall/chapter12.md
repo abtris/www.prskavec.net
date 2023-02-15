@@ -1,5 +1,5 @@
 ---
-title: Summary
+title: Postmortems
 toc: false
 type: docs
 date: "2019-05-05T00:00:00+01:00"
@@ -7,16 +7,22 @@ draft: false
 menu:
   how-to-make-oncall:
     parent: Intro
-    weight: 12
+    weight: 13
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
 weight: 17
 ---
 
-Design on-call is a very hard process that constantly changes conditions. Number of people in teams is changing quite often, and you can add more people during hiring and remove people from the team and that isn’t easy. We don’t discuss handover time for sites and what is recommended.
+Postmortems are necessary for learning and should be held every time an incident occurs [^1]. You can determine if you need for every incident in some short form or skip it for low severity ones. Always you need to be sure that nobody is pointing fingers and the whole process is blameless.
 
-If you choose Wednesday as an SRE book, recommend changing to weekly shift or Sunday or Monday. We use Sunday for reporting purposes, and we have an incident review on Monday, but I don’t see this as a problem.
+> Best Practice: Avoid Blame and Keep It Constructive [^Boy13]
+> Blameless postmortems can be challenging to write, because the postmortem format clearly identifies the actions that led to the incident. Removing blame from a postmortem gives people the confidence to escalate issues without fear. It is also important not to stigmatize frequent production of postmortems by a person or team. An atmosphere of blame risks creating a culture in which incidents and issues are swept under the rug, leading to greater risk for the organization
 
-There are time zones that make you think about different time for handover. We had 2 sites with California (9am PST) and Central Europe (6pm UTC+1) was a good time for us. But some combinations can’t work as well. For example Europe and India, the time zone difference is too small. It’s good for cooperation but not good for oncall. Sometimes it is good to don’t tie development teams to oncall teams.
+Another important thing is data [^2]. Your investigation has to focus on hypotheses and analyze data, using [scientific method](https://en.wikipedia.org/wiki/Scientific_method). Finding Root Cause is always challenging.
 
-Good luck with designing your fist on-call!
+We can continue how to set up the postmortem process [^3], inspire there from best.
+
+[^1]: <https://sre.google/sre-book/postmortem-culture/>
+[^2]: https://www.jeli.io/blog/what-kind-of-data-can-you-use-and-should-you-use-for-an-investigation
+[^3]: https://www.jeli.io/howie/welcome
+[^Boy13]: P. G. Boysen, ["Just Culture: A Foundation for Balanced Accountability and Patient Safety"](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3776518/), in The Ochsner Journal, Fall 2013.
