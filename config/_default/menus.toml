@@ -19,6 +19,11 @@
   weight = 30
 
 [[main]]
+  name = "Oncall Guide"
+  url = "/courses/how-to-make-oncall/"
+  weight = 40
+
+[[main]]
   name = "Contact"
   url = "#contact"
   weight = 60
