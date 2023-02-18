@@ -21,6 +21,12 @@ menu:
     weight: 1
 ---
 
+## Do you need On-call?
+
+If you are CTO or manager and you stay before decision when and how to establish on on-call. It's hard decision and you get adition costs and your development will be slower and etc. 
+
+There are multiple ways how make on-call. On-call should be suitable for your organization (company size, stage of your startup, type of business). You can have on-call just in working hours, if you are bigger, yours customers are word wide you can add support outside working hours. If you have silos across ocean you can split on-call between two location to have better support. If you are really big and make it follow the sun scenario where people covers all on-call in working hours plus weekends.
+
 ## How Many People Do You Need For On-call?
 
 > "Using the 25% on-call rule, we can derive the minimum number of SREs required to sustain a 24/7 on-call rotation. Assuming that there are always two people on-call (primary and secondary, with different duties), the minimum number of engineers needed for on-call duty from a single-site team is eight: assuming week-long shifts, each engineer is on-call (primary or secondary) for one week every month. For dual-site teams, a reasonable minimum size of each team is six, both to honor the 25% rule and to ensure a substantial and critical mass of engineers for the team." - SRE book [^srebook]
