@@ -1,5 +1,5 @@
 ---
-title: Ternary on-call
+title: Escalations
 toc: false
 type: docs
 date: "2019-05-05T00:00:00+01:00"
@@ -13,4 +13,12 @@ menu:
 weight: 7
 ---
 
-This is an extra layer of oncall. You can have escalations that after a Secondary escalation fail you escalate to your CTO or Team manager or all members of your startup. I heard about all team escalation in some companies, but I don’t think that is useful, and it’s always good to have a defined responsible person.
+Primary and secondary layer are for resolve and manage incidents.
+
+You need escalation process for a few reasons
+
+- interchangeability for any reasons (primary have problem access internet, traveling, oversleep etc.)
+- nobody responses on primary/secondary and you need address this (manager on-call)
+- problems that can't be resolved by primary/secondary (security, legal, executive decision need it)
+
+It's always good test it all escalations, specially with executives who aren't really paged often. Is always good if all stakeholders have enough information about current incidents and don't step in process and ask Incident commander for information.
