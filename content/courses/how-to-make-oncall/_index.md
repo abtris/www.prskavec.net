@@ -21,7 +21,9 @@ menu:
     weight: 1
 ---
 
-## How Many People Do You Need For On-call?
+## Guide to good On-call that does not kill your team
+
+### How Many People Do You Need For On-call?
 
 > "Using the 25% on-call rule, we can derive the minimum number of SREs required to sustain a 24/7 on-call rotation. Assuming that there are always two people on-call (primary and secondary, with different duties), the minimum number of engineers needed for on-call duty from a single-site team is eight: assuming week-long shifts, each engineer is on-call (primary or secondary) for one week every month. For dual-site teams, a reasonable minimum size of each team is six, both to honor the 25% rule and to ensure a substantial and critical mass of engineers for the team." - SRE book [^srebook]
 

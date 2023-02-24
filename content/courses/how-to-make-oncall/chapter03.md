@@ -18,4 +18,4 @@ If you have primary and secondary you need to consider a few things
 - Will rotate the same people on both rosters?
 - Give more junior people to primary and more experience to secondary?
 - If people do rotate on both rosters what happened that both people don’t know what to do?
-- How make escalations if both levels failed, do I need some ternary on-call or not?
+- How make escalations if both levels failed, do I need some manager on-call or not? Do I want page all members of team instead?
