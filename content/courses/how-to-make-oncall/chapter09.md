@@ -13,11 +13,12 @@ menu:
 weight: 14
 ---
 
-I will recommend that OnCall owners prepare a few reports that were useful for me during the years.
+I recommend that OnCall owners prepare a few valuable reports for me over the years.
 
 - How many incidents per week have per team. Using regularly for review every week.
-- How many people have incidents in a month, quarter, 6 months.
-- How many people have had incidents at night last month, quarter, 6 months.
-- How many hours people have in oncall in last 6 months
+- How many people have incidents in a month, quarter, or six months?
+- How many people had incidents at night last month, quarter, or six months?
+- How many hours have people on oncall in the last six months
+- There is another set of reports that can provide you postmortem tool, but pager software should give you more insight into how people are doing.
 
-Other reports are used for getting outliers. You can find if something doesn’t work or goes in the wrong direction. At the start you can have too many incidents, after years you can have the opposite problem of having too few incidents. You can have people that don't have incidents for the whole year. In that case you need to invest more into gaming days and training.
+Other reports are used for getting outliers. You can find if something doesn't work or goes in the wrong direction. At the start, you can have too many incidents; after years, you can have the opposite problem of having too few incidents. You can have people that only have incidents for part of the year. In that case, you must invest more in gaming days and training.

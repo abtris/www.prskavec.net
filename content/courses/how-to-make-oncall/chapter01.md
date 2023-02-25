@@ -13,8 +13,8 @@ menu:
 weight: 2
 ---
 
-Roster is a term used for on-call planning which describes a group of people who are a part of a single on-call rotation.The number of roster layers that you have for escalations depends on your company’s standards, industry requirements and the particular composition of your team. The most commonly used setup includes a primary and secondary on-call in which the role of secondary is to step up if primary is overwhelmed. Typically, engineers in both rosters have a similar skillset.
+The roster is a term used for on-call planning, which describes a group of people who are part of a single on-call rotation. The number of roster layers you have for escalations depends on your company’s standards, industry requirements, and the particular composition of your team. The most commonly used setup includes a primary and secondary on-call in which the role of the secondary is to step up if the primary is overwhelmed. Typically, engineers in both rosters have the similar skills.
 
-An alternative is tier 1 on-call which escalated to tier 2, in which tier 2 consists of incident commanders—veteran on-call engineers with elevated access rights, capable of resolving even most complex incidents.
+An alternative is Tier 1 on-call which escalated to Tier 2. Tier 2 consists of incident commanders/veteran on-call engineers with elevated access rights capable of resolving even the most complex incidents.
 
-You can have multiple teams and every team can have a different roster, and still they can share responsibility for a user support on-call which isn’t directly related to production systems.
+You can have multiple teams, and every team can have a different roster. Still, they can share responsibility for a user support on-call that isn’t directly related to production systems.
