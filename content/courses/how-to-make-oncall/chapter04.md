@@ -13,4 +13,10 @@ menu:
 weight: 5
 ---
 
-My example is about weekly shifts but that isn’t that I prefer weekly shifts. I don’t think that weekly shifts are better or worse. I think that if you are 1 site team, daily shifts are better. You can work weekends extra and make 6 people deal with the whole week. For 2-3 sites, weekly shifts are more common. Strategy named “follow the sun” is usually defined by omitting the night shift from oncall that can be done in 2 or 3 sites. You have many handovers and this is something that you have to prepare carefully.
+My example is about weekly shifts, which isn't why I prefer weekly shifts. Weekly shifts are not better or worse. I think that if you are one site team, daily shifts are better. You can work weekends extra and make six people deal with the whole week. For 2-3 sites, weekly shifts are more common. A strategy named "follow the sun" (FTS [^1]) is usually defined by omitting the night shift from oncall that can be done in 2 or 3 sites. You have many handovers, and this is something that you have to prepare carefully.
+
+I think from my experience, daily on-call is better for work time life balance. You don't have a whole week with a computer, and you can quickly move your program to the evening movie or theater if it is just one day. You switch shifts with a colleague more easily.
+
+You can make some custom scheme that fits you, but simplicity is key here too. For more complex tiers, you need tooling that checks if the same person doesn't have primary and secondary at the same time. That looks obvious, but I have seen it many times people that happen, and it's not suitable for that person. My friend mentioned that this happened to a first shift new on-call team member on his first shift, and It was over the weekend, and others found it on Monday.
+
+[^1]: <https://en.wikipedia.org/wiki/Follow-the-sun>

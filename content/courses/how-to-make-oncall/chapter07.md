@@ -50,13 +50,13 @@ Many other scenarios you can find here in [PagerDuty documentation](https://supp
 
 ## Time Zones
 
-Last important thing to multi sites are time zones. You can’t often choose where your teams are located. If you can try to make it work for oncall and that needs enough distance for shifts, but fewer gaps for communication. It’s hard to find an optimal way.
+The last important thing to multi-sites is time zones. You can’t often choose where your teams are located. If you can, try to make it work for oncall, which needs enough distance for shifts, but fewer gaps for communication. It’s hard to find an optimal way.
 
-I think the 8 hours time zone difference works well from my perspective. I make an example with a few time zones and how 3 sites and 2 sites look like.
+The 8 hours time zone difference works well from my perspective. I make an example with a few time zones and what three sites and two sites look like.
 
-I worked with US (PST) and EU teams and common time is very limited 2-3 hours for communication but for 2 site shifts I think works well. If you need some 3rd place it is good to look east as Singapore or Thailand.
+I worked with US (PST) and EU teams, and common time is very limited, 2-3 hours for communication, but for two site shifts, it works well. If you need some 3rd place, looking east as Singapore or Thailand is good.
 
-Many US teams use India but that doesn’t work with Europe for oncalls. Time difference between Paris and Mumbai is 3.5h and this is too small to help with night shifts.
+Many US teams use India, but that doesn’t work with Europe for on-calls. The time difference between Paris and Mumbai is 3.5h, which is too small to help with night shifts.
 
 ![](/courses/chapter-7-4.png)
 
