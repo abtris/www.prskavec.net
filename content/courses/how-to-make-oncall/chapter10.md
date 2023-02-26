@@ -19,6 +19,22 @@ You can find some overview [tools](tools.md) but we will focus more about workfl
 
 If you get the incident process as process workflow, you see these essential parts that you need to cover with your tooling.
 
+```mermaid
+flowchart TD
+    A[Incident starts] -->B(Incident trigger)
+    B --> C{Routing}
+    B --> D{Category}
+    B --> E{Priority}
+    E --> F{Assignment}
+    C --> F{Assignment}
+    D --> F{Assignment}
+    F --> G(Task creation and management)
+    G --> H(Incident acknowledgment)
+    H --> I(SLA management and escalation)
+    I --> K(Incident resolution)
+    K --> J(Incident closure)
+```
+
 1. Incident trigger
 
     - alarms (your observability tooling finds the problem and triggers the pager tool, API, or email)
@@ -45,6 +61,20 @@ If you get the incident process as process workflow, you see these essential par
 
     - SLA for tickets and pages are management decision, and it's essential to have that times corresponding to your business case
     - you need an escalation process if something doesn't work as expected. Engineers can miss pager or have problems connecting to the internet
+    - engineers on-call should have a way how to escalate decisions to executives. If they have solutions that significantly impact customers or the company, it's not on them to make the decision that can cost millions.
+    - similar to security and compliance issues, you should always have a legal and security team to help there
+
+6. Incident resolution
+
+    - mitigate incident is what engineers have to do it first
+    - after they mitigate the problem, on-call will deploy the fix and observe that platform is stable
+    - then, they will close incident
+
+7. Incident closure
+
+    - you prepare postmortem document
+      - their many ways how to do it. What is essential is to make it easy as possible using templates and make it fast soon as possible (the day of the incident or the next day)
+    - postmortem review and planning tickets to improve problems that you observe, don't forget deadlines for tickets and review them
 
 ## Requirements for pagers
 
