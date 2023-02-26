@@ -29,6 +29,8 @@ You can read quotes as this across the whole cloud industry:
 
 Making good on-call across various teams isn't an easy job. It would be best if you had great support from senior executives. The team manager needs to know where to push for hiring and how to make priorities for the team to avoid toil that is not manageable.
 
+We don't cover details about incident response itself from engineers being on-call. Please read excellent documentation from Pagerduty to familiarize yourself with the more detailed guide on working during the incident[^response].
+
 ## How introduce On-Call into your company?
 
 Introducing On-call is a major culture change for people. If you have never done it before, it significantly impacts your personal life, and you get a lot of stress that you don't have before. The company should have asked people and have this option in contracts if you need it. It isn't lovely if on-call is a surprise or you want to be promoted after your probation period.
@@ -50,3 +52,5 @@ I remember making a full on-call rotation with six people working 24/7/365 — i
 [^ybyr]: “You build it, you run it” is a software development principle that emphasizes the responsibility of the development team in designing, building, and maintaining the systems they create.
 
 [^gm]: Gamedays - So, what exactly is a GameDay? A GameDay is a period of time (usually 1—4 hours) set aside for a team to run one or more experiments on a system, process or service, observe the impact, then discuss the outcomes.
+
+[^response]: PagerDuty Incident Response process. It is a cut-down version of our internal documentation used at PagerDuty for any major incidents and to prepare new employees for on-call responsibilities - https://response.pagerduty.com/

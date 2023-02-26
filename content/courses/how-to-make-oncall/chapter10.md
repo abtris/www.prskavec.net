@@ -1,5 +1,5 @@
 ---
-title: Tools (Pagers, Incident Response, Postmortem, Utility)
+title: Incident process tooling
 toc: false
 type: docs
 date: "2019-05-05T00:00:00+01:00"
@@ -15,22 +15,38 @@ weight: 15
 
 We can split tools into multiple categories as pagers, incident response, incident workflows, utility and postmortems. More and more tools are trying to be more universal and cover more of it. Here is always what suits you best and how you can combine it.
 
-There are many tools on the market, to pagers you can assign ([PagerDuty](https://www.pagerduty.com/), [OpsGenie](https://www.atlassian.com/software/opsgenie), [Splunk On Call - former VictorOps](https://www.splunk.com/en_us/software/splunk-on-call.html) and [Grafana OnCall](https://grafana.com/products/oncall/).
+You can find some overview [tools](tools.md) but we will focus more about workflow and what you need.
 
-For incident response you can use [Rootly](https://rootly.com/), [incident.io](https://incident.io/), [FireHydrant](https://firehydrant.com/) and others for example [Jeli Slack bot](https://www.jeli.io/slack-app). As utility I see [Backstage](https://backstage.io/), [Statuspage](https://www.atlassian.com/software/statuspage), [Status.io](https://status.io/).
+If you get the incident process as process workflow, you see these essential parts that you need to cover with your tooling.
 
-For postmortem is [Jeli](https://www.jeli.io/) but many others tools have some functions that can help with postmortem too.
+1. Incident trigger
 
-There plenty others that I don't know. Just during getting links for article I find [zenduty](https://www.zenduty.com/), [pagertree](https://pagertree.com/), many observability tools adding oncall functions as Grafana and [Datadog](https://www.datadoghq.com/blog/incident-response-with-datadog/).
+    - alarms (your observability tooling finds the problem and triggers the pager tool, API, or email)
+    - manual (customer or employee finds the problem and files a ticket to investigate, you can have workflow via email, Slack, etc.)
 
-I have many years experience with PagerDuty and I can recommend using that. I’m sure that differences are very small, and you can use what fits your ecosystem.
+2. Incident routing, categorization, prioritize and assignment
 
-There are links to documentation how scheduling can look like in OpsGenie and PagerDuty:
+    - make a category if is a ticket or page. You can have a separate category for security or compliance issues
+    - you need to set the correct priority. You calculate by your SLO and error budget
+    - you can have low and high priority
+      - high priority is about waking up the person and try solving the problem right now
+      - low priority is about resolving the problem in the next business hours
+    - you need to route the incident to the correct team, and the team should have an oncall person assigned by schedule
 
-- <https://docs.opsgenie.com/docs/on-call-schedules-and-rotations>
-- <https://support.pagerduty.com/docs/schedules>
+3. Task creation and management
 
-If you have choice look for these things into pagers:
+    - it's good practice to treat every incident as a task in your ticketing system (JIRA, JIRA SD, etc.)
+
+4. Incident acknowledgment
+
+    - you need time to acknowledge that priority. On high priority, you should have 5-15 min. For low priority, you should have 8 hours or the next business day if it is over the weekend
+
+5. SLA management and escalation
+
+    - SLA for tickets and pages are management decision, and it's essential to have that times corresponding to your business case
+    - you need an escalation process if something doesn't work as expected. Engineers can miss pager or have problems connecting to the internet
+
+## Requirements for pagers
 
 - easy change for people on oncall (oncall market)
 - schedule versioning - easy undo changes if make schedule changes
@@ -43,7 +59,12 @@ If you have choice look for these things into pagers:
 - the SDK for your favorite language is great!
 - reporting is useful as we mention in the previous section.
 
-For incident response and workflows:
+There are links to documentation how scheduling can look like in OpsGenie and PagerDuty:
+
+- <https://docs.opsgenie.com/docs/on-call-schedules-and-rotations>
+- <https://support.pagerduty.com/docs/schedules>
+
+## Requirements for incident response and workflows
 
 - look on integration, covers your tooling (ticketing system, communication tools, status pages, etc)
 - security (at least SOC2, ISO 270001 if you need it)
@@ -52,9 +73,10 @@ For incident response and workflows:
 - costs (you will pay for all extra tools and their pricing model can't work for everyone)
 - help with postmortem to collect all evidence from Slack (or similar tool) to later documentation
 
-For postmortems:
+## Requirements for postmortems
 
-- there is important what you want from postmortems
+There is essential to know what you want from postmortems as a company. I prefer to look at postmortems as a way to improve internal processes and as learning materials for newcomers.
+
 - many of tooling are good to have written recoding what happened and how we improve things in the future
 - less tools really help with RCA and find important things about your incidents
 - you can look on postmortems as materials for learning new people and that is hardest to do it
