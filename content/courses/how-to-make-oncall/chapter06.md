@@ -34,3 +34,19 @@ sequenceDiagram
     Incident Trigger->>+Incident mitigation:MTTM
     Start Incident->>+Incident resolution:MTTR
 ```
+
+There are other valuable metrics called Four Keys from [DORA](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance)[^1] [^2].
+
+- Deployment Frequency — How often an organization successfully releases to production
+
+- Lead Time for Changes — The amount of time it takes a commit to get into production
+
+- Change Failure Rate — The percentage of deployments causing a failure in production
+
+- Time to Restore Service — How long it takes an organization to recover from a failure in production
+
+These metrics are about delivery pipelines but support how fast you can recover and deploy fixes, which generally helps on-call.
+
+[^1]: DevOps Research and Assessment (DORA)
+
+[^2]: Four Keys project - https://github.com/dora-team/fourkeys
