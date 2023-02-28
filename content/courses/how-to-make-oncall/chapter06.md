@@ -25,6 +25,8 @@ Testing all escalations is always good, especially with executives who aren't pa
 
 It always is good to have reasonable times for escalations. You should calculate times from your SLAs and be sure if someone breaks it, you are still good with including time to escalate. You can always calculate the worst time and expected time for the acknowledged incident (MTTA - Mean Time to Ack), and it's good metrics for how healthy are your paging and if it works.
 
+## On-call Metrics
+
 There are essential metrics for incidents, and those are MTTD (Mean Time to Detect), MTTR (Mean Time to Resolve), MTTM (Mean Time to Mitigate), MTBF (Mean Time Between Failures). Resolve and Detect are the most critical metrics. First, I will focus on detection than resolution. The solution for experienced developers isn't the issue. But have good observability, and looking for the right signals takes a lot of work.
 
 ```mermaid
@@ -34,6 +36,8 @@ sequenceDiagram
     Incident Trigger->>+Incident mitigation:MTTM
     Start Incident->>+Incident resolution:MTTR
 ```
+
+## Delivery Metrics
 
 There are other valuable metrics called Four Keys from [DORA](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance)[^1] [^2].
 
