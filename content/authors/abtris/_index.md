@@ -79,3 +79,5 @@ I’m a software engineer focused on site reliability and product development (S
 I’m improving processes and workflows about oncall, monitoring, development and software architecture in cloud.
 
 I'm Prague Golang Meetup Organizer. Want to learn more about Golang? Check our [website](https://www.gomeetupprague.cz/) and join us on [meetup.com](https://www.meetup.com/prague-golang-meetup/). Recording are available on [youtube](https://www.youtube.com/@gomeetupprague).
+
+I'm Co-Host Podcast [You Build It, You Run It](https://ybyr.net/podcast).
