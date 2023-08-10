@@ -73,6 +73,6 @@ Leading SRE team in Oracle Apiary Cloud Service. We migrated service from AWS to
   location = "Prague/California"
   date_start = "2023-01-01"
   date_end = ""
-  description = """Go developer in PDS Portworx team"""
+  description = """Go developer in Flash Array Cloud CI team"""
 
 +++
