@@ -9,6 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: honeycombio/gha-buildevents@v2
+        with:
+          # Required: a Honeycomb API key - needed to send traces.
+          apikey: ${{ secrets.BUILDEVENT_APIKEY }}
+          # Required: the Honeycomb dataset to send traces to.
+          dataset: gha-buildevents_integration
+          # Required on the final job: status, this will be used in the post section and sent
+          # as status of the trace.
+          # Note: in V1 this was called job-status which has been deprecated
+          status: ${{ job.status }}
       - name: Check out repo
         uses: actions/checkout@v3
       - name: Set up Go
