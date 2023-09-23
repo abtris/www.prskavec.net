@@ -26,9 +26,14 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: "^1.15.3"
-      - run: buildevents cmd $TRACE_ID $STEP_ID go version
+          go-version-file: 'go.mod'
+      - run: |-
+          STEP_ID=setup-go
+          STEP_START=$(date +%s)
 
+          go version
+
+          buildevents step $TRACE_ID $STEP_ID $STEP_START $STEP_ID
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
@@ -36,13 +41,23 @@ jobs:
           extended: true
 
       - name: Build index
-        run: buildevents cmd $TRACE_ID $STEP_ID hugo
+        run: |-
+          STEP_ID=build-hugo
+          STEP_START=$(date +%s)
 
+          hugo
+
+          buildevents step $TRACE_ID $STEP_ID $STEP_START $STEP_ID
       - name: Upload index
         env:
           ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
         run: |-
-          buildevents cmd $TRACE_ID $STEP_ID go mod download
-          buildevents cmd $TRACE_ID $STEP_ID go run algolia.go
+          STEP_ID=upload-index
+          STEP_START=$(date +%s)
+
+          go mod download
+          go run algolia.go
+
+          buildevents step $TRACE_ID $STEP_ID $STEP_START $STEP_ID
