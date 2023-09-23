@@ -19,22 +19,24 @@ jobs:
           # as status of the trace.
           # Note: in V1 this was called job-status which has been deprecated
           status: ${{ job.status }}
+
       - name: Check out repo
         uses: actions/checkout@v3
+
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
           go-version: "^1.15.3"
-      - run: go version
+      - run: buildevents cmd $TRACE_ID $STEP_ID go version
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.76.5'
+          hugo-version: '0.118.2'
           extended: true
 
       - name: Build index
-        run: hugo
+        run: buildevents cmd $TRACE_ID $STEP_ID hugo
 
       - name: Upload index
         env:
@@ -42,5 +44,5 @@ jobs:
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
         run: |-
-          go mod download
-          go run algolia.go
+          buildevents cmd $TRACE_ID $STEP_ID go mod download
+          buildevents cmd $TRACE_ID $STEP_ID go run algolia.go
