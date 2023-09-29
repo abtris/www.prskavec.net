@@ -59,3 +59,5 @@ OpenTelemetry as best way how to instrument your CICD pipeline. Talk cover obser
 - Trace
 - Equinix-labs Otel CLI
 - Dagger.io manual OTEL instrumentation"
+
+- [Repository with Dagger.io example](https://github.com/abtris/dagger-tutorial)
