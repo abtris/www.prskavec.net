@@ -3,7 +3,7 @@ title: OpenTelemetry as best way how to instrument your CICD pipeline
 event:  Cloud Native Prague 5
 event_url: https://community.cncf.io/events/details/cncf-cloud-native-prague-presents-cloud-native-prague-2/
 location: Prague, Czech Republic
-summary: "OpenTelemetry as best way how to instrument your CICD pipeline. Talk cover observability CICD tools and show demo how instrument Github Action using Honeycomb buildevents and manual instrumentation in project using Dagger.io for pipelines. 
+summary: "OpenTelemetry as best way how to instrument your CICD pipeline. Talk cover observability CICD tools and show demo how instrument Github Action using Honeycomb buildevents and manual instrumentation in project using Dagger.io for pipelines."
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
