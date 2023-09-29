@@ -32,7 +32,7 @@ links:
 url_code: ""
 url_pdf: ""
 url_slides: "https://speakerdeck.com/abtris/how-we-run-stateful-services-for-customers-in-kubernetes"
-url_video: ""
+url_video: "https://www.youtube.com/watch?v=lJ4WAX1qEYo"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
