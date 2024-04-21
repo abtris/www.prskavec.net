@@ -74,9 +74,9 @@ There are five attributes of any good runbook; the five As.[^3] It must be:
 
 Glossaries[^2] can be helpful for a few reasons:
 
-- Glossaries help you repeat yourself less. When you can refer to a definition with a linked explanation, you just saved yourself time and words.
-- Glossaries make descriptions more consistent. If something is explained in five different ways, it can get confusing.
-- Glossaries allow a runbook to be more easily used by engineers with different levels of experience. By referencing a glossary in your runbook, you allow someone newer to the on-call rotation to get the explanation of concepts or terms they need. For more experienced on-call engineers, you remove extraneous information from the runbook.
+- Glossaries help you avoid repetition. When you can refer to a definition with a linked explanation, you save time and words.
+- Glossaries ensure consistency in descriptions. If something is explained in multiple ways, it can become confusing.
+- Glossaries enhance the usability of a runbook for engineers at all experience levels. By including a glossary in your runbook, you provide essential explanations for newer engineers and streamline information for more experienced ones.
 
 ## Explanation
 
