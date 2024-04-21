@@ -24,7 +24,7 @@ For writing documentation is good follow framework as [Diátaxis](https://diatax
 
 ## Tutorials
 
-What you need for On-Call - tutorial that help new on-call member onboard into process, tools and get all access need it for on-call shift.
+What You Need for On-Call - A tutorial that helps new on-call members onboard into the process, tools, and gain all necessary access for the on-call shift.
 
 - [PagerDuty Incident Response](https://response.pagerduty.com/)
 
