@@ -30,7 +30,7 @@ What you need for On-Call - tutorial that help new on-call member onboard into p
 
 ## How-to Guides
 
-Standard Operation Procedures (SOP) for deploying, rotating secrets, adding new regions, scale down and up, adding capacity etc. Runbooks for Incident - every actionable alert need runbook and we should write it and test it on regular basic that works and is easy to understand.
+Standard Operation Procedures (SOP) for deploying, rotating secrets, adding new regions, scale down and up, adding capacity etc. Runbooks for Incidents - every actionable alert needs a runbook, and we should write and test it regularly to ensure it works and is easy to understand.
 
 You can start with checklist as mention in SRE Workbook[^1]
 
