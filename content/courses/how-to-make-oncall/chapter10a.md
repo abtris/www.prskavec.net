@@ -43,6 +43,7 @@ You can start with a checklist as mentioned in the SRE Workbook[^1].
 - Using the monitoring systems (for alerting and dashboards)
 - Describing the architecture, various components, and dependencies of the services
 
+
 Before going on-call, the team reviewed precise guidelines about the responsibilities of on-call engineers. 
 
 For example:
