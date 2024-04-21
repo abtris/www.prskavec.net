@@ -64,11 +64,11 @@ Just like new code, new alerts should be thoroughly and thoughtfully reviewed. E
 
 There are five attributes of any good runbook; the five As.[^3] It must be:
 
-- **actionable**. It’s nice to know the big picture and architecture of a system, but when you are looking for a runbook, you’re looking to take action based on a particular situation.
-- **accessible**. If you can’t find the runbook, it doesn’t matter how well it is written.
-- **accurate**. If it doesn’t contain truthful information, it’s worse than nothing at all.
-- **authoritative**. It is confusing to have more than one runbook for any given process.
-- **adaptable**. Systems evolve, and if you can’t change your runbook, the drift will make it unusable.
+- **Actionable**. It’s nice to know the big picture and architecture of a system, but when you are looking for a runbook, you’re looking to take action based on a particular situation.
+- **Accessible**. If you can’t find the runbook, it doesn’t matter how well it is written.
+- **Accurate**. If it doesn’t contain truthful information, it’s worse than nothing at all.
+- **Authoritative**. It is confusing to have more than one runbook for any given process.
+- **Adaptable**. Systems evolve, and if you can’t change your runbook, the drift will make it unusable.
 
 ## Glossaries
 
