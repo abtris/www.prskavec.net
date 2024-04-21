@@ -13,7 +13,7 @@ menu:
 weight: 15
 ---
 
-For writing documentation is good follow framework as [Diátaxis](https://diataxis.fr/). Diátaxis is a way of thinking about and doing documentation. We will apply similar approach and split documentation into four parts.
+Writing documentation effectively can be achieved by following a framework such as [Diátaxis](https://diataxis.fr/). Diátaxis is a way of thinking about and doing documentation. We will apply similar approach and split documentation into four parts.
 
 - [Tutorials](#tutorials)
 - [How-to Guides](#how-to-guides)
