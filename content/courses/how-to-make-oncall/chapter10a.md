@@ -86,6 +86,6 @@ Glossaries[^2] can be helpful for a few reasons:
 - paper, wiki, anything that helps why things are how they and how works in detail.
 
 
-[^1]: https://sre.google/workbook/on-call/
-[^2]: https://www.transposit.com/devops-blog/sre/2020.01.30-writing-runbook-documentation-when-youre-an-sre/
-[^3]: https://www.transposit.com/devops-blog/itsm/what-makes-a-good-runbook/
+[^1]: [Google SRE Workbook](https://sre.google/workbook/on-call/)
+[^2]: [Transposit SRE Blog on Writing Runbook Documentation](https://www.transposit.com/devops-blog/sre/2020.01.30-writing-runbook-documentation-when-youre-an-sre/)
+[^3]: [Transposit ITSM Blog on Good Runbooks](https://www.transposit.com/devops-blog/itsm/what-makes-a-good-runbook/)
