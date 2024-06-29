@@ -27,7 +27,7 @@
 {{ end }}
 
 <div class="card-simple" itemscope itemtype="http://schema.org/{{$microdata_type}}">
-    {{ $resource := ($item.Resources.ByType "image").GetMatch "*page-featured*" }}
+    {{ $resource := ($item.Resources.ByType "image").GetMatch "*featured*" }}
     {{ $anchor := $item.Params.image.focal_point | default "Smart" }}
     {{ with $resource }}
     {{ $image := .Fill (printf "918x517 q90 %s" $anchor) }}
