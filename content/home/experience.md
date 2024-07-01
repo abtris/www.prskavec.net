@@ -67,7 +67,7 @@ Leading SRE team in Oracle Apiary Cloud Service. We migrated service from AWS to
 
 
 [[experience]]
-  title = "Senior Software Engineer"
+  title = "Staff Engineer"
   company = "Pure Storage"
   company_url = "https://www.purestorage.com"
   location = "Prague/California"
