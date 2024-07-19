@@ -32,12 +32,12 @@ We can continue how to set up the postmortem process [^3], and inspire there fro
 * https://cloudpundit.com/2021/10/28/five-p-factors-for-root-cause-analysis/
 
 The Five Ps (described in IT terms) — well, really six Ps, a problem and five P factors — are as follows:
-* The **presenting problem**is not only the core impact, but also its broader consequences, which all should be examined and addressed. For instance, “The FizzBots service was down” becomes “Our network was unstable, resulting in  FizzBots service failure. Our call center was overwhelmed, our customers are mad at us, and we need to pay out on our SLAs.”
-* The **precipitating factors**are the things that triggered the incident. There might not be a single trigger, and the trigger might not be a one-time event (i.e. it could be a rising issue that eventually crossed a threshold, such as exhaustion of a connection pool or running out of server capacity). For example, “A network engineer made a typo in a router configuration.”
-* The **perpetuating factors**are the things that resulted in the incident continuing (or becoming worse), once triggered. For instance, “When the network was down, application components queued requests, ran out of memory, crashed, and had to be manually recovered.”
-* The **predisposing factors**are the long-standing things that made it more likely that a bad situation would result. For instance, “We do not have automation that checks for bad configurations and prevents their propagation.” or “We are running outdated software on our load-balancers that contains a known bug that results in sometimes sending requests to unresponsive backends.”
-* The **protective factors**are things that helped to limit the impact and scope (essentially, your resilience mechanisms). For instance, “We have automation that detected the problem and reverted the configuration change, so the network outage duration was brief.”
-* The **present factors**are other factors that were relevant to the outcome (including “where we got lucky”). For instance, “A new version of an application component had just been pushed shortly before the network outage, complicating problem diagnosis,” or “The incident began at noon, when much of the ops team was out having lunch, delaying response.”
+* The **presenting problem** is not only the core impact, but also its broader consequences, which all should be examined and addressed. For instance, "The FizzBots service was down" becomes "Our network was unstable, resulting in  FizzBots service failure. Our call center was overwhelmed, our customers are mad at us, and we need to pay out on our SLAs."
+* The **precipitating factors** are the things that triggered the incident. There might not be a single trigger, and the trigger might not be a one-time event (i.e. it could be a rising issue that eventually crossed a threshold, such as exhaustion of a connection pool or running out of server capacity). For example, "A network engineer made a typo in a router configuration."
+* The **perpetuating factors** are the things that resulted in the incident continuing (or becoming worse), once triggered. For instance, “When the network was down, application components queued requests, ran out of memory, crashed, and had to be manually recovered.”
+* The **predisposing factors** are the long-standing things that made it more likely that a bad situation would result. For instance, “We do not have automation that checks for bad configurations and prevents their propagation.” or “We are running outdated software on our load-balancers that contains a known bug that results in sometimes sending requests to unresponsive backends.”
+* The **protective factors** are things that helped to limit the impact and scope (essentially, your resilience mechanisms). For instance, “We have automation that detected the problem and reverted the configuration change, so the network outage duration was brief.”
+* The **present factors** are other factors that were relevant to the outcome (including “where we got lucky”). For instance, “A new version of an application component had just been pushed shortly before the network outage, complicating problem diagnosis,” or “The incident began at noon, when much of the ops team was out having lunch, delaying response.”
 
 ### 5 why’s
 * [Five why’s - Wikipedia](https://en.wikipedia.org/wiki/Five_whys)
@@ -47,7 +47,7 @@ The Five Ps (described in IT terms) — well, really six Ps, a problem and five 
 * 5 Why - The Five Why’s is still considered as a best practice by many teams and is a common way to run the root-cause analysis process.The idea here is to ask “why” in succession, going deeper and uncovering more information each time. - https://newsletter.pragmaticengineer.com/p/incident-review-best-practices
   * The framework is very easy to get started, when teams don’t do much digging into incidents. However, as Andrew Hatch at LinkedIn shares in the talk  [Learning More from Complex systems](https://www.usenix.org/conference/srecon21/presentation/hatch) , there are risks to relying on the Five Whys:
 
-> *The danger of the Five Whys is how, by following it, we might miss out on other root causes of the incident. (...)***We’re not broadening our understanding.***We’re just trying to narrow down on one thing, fix it, and hope that this will make the incident not happen again.*
+> *The danger of the Five Whys is how, by following it, we might miss out on other root causes of the incident. (...) ***We’re not broadening our understanding.*** We’re just trying to narrow down on one thing, fix it, and hope that this will make the incident not happen again.*
 
 * http://www.kitchensoap.com/wp-content/uploads/2014/09/Velocity2014-PM-Fac-Handout-Debrief.pdf
 
@@ -55,11 +55,11 @@ The Five Ps (described in IT terms) — well, really six Ps, a problem and five 
 ### PDCA
 * [Root Cause Analysis, Ishikawa Diagrams and the 5 Why’s](https://www.isixsigma.com/tools-templates/cause-effect/root-cause-analysis-ishikawa-diagrams-and-the-5-whys/)
 * 
-* The scientific method can be integrated into RCA by using cycles of  [PDCA](https://www.isixsigma.com/methodology/plan-do-check-act/six-sigma-pdca-steroids/) . The planning phases consist of describing the problem, collecting data and forming a hypothesis.
-* **P**: Whether freshly formed or taken from an Ishikawa diagram, the hypothesis should make some form of prediction (or *plan*), such as “measurement deviation” predicting “parts will be measured out of specification.”
-* **D**: The next step is *do* – where the hypothesis is evaluated. This could be as simple as measuring a part or as elaborate as designing a new type of test method.
-* **C**: The *check* phase is where the results are evaluated and conclusions are formed.
-* **A**: *Act* is where the conclusions are acted upon. A hypothesis may be rejected or modified based on new evidence or the results of the testing, or a plan may be created to confirm a supported hypothesis.
+* The scientific method can be integrated into RCA by using cycles of  [PDCA](https://www.isixsigma.com/methodology/plan-do-check-act/six-sigma-pdca-steroids/). The planning phases consist of describing the problem, collecting data and forming a hypothesis.
+* **P** - Whether freshly formed or taken from an Ishikawa diagram, the hypothesis should make some form of prediction (or *plan*), such as “measurement deviation” predicting “parts will be measured out of specification.”
+* **D** - The next step is *do* – where the hypothesis is evaluated. This could be as simple as measuring a part or as elaborate as designing a new type of test method.
+* **C** - The *check* phase is where the results are evaluated and conclusions are formed.
+* **A** - *Act* is where the conclusions are acted upon. A hypothesis may be rejected or modified based on new evidence or the results of the testing, or a plan may be created to confirm a supported hypothesis.
 
 
 ### 6 Sigma
