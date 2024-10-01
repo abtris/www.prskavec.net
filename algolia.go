@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	search "github.com/algolia/algoliasearch-client-go/v3/algolia/search"
+	search "github.com/algolia/algoliasearch-client-go/v4/algolia/search"
 )
 
 type Index struct {
@@ -46,6 +46,6 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-    fmt.Println("Index uploaded.")
-  }
+		fmt.Println("Index uploaded.")
+	}
 }
