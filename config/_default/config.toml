@@ -43,6 +43,8 @@ pagerSize = "10"
 enableEmoji = false
 footnotereturnlinkcontents = "<sup>^</sup>"
 ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreLogs = ['warning-goldmark-raw-html']
+
 
 [outputs]
   home = [ "HTML", "RSS", "JSON" ]
