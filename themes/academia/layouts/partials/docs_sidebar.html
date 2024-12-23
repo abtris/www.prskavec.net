@@ -5,10 +5,6 @@
 {{ $baseExcluded := strings.TrimLeft site.BaseURL .Permalink  }}
 {{ $menu_name := index (split $baseExcluded "/") 1 }}
 
-{{ if not (index site.Menus $menu_name) }}
-  {{ errorf "Please define menu items named `menu: %s:` in your %s front matter or define `[[menu.%s]]` in `config/default/menus.toml`. See https://sourcethemes.com/academic/docs/managing-content/#menus" $menu_name .Path $menu_name }}
-{{ end }}
-
 <form class="docs-search d-flex align-items-center">
   <button class="btn docs-toggle d-md-none p-0 mr-3" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     <span><i class="fas fa-bars"></i></span>
