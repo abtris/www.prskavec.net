@@ -3,7 +3,7 @@
 
 title: "Schema-First Telemetry in Go: A New Approach to Observability"
 subtitle: ""
-summary: ""
+summary: "Modern Go services generate telemetry – metrics, logs, traces – using instrumentation embedded directly in code. Typically, this is a code-first approach, where developers call APIs (counters, loggers, tracers) and attach key-value attributes on the fly. This works, but at scale it can lead to fragmented data and missing context. Schema-first telemetry flips this paradigm: you define upfront a schema (like an IDL file) for your telemetry data, including its semantic metadata, and use generated code to emit telemetry."
 authors: ["abtris"]
 tags: []
 categories: ["observability"]
