@@ -73,6 +73,13 @@ Leading SRE team in Oracle Apiary Cloud Service. We migrated service from AWS to
   location = "Prague/California"
   date_start = "2023-01-01"
   date_end = ""
-  description = """Go developer (Portworx, Flash Array Cloud CI, Flash Array CBS team)"""
+  description = """
+Working as Go developer with Kubernetes and Azure Cloud at software defined storage solutions. Architecture Control Plane using Temporal for provisioning Azure Resources and using Terramate for provisioning infrastructure in the regions. 
+
+- FlashArray - Pure Storage Cloud for Azure VMware Solution (AVS)
+- FlashArray - Working in FA CI Cloud team
+- Portworx - Working on K8S operator for PX PDS
+
+"""
 
 +++
