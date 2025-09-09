@@ -1,16 +1,8 @@
 ---
-# Course title, summary, and position.
-linktitle: How to design OnCall
-summary: Learn how to design OnCall for your team.
-weight: 1
-
 # Page metadata.
 title: How to design OnCall
 date: "2021-05-19T00:00:00Z"
 lastmod: "2021-05-19T00:00:00Z"
-draft: false  # Is this a draft? true/false
-toc: false  # Show table of contents? true/false
-type: docs  # Do not modify.
 
 # Add menu entry to sidebar.
 # - name: Declare this menu item as a parent with ID `name`.
