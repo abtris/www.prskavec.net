@@ -32,7 +32,7 @@ links:
 url_code: ""
 url_pdf: ""
 url_slides: "https://speakerdeck.com/abtris/from-small-terraform-projects-to-terralith"
-url_video: ""
+url_video: "https://www.youtube.com/watch?v=qfcu0WJUhRU"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
