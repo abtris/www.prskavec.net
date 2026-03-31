@@ -28,7 +28,7 @@ date_format = "Jan 2006"
 
 
 [[experience]]
-  title = "SRE Teamleader"
+  title = "SRE Team Lead"
   company = "Apiary"
   company_url = "https://apiary.io"
   location = "Prague/California"

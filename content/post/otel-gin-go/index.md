@@ -3,7 +3,7 @@
 
 title: "OpenTelemetry and Go Gin Framework"
 subtitle: ""
-summary: "How make W3Context work for your application in Go Gin Framework"
+summary: "How to make W3C TraceContext work for your application in the Go Gin Framework"
 authors: ["abtris"]
 tags: ["otel","go"]
 categories: []

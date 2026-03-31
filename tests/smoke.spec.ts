@@ -68,8 +68,8 @@ test.describe('Posts archive (/post/)', () => {
 
   test('shows a list of posts', async ({ page }) => {
     await page.goto('/post/');
-    // Posts archive uses view=1 (List) → li_list.html → div.view-list-item
-    const items = page.locator('.view-list-item');
+    // Posts archive uses view=2 (Compact) → li_compact.html → div.media.stream-item
+    const items = page.locator('.media.stream-item');
     await expect(items.first()).toBeVisible();
     expect(await items.count()).toBeGreaterThan(0);
   });

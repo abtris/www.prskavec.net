@@ -2,7 +2,7 @@
 # Hero widget.
 widget = "hero"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false  # Activate this widget? true/false
+active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear.
 
 title = "Prskavec.Net"
@@ -34,12 +34,12 @@ hero_media = "ladislav_2015.jpg"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [btn]
-  url = "/authors/abtris"
-  label = "Know more"
+  url = "https://calendly.com/ladislav-prskavec"
+  label = "Book a call"
 
 [btn_alt]
-  url = "#contact"
-  label = "Contact me"
+  url = "/courses/how-to-make-oncall/"
+  label = "OnCall Guide"
 
 +++
 ## My name is **Ladislav Prskavec** and I'm a **SRE Engineer** specializing in Cloud Computing
