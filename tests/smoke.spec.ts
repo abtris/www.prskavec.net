@@ -69,14 +69,16 @@ test.describe('Posts archive (/post/)', () => {
   test('shows a list of posts', async ({ page }) => {
     await page.goto('/post/');
     // Posts archive uses view=2 (Compact) → li_compact.html → div.media.stream-item
-    const items = page.locator('.media.stream-item');
+    // Falls back to view=1 (List) → li_list.html → div.view-list-item if not yet deployed
+    const items = page.locator('.media.stream-item, .view-list-item');
     await expect(items.first()).toBeVisible();
     expect(await items.count()).toBeGreaterThan(0);
   });
 
   test('post links navigate to post pages', async ({ page }) => {
     await page.goto('/post/');
-    const firstLink = page.locator('.view-list-item a').first();
+    // Works for view=1 (List → .view-list-item a) and view=2 (Compact → .media.stream-item h3 a)
+    const firstLink = page.locator('.view-list-item a[itemprop="url"], .media.stream-item h3 a').first();
     const href = await firstLink.getAttribute('href');
     expect(href).toBeTruthy();
     await firstLink.click();

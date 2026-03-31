@@ -36,6 +36,8 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
+        env:
+          BASE_URL: https://www.prskavec.net
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
