@@ -3,10 +3,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"os"
 
-	search "github.com/algolia/algoliasearch-client-go/v3/algolia/search"
+	search "github.com/algolia/algoliasearch-client-go/v4/algolia/search"
 )
 
 type Index struct {
@@ -36,7 +35,7 @@ func main() {
 	index := client.InitIndex(algoliaIndexName)
 
 	var records []Index
-	data, _ := ioutil.ReadFile("public/index.json")
+	data, _ := os.ReadFile("public/index.json")
 	errJSON := json.Unmarshal(data, &records)
 	if errJSON != nil {
 		fmt.Println(errJSON)
@@ -46,6 +45,6 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	} else {
-    fmt.Println("Index uploaded.")
-  }
+		fmt.Println("Index uploaded.")
+	}
 }

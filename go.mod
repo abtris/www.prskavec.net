@@ -1,5 +1,5 @@
 module github.com/abtris/www.prskavec.net
 
-go 1.19
+go 1.26
 
-require github.com/algolia/algoliasearch-client-go/v3 v3.32.1
+require github.com/algolia/algoliasearch-client-go/v4 v4.37.2
