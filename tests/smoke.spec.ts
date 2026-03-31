@@ -6,10 +6,16 @@ test.describe('Homepage', () => {
     await expect(page).toHaveTitle(/Prskavec/i);
   });
 
-  test('navigation bar is visible with expected links', async ({ page }) => {
+  test('navigation bar is visible with expected links', async ({ page, isMobile }) => {
     await page.goto('/');
     const nav = page.locator('nav#navbar-main');
     await expect(nav).toBeVisible();
+
+    // On mobile the navbar collapses; expand it via the hamburger before asserting links.
+    if (isMobile) {
+      await page.locator('button.navbar-toggler').click();
+      await expect(page.locator('#navbar')).toBeVisible();
+    }
 
     await expect(nav.getByRole('link', { name: 'Home' })).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Posts' })).toBeVisible();

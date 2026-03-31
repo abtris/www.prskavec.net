@@ -16,10 +16,15 @@ import { test, expect } from '@playwright/test';
  */
 
 test.describe('Algolia search', () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, isMobile }) => {
     await page.goto('/');
     // Wait for the page JS (including instantsearch) to initialise
     await page.waitForLoadState('networkidle');
+    // On mobile the navbar collapses; open the hamburger so the search icon is visible.
+    if (isMobile) {
+      await page.locator('button.navbar-toggler').click();
+      await expect(page.locator('#navbar')).toBeVisible();
+    }
   });
 
   test('search icon is present in navbar', async ({ page }) => {
