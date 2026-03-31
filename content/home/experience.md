@@ -28,7 +28,7 @@ date_format = "Jan 2006"
 
 
 [[experience]]
-  title = "SRE Teamleader"
+  title = "SRE Team Lead"
   company = "Apiary"
   company_url = "https://apiary.io"
   location = "Prague/California"
@@ -68,7 +68,7 @@ Leading SRE team in Oracle Apiary Cloud Service. We migrated service from AWS to
 
 [[experience]]
   title = "Staff Engineer"
-  company = "Pure Storage"
+  company = "Everpure (formerly Pure Storage, Inc.)"
   company_url = "https://www.purestorage.com"
   location = "Prague/California"
   date_start = "2023-01-01"
@@ -76,6 +76,7 @@ Leading SRE team in Oracle Apiary Cloud Service. We migrated service from AWS to
   description = """
 Working as Go developer with Kubernetes and Azure Cloud at software defined storage solutions. Architecture Control Plane using Temporal for provisioning Azure Resources and using Terramate for provisioning infrastructure in the regions. 
 
+- Everpure Cloud Azure Native
 - FlashArray - Pure Storage Cloud for Azure VMware Solution (AVS)
 - FlashArray - Working in FA CI Cloud team
 - Portworx - Working on K8S operator for PX PDS

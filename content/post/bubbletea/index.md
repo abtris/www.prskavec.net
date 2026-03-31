@@ -3,7 +3,7 @@
 
 title: "Build nice terminal UI with Bubble Tea"
 subtitle: ""
-summary: "Using Go for make nice terminal UI with Bubble Tea"
+summary: "Building a nice terminal UI in Go with Bubble Tea"
 authors: []
 tags: []
 categories: []

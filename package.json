@@ -1,0 +1,27 @@
+{
+  "name": "www.prskavec.net",
+  "version": "1.0.0",
+  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/2eab6ac9-90ed-4aa9-9e25-7b2674743f43/deploy-status)](https://app.netlify.com/sites/house-keeper-proficiencies-68654/deploys)",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:report": "playwright show-report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abtris/www.prskavec.net.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/abtris/www.prskavec.net/issues"
+  },
+  "homepage": "https://github.com/abtris/www.prskavec.net#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  }
+}
