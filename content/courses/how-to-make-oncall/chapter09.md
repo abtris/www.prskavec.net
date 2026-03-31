@@ -13,12 +13,12 @@ menu:
 weight: 14
 ---
 
-I recommend that OnCall owners prepare a few valuable reports for me over the years.
+Over the years, I have found the following reports most valuable for On-Call owners to prepare:
 
-- How many incidents per week have per team. Using regularly for review every week.
-- How many people have incidents in a month, quarter, or six months?
-- How many people had incidents at night last month, quarter, or six months?
-- How many hours have people on oncall in the last six months
-- There is another set of reports that can provide you postmortem tool, but pager software should give you more insight into how people are doing.
+- Number of incidents per week per team — useful for a regular weekly review.
+- Number of people who had incidents in the last month, quarter, or six months.
+- Number of people who had incidents at night in the last month, quarter, or six months.
+- Total hours people spent on-call in the last six months.
+- Postmortem tooling can provide another set of reports, but your pager software should give you the most insight into how people are doing.
 
-Other reports are used for getting outliers. You can find if something doesn't work or goes in the wrong direction. At the start, you can have too many incidents; after years, you can have the opposite problem of having too few incidents. You can have people that only have incidents for part of the year. In that case, you must invest more in gaming days and training.
+Other reports help you spot outliers. You can identify when something isn't working or is trending in the wrong direction. Early on, you may have too many incidents; years later, you may face the opposite problem — too few, meaning engineers are losing practice. If some people only face incidents for part of the year, you should invest more in game days and training.

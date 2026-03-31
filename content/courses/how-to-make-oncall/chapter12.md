@@ -42,10 +42,10 @@ The Five Ps (described in IT terms) — well, really six Ps, a problem and five 
 ### 5 why’s
 * [Five why’s - Wikipedia](https://en.wikipedia.org/wiki/Five_whys)
 * [Ishikawa diagram - Wikipedia](https://en.wikipedia.org/wiki/Ishikawa_diagram)
-* [Using a Fishbone (or Ishikawa) Diagram to Perform 5-why Analysis | K Bulsuk: Full Speed Ahead](https://www.bulsuk.com/2009/08/using-fishbone-diagram-to-perform-5-why.html) 
+* [Using a Fishbone (or Ishikawa) Diagram to Perform 5-why Analysis | K Bulsuk: Full Speed Ahead](https://www.bulsuk.com/2009/08/using-fishbone-diagram-to-perform-5-why.html)
 
-* 5 Why - The Five Why’s is still considered as a best practice by many teams and is a common way to run the root-cause analysis process.The idea here is to ask “why” in succession, going deeper and uncovering more information each time. - https://newsletter.pragmaticengineer.com/p/incident-review-best-practices
-  * The framework is very easy to get started, when teams don’t do much digging into incidents. However, as Andrew Hatch at LinkedIn shares in the talk  [Learning More from Complex systems](https://www.usenix.org/conference/srecon21/presentation/hatch) , there are risks to relying on the Five Whys:
+* 5 Whys - The Five Whys is still considered a best practice by many teams and is a common way to run the root-cause analysis process. The idea is to ask "why" in succession, going deeper and uncovering more information each time. - https://newsletter.pragmaticengineer.com/p/incident-review-best-practices
+
 
 > *The danger of the Five Whys is how, by following it, we might miss out on other root causes of the incident. (...) ***We’re not broadening our understanding.*** We’re just trying to narrow down on one thing, fix it, and hope that this will make the incident not happen again.*
 
@@ -54,7 +54,6 @@ The Five Ps (described in IT terms) — well, really six Ps, a problem and five 
 
 ### PDCA
 * [Root Cause Analysis, Ishikawa Diagrams and the 5 Why’s](https://www.isixsigma.com/tools-templates/cause-effect/root-cause-analysis-ishikawa-diagrams-and-the-5-whys/)
-* 
 * The scientific method can be integrated into RCA by using cycles of  [PDCA](https://www.isixsigma.com/methodology/plan-do-check-act/six-sigma-pdca-steroids/). The planning phases consist of describing the problem, collecting data and forming a hypothesis.
 * **P** - Whether freshly formed or taken from an Ishikawa diagram, the hypothesis should make some form of prediction (or *plan*), such as “measurement deviation” predicting “parts will be measured out of specification.”
 * **D** - The next step is *do* – where the hypothesis is evaluated. This could be as simple as measuring a part or as elaborate as designing a new type of test method.

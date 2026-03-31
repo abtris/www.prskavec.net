@@ -13,7 +13,7 @@ menu:
 weight: 8
 ---
 
-For overview about oncalls I recommend read chapter 14 Oncall [^3].
+For an overview of on-call, I recommend reading Chapter 14 on On-call [^3].
 
 But now to my example:
 
@@ -24,7 +24,7 @@ But now to my example:
 - We don’t use combinations as primary in daily and secondary weekly that make example more complicated too
 - We're skipping many possible combinations, don’t think that is only good way how to do it, this is more about how you think for your use case
 
-Some numbers first, calculate and think what is important to you and if you have enough people to achieve at least this minimum number of people with your conditions. My example calculates with two roasters, and we can choose between 1-3 sites.
+Some numbers first — calculate and consider what matters most to you, and whether you have enough people to reach at least this minimum with your conditions. My example uses two rosters, and we can choose between 1-3 sites.
 
 ![](/courses/chapter-7.png)
 
@@ -32,31 +32,31 @@ Some numbers first, calculate and think what is important to you and if you have
 
 ![](/courses/chapter-7-1.png)
 
-We have 8 people that rotate every 4 weeks. If you can share primary and secondary you have to change this into 2 months and next month just change primary and secondary. I don’t recommend making 2 shifts in rows as many teams do. It’s not healthy. Still all these tables are a minimum number of people that isn’t optimal. You need extra capacity for vacations, sick people and not very near that 25%.
+We have 8 people rotating every 4 weeks. If you share primary and secondary across the same people, you need to extend this to 2 months and swap the roles each month. I don't recommend back-to-back shifts, as many teams do — it's not healthy. All these tables represent a minimum and are not optimal. You need extra capacity for vacations, sick days, and to stay safely below that 25% on-call threshold.
 
 ## Two sites
 
 ![](/courses/chapter-7-2.png)
 
-We have 8 people rotated every 4 weeks. Recommendation from SRE book is 6 people per site and I agree.  This calculation is bare minimum and I will recommend at least 6 people.
+We have 8 people rotating every 4 weeks. The SRE book recommends 6 people per site, and I agree. This calculation is a bare minimum — I recommend at least 6 people per site.
 
 ## Three sites
 
 ![](/courses/chapter-7-3.png)
 
-We have 9 people rotate every 3 weeks. Still I will go with 6 people per site.
+We have 9 people rotating every 3 weeks. Still, I would go with 6 people per site.
 
 Many other scenarios you can find here in [PagerDuty documentation](https://support.pagerduty.com/docs/schedule-examples). I recommend looking into it for inspiration.
 
 ## Time Zones
 
-The last important thing to multi-sites is time zones. You can’t often choose where your teams are located. If you can, try to make it work for oncall, which needs enough distance for shifts, but fewer gaps for communication. It’s hard to find an optimal way.
+The last important consideration for multi-site teams is time zones. You often can't choose where your teams are located. If you can, try to make it work for on-call, which needs enough time zone distance for shift coverage, but not so much that it creates communication gaps. Finding the optimal balance is hard.
 
-The 8 hours time zone difference works well from my perspective. I make an example with a few time zones and what three sites and two sites look like.
+An 8-hour time zone difference works well from my perspective. I show an example with a few time zones and what three-site and two-site coverage looks like.
 
-I worked with US (PST) and EU teams, and common time is very limited, 2-3 hours for communication, but for two site shifts, it works well. If you need some 3rd place, looking east as Singapore or Thailand is good.
+I worked with US (PST) and EU teams — the common overlap is very limited at 2-3 hours, but for two-site shifts it works well. If you need a third location, looking east to Singapore or Thailand is a good option.
 
-Many US teams use India, but that doesn’t work with Europe for on-calls. The time difference between Paris and Mumbai is 3.5h, which is too small to help with night shifts.
+Many US teams use India, but that doesn't work well with Europe for on-call. The time difference between Paris and Mumbai is only 3.5 hours, which is too small to meaningfully cover night shifts.
 
 ![](/courses/chapter-7-4.png)
 

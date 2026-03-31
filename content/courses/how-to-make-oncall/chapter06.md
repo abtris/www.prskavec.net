@@ -23,11 +23,11 @@ You need an escalation process for a few reasons.
 
 Testing all escalations is always good, especially with executives who aren't paged often. It is always good if all stakeholders have enough information about current incidents and don't step into the process and ask the Incident commander for information.
 
-It always is good to have reasonable times for escalations. You should calculate times from your SLAs and be sure if someone breaks it, you are still good with including time to escalate. You can always calculate the worst time and expected time for the acknowledged incident (MTTA - Mean Time to Ack), and it's good metrics for how healthy are your paging and if it works.
+It always is good to have reasonable times for escalations. You should calculate times from your SLAs and be sure if someone breaks it, you are still good with including time to escalate. You can calculate both the worst-case and expected time to acknowledge an incident (MTTA — Mean Time to Acknowledge), which is a useful metric for assessing the health of your paging workflow.
 
 ## On-call Metrics
 
-There are essential metrics for incidents, and those are MTTD (Mean Time to Detect), MTTR (Mean Time to Resolve), MTTM (Mean Time to Mitigate), MTBF (Mean Time Between Failures). Resolve and Detect are the most critical metrics. First, I will focus on detection than resolution. The solution for experienced developers isn't the issue. But have good observability, and looking for the right signals takes a lot of work.
+The essential metrics for incidents are MTTD (Mean Time to Detect), MTTR (Mean Time to Resolve), MTTM (Mean Time to Mitigate), and MTBF (Mean Time Between Failures). Detection and resolution are the most critical. I will focus first on detection, then resolution. For experienced developers, finding the solution isn't usually the hard part — but having good observability and knowing which signals to look for takes significant effort.
 
 ```mermaid
 sequenceDiagram
