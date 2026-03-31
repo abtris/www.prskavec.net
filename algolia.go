@@ -31,17 +31,24 @@ func main() {
 	algoliaAPIKey := os.Getenv("ALGOLIA_API_KEY")
 	algoliaIndexName := os.Getenv("ALGOLIA_INDEX_NAME")
 
-	client := search.NewClient(algoliaAppID, algoliaAPIKey)
-	index := client.InitIndex(algoliaIndexName)
+	client, err := search.NewClient(algoliaAppID, algoliaAPIKey)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 
-	var records []Index
 	data, _ := os.ReadFile("public/index.json")
-	errJSON := json.Unmarshal(data, &records)
-	if errJSON != nil {
+	var records []Index
+	if errJSON := json.Unmarshal(data, &records); errJSON != nil {
 		fmt.Println(errJSON)
+		os.Exit(1)
 	}
 	// MAYBE(abtris): filter by type (get only type=post,talk)?
-	_, err := index.SaveObjects(records)
+	var objects []map[string]any
+	if b, errMarshal := json.Marshal(records); errMarshal == nil {
+		json.Unmarshal(b, &objects) //nolint:errcheck
+	}
+	_, err = client.SaveObjects(algoliaIndexName, objects)
 	if err != nil {
 		fmt.Println(err)
 	} else {
