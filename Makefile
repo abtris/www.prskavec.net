@@ -4,7 +4,7 @@ SHELL:=/bin/bash
 
 TITLE := $(shell echo $(name) | tr [:upper:] [:lower:] | sed -e 's/ /_/g')
 
-.PHONY: help deps clean build watch
+.PHONY: help deps clean build watch test test-headed test-report
 
 help:  ## Display this help
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
@@ -17,3 +17,12 @@ watch: ## Watch file changes and build
 
 post: ## Make new post: make post name="Title"
 	hugo new  --kind post post/$(TITLE)
+
+test: ## Run Playwright e2e tests against production
+	npx playwright test
+
+test-headed: ## Run Playwright tests in headed mode (visible browser)
+	npx playwright test --headed
+
+test-report: ## Open the last Playwright HTML report
+	npx playwright show-report
