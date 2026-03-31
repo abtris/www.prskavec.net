@@ -5,10 +5,14 @@ import { test, expect } from '@playwright/test';
  *
  * The site uses instantsearch.js with the Algolia backend.
  * DOM structure:
- *   <a class="js-search"> — navbar search icon (toggle)
- *   <aside id="search">   — search overlay (hidden by default)
- *     <div id="search-box"> — instantsearch injects an <input> here
+ *   nav#navbar-main a.nav-link.js-search  — navbar search icon (toggle)
+ *   <aside id="search" class="search-results"> — overlay (visibility:hidden by default)
+ *     Overlay becomes visible when <body> gets class "searching"
+ *     <div id="search-box"> — instantsearch injects an <input class="ais-SearchBox-input"> here
  *     <div id="search-hits"> — results container
+ *
+ * Note: there is a second a.js-search (the ✕ close button) INSIDE the overlay which
+ * is hidden; always select the navbar icon via a.nav-link.js-search.
  */
 
 test.describe('Algolia search', () => {
@@ -19,22 +23,24 @@ test.describe('Algolia search', () => {
   });
 
   test('search icon is present in navbar', async ({ page }) => {
-    const searchIcon = page.locator('a.js-search').first();
+    // The navbar icon has both nav-link and js-search classes; the overlay close
+    // button has only js-search, so we must be specific to avoid picking the hidden one.
+    const searchIcon = page.locator('a.nav-link.js-search');
     await expect(searchIcon).toBeVisible();
   });
 
   test('clicking search icon opens the search overlay', async ({ page }) => {
+    // Overlay uses visibility:hidden by default; body gains class "searching" on open.
     const overlay = page.locator('aside#search');
-    // Overlay starts hidden
-    await expect(overlay).not.toBeVisible();
+    await expect(overlay).toBeHidden();
 
-    await page.locator('a.js-search').first().click();
+    await page.locator('a.nav-link.js-search').click();
 
     await expect(overlay).toBeVisible({ timeout: 5_000 });
   });
 
   test('instantsearch renders an input inside #search-box', async ({ page }) => {
-    await page.locator('a.js-search').first().click();
+    await page.locator('a.nav-link.js-search').click();
 
     // instantsearch.js injects <input class="ais-SearchBox-input"> (or similar)
     const input = page.locator('#search-box input');
@@ -42,7 +48,7 @@ test.describe('Algolia search', () => {
   });
 
   test('typing a query returns results from Algolia', async ({ page }) => {
-    await page.locator('a.js-search').first().click();
+    await page.locator('a.nav-link.js-search').click();
 
     const input = page.locator('#search-box input');
     await expect(input).toBeVisible({ timeout: 5_000 });
@@ -62,7 +68,7 @@ test.describe('Algolia search', () => {
   });
 
   test('search results contain a clickable link that navigates', async ({ page }) => {
-    await page.locator('a.js-search').first().click();
+    await page.locator('a.nav-link.js-search').click();
 
     const input = page.locator('#search-box input');
     await expect(input).toBeVisible({ timeout: 5_000 });
@@ -77,7 +83,7 @@ test.describe('Algolia search', () => {
   });
 
   test('empty query hides the results container', async ({ page }) => {
-    await page.locator('a.js-search').first().click();
+    await page.locator('a.nav-link.js-search').click();
 
     const input = page.locator('#search-box input');
     await expect(input).toBeVisible({ timeout: 5_000 });
@@ -92,7 +98,7 @@ test.describe('Algolia search', () => {
   });
 
   test('no-match query shows "no results" message', async ({ page }) => {
-    await page.locator('a.js-search').first().click();
+    await page.locator('a.nav-link.js-search').click();
 
     const input = page.locator('#search-box input');
     await expect(input).toBeVisible({ timeout: 5_000 });
@@ -106,13 +112,13 @@ test.describe('Algolia search', () => {
   });
 
   test('closing search overlay with × button hides it', async ({ page }) => {
-    await page.locator('a.js-search').first().click();
+    await page.locator('a.nav-link.js-search').click();
     const overlay = page.locator('aside#search');
     await expect(overlay).toBeVisible({ timeout: 5_000 });
 
-    // The close button is also a .js-search link
+    // The ✕ close button inside the overlay also has class js-search (but NOT nav-link)
     await overlay.locator('a.js-search').click();
-    await expect(overlay).not.toBeVisible({ timeout: 5_000 });
+    await expect(overlay).toBeHidden({ timeout: 5_000 });
   });
 });
 
