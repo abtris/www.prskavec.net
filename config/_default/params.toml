@@ -51,7 +51,7 @@ time_format = "15:04"
 
 # Enter contact details (optional). To hide a field, clear it to "".
 email = "ladislav@prskavec.net"
-phone = "+420 604 419 262"
+phone = ""
 address = "Prague, Czech Republic"
 
 # Office hours: use `<br>` to insert a line break, or set to "" to remove office hours
