@@ -15,8 +15,8 @@ weight: 13
 
 Reasons for creating an on-call market process:
 
-It would be best to have an easy way to change shifts for vacation or when people need a free day. People can change days, hours, or whole shifts as they need it.
+You should have an easy way to change shifts for vacation or when people need a day off. People can swap days, hours, or whole shifts as needed.
 
-Please make the change 1:1 so that someone doesn't change shifts for money or skip engineering work. We use a Slack channel dedicated to this, and you need tools where making this change is easy and safe to do.
+Keep swaps 1:1 so that no one exchanges shifts for money or to avoid engineering work. We use a dedicated Slack channel for this, and you need tooling that makes the swap easy and safe.
 
-We have automated checking for the next two weeks if people haven't overlapped with primary and secondary. That is useful, too, if you have mixed shifts or you have more rosters.
+We have automated checks for the next two weeks to ensure no one overlaps as both primary and secondary. This is especially useful if you have mixed shifts or multiple rosters.

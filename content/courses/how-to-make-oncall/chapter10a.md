@@ -13,7 +13,7 @@ menu:
 weight: 15
 ---
 
-Writing documentation effectively can be achieved by following a framework such as [Diátaxis](https://diataxis.fr/). Diátaxis is a way of thinking about and doing documentation. We will apply similar approach and split documentation into four parts.
+Writing documentation effectively can be achieved by following a framework such as [Diátaxis](https://diataxis.fr/). Diátaxis is a way of thinking about and doing documentation. We will apply a similar approach and split documentation into four parts.
 
 - [Tutorials](#tutorials)
 - [How-to Guides](#how-to-guides)
@@ -30,7 +30,7 @@ What You Need for On-Call - A tutorial that helps new on-call members onboard in
 
 ## How-to Guides
 
-Standard Operation Procedures (SOP) for deploying, rotating secrets, adding new regions, scale down and up, adding capacity etc. Runbooks for Incidents - every actionable alert needs a runbook, and we should write and test it regularly to ensure it works and is straightforward to understand.
+Standard Operating Procedures (SOP) for deploying, rotating secrets, adding new regions, scaling down and up, adding capacity, etc. Runbooks for incidents — every actionable alert needs a runbook, and we should write and test it regularly to ensure it works and is straightforward to understand.
 
 You can start with a checklist as mentioned in the SRE Workbook[^1].
 
@@ -44,7 +44,7 @@ You can start with a checklist as mentioned in the SRE Workbook[^1].
 - Describing the architecture, various components, and dependencies of the services
 
 
-Before going on-call, the team reviewed precise guidelines about the responsibilities of on-call engineers. 
+Before going on-call, the team reviews precise guidelines about the responsibilities of on-call engineers.
 
 For example:
 - At the start of each shift, the on-call engineer reads the handoff from the previous shift.
@@ -84,7 +84,7 @@ Glossaries[^2] can be helpful for a few reasons:
 - [RFC](https://en.wikipedia.org/wiki/Request_for_Comments)
 - [RFD](https://rfd.shared.oxide.computer/rfd/0001)
 - [ADR](https://adr.github.io/)
-- paper, wiki, anything that helps why things are how they and how works in detail.
+- papers, wikis, or anything else that explains why things are the way they are and how they work in detail.
 
 [^1]: [Google SRE Workbook](https://sre.google/workbook/on-call/)
 [^2]: [Transposit SRE Blog on Writing Runbook Documentation](https://www.transposit.com/devops-blog/sre/2020.01.30-writing-runbook-documentation-when-youre-an-sre/)

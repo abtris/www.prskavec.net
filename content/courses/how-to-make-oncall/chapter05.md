@@ -13,9 +13,9 @@ menu:
 weight: 6
 ---
 
-In my example, I try to calculate how many non-working hours people spend, and at least in the EU, you have to pay extra for this [^3], and it's good to pay them. Still, many people will like not working on weekends more than money. Sleep deprivation is a big problem, and as a manager, you have to think about this. [^2]
+In my example, I calculate how many non-working hours people spend on-call. At least in the EU, you are required to pay extra for this [^3], and it's the right thing to do. That said, many people value not working on weekends more than the extra pay. Sleep deprivation is a serious problem, and as a manager, you need to think carefully about this. [^2]
 
-I have one colleague that works in a company that provides one day of vacation for a week of on-call instead of money, and he likes it.
+I have a colleague whose company gives one day of vacation for each week of on-call instead of monetary compensation — and he prefers it that way.
 
 [^2]: J. Durmer and D. Dinges,  ["Neurocognitive Consequences of Sleep Deprivation"](http://www.ncbi.nlm.nih.gov/pubmed/15798944), in Seminars in Neurology, vol. 25, no. 1, 2005.
 [^3]: Oncall Compensation for Software Engineers - https://blog.pragmaticengineer.com/oncall-compensation/

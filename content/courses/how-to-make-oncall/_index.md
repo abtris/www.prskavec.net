@@ -15,21 +15,21 @@ menu:
 
 ## Guide to good On-call that does not kill your team
 
-You can read quotes as this across the whole cloud industry:
+You can read quotes like this across the cloud industry:
 
 > Some teams have had dramatically different pager volumes for years at my company. There are teams which people like to work on thanks to their great mission, but those same teams have a noisy oncall. There is no way I would move to those teams, where moving would come with so much unpaid overtime at unsociable hours.” From a publicly traded tech company valued at $13B.
 
 Making good on-call across various teams isn't an easy job. It would be best if you had great support from senior executives. The team manager needs to know where to push for hiring and how to make priorities for the team to avoid toil that is not manageable.
 
-We don't cover details about incident response itself from engineers being on-call. Please read excellent documentation from Pagerduty to familiarize yourself with the more detailed guide on working during the incident[^response].
+We don't cover details about incident response for engineers being on-call. Please read the excellent documentation from PagerDuty to familiarize yourself with the more detailed guide on working during an incident[^response].
 
-## How introduce On-Call into your company?
+## How to Introduce On-Call into Your Company?
 
-Introducing On-call is a major culture change for people. If you have never done it before, it significantly impacts your personal life, and you get a lot of stress that you don't have before. The company should have asked people and have this option in contracts if you need it. It isn't lovely if on-call is a surprise or you want to be promoted after your probation period.
+Introducing on-call is a major culture change. If you have never done it before, it significantly impacts your personal life and brings a level of stress you didn't have before. The company should discuss it with people upfront and include it in contracts where required. It isn't ideal if on-call comes as a surprise or is sprung on someone after their probation period.
 
-If you are a small startup is good to start early during working hours. I will focus on good observability and alerting with proper paging workflow and get ownership to developers working on the service. This approach is called You build it; you run it. [^ybyr]
+If you are a small startup, it's good to start during working hours only. Focus on good observability and alerting with a proper paging workflow, and give ownership to the developers working on the service. This approach is called "You build it, you run it." [^ybyr]
 
-I will recommend taking your time with changes. You have to be sure that all people who will join on-call fully understand what is behind that extra work. You should give them proper training using gamedays [^gm]. I recommend having a training environment; everyone should go through a few incidents to be sure of what to do. The mastered process is more important than the solution for good on-call. For solutions, you can always summon engineers across the company if you need them. Communicating with all stakeholders and controlling what happens is critical to good incident management.
+I recommend taking your time with changes. You need to ensure that everyone who joins on-call fully understands what that extra work entails. Give them proper training using gamedays [^gm]. I recommend having a training environment where everyone goes through a few simulated incidents before going live. A well-mastered process is more important than having the right solution — for solutions, you can always summon engineers from across the company. Communicating with all stakeholders and controlling what happens is critical to good incident management.
 
 ### How Many People Do You Need For On-call?
 

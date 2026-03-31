@@ -13,10 +13,10 @@ menu:
 weight: 17
 ---
 
-Design on-call is a tough process that constantly changes conditions. The number of people in teams changes quite often, and you can add more people during the hiring and remove people from the team, and that isn’t easy. We don’t discuss handover time for sites and what is recommended.
+Designing on-call is a tough process with constantly changing conditions. Team size shifts frequently — you add people during hiring and lose them when they leave — and planning around that is never easy. We don't cover handover times for sites and what is recommended in detail here.
 
-If you choose Wednesday as an SRE book, I recommend changing to a weekly shift or Sunday or Monday. We use Sunday for reporting purposes, and we have an incident review on Monday, but I don’t see this as a problem. Some recommend making changes on Wednesdays, not overlapping with development planning or other company regular meetings.
+The SRE book recommends Wednesday for weekly shift changes, but I suggest Sunday or Monday instead. We use Sunday for reporting purposes and hold an incident review on Monday, which works well for us. Some teams prefer Wednesday to avoid overlap with development planning or other recurring company meetings.
 
-There are time zones that make you think about different times for handover. We had two sites with California (9 am PST) and Central Europe (6 pm UTC+1) was a good time for us. But some combinations can’t work as well. For example Europe and India, the time zone difference are too small. It’s good for cooperation but not suitable for oncall. Sometimes it is good to don’t tie development teams to oncall teams.
+Time zones also affect your handover timing decisions. We ran two sites — California (9 am PST) and Central Europe (6 pm UTC+1) — and that worked well for us. But some combinations don't work as cleanly. Europe and India, for example, have too small a time difference to be useful for on-call coverage, even though it's great for collaboration. Sometimes it's worth decoupling development teams from on-call teams.
 
 Good luck with designing your first on-call!

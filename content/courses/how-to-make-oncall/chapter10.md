@@ -13,7 +13,7 @@ menu:
 weight: 15
 ---
 
-We can split tools into multiple categories as pagers, incident response, incident workflows, utility and postmortems. More and more tools are trying to be more universal and cover more of it. Here is always what suits you best and how you can combine it.
+We can split tools into multiple categories: pagers, incident response, incident workflows, utility, and postmortems. More and more tools are trying to be universal and cover several of these areas. What matters is finding what suits you best and how to combine them effectively.
 
 You can find some overview [tools](tools.md) but we will focus more about workflow and what you need.
 
@@ -97,8 +97,8 @@ There are links to documentation how scheduling can look like in OpsGenie and Pa
 ## Requirements for incident response and workflows
 
 - look on integration, covers your tooling (ticketing system, communication tools, status pages, etc)
-- security (at least SOC2, ISO 270001 if you need it)
-- try have your process before and test it if you model it in tooling, this is very hard to upfront and you will be iterate over process during time and you want have flexibility and support from tooling to do it.
+- security (at least SOC 2, ISO 27001 if you need it)
+- define and test your process before modelling it in tooling — this is hard to get right upfront, and you will iterate over time, so you need flexibility and tooling support to do so.
 - way how to test it changes properly without breaking current workflows!
 - costs (you will pay for all extra tools and their pricing model can't work for everyone)
 - help with postmortem to collect all evidence from Slack (or similar tool) to later documentation
@@ -107,6 +107,6 @@ There are links to documentation how scheduling can look like in OpsGenie and Pa
 
 There is essential to know what you want from postmortems as a company. I prefer to look at postmortems as a way to improve internal processes and as learning materials for newcomers.
 
-- many of tooling are good to have written recoding what happened and how we improve things in the future
-- less tools really help with RCA and find important things about your incidents
-- you can look on postmortems as materials for learning new people and that is hardest to do it
+- most tools are good at recording what happened and how you plan to improve things in the future
+- fewer tools genuinely help with RCA and surfacing the most important findings from an incident
+- postmortems can serve as learning materials for new engineers — making them useful in that context is the hardest part
