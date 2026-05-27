@@ -55,11 +55,26 @@ education:
 #
 # Section is hidden if `career:` is empty or missing.
 career:
-  - start: 2026
+  - start: 2023
     end: Present
     company: Everpure
     title: Staff Engineer
-    description: Go, Kubernetes, and cloud infrastructure across AWS, OCI, and Azure.
+    description: Working with Go, Kubernetes, and cloud infrastructure across AWS, OCI, and Azure.
+  - start: 2021
+    end: 2022
+    company: Productboard
+    title: Senior Engineering Manager
+    description: Leading the Production Engineering team focused on observability, incident management, service maturity, and continuous delivery.
+  - start: 2017
+    end: 2021
+    company: Oracle
+    title: Senior Manager, Software Development
+    description: Service Owner for Apiary Cloud Service (2021). Led the SRE team in Oracle Apiary Cloud Service. Migrated the service from AWS to OCI (2019).
+  - start: 2014
+    end: 2017
+    company: Apiary
+    title: SRE Team Lead
+    description: Led the Site Reliability Engineering team. Main responsibilities — monitoring, security, reliability, and software development processes. Infrastructure on Heroku and AWS.
 
 # Social/academia Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
