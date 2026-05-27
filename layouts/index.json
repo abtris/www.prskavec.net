@@ -1,0 +1,66 @@
+{{- /* Search index for Algolia (built by algolia.go and pushed to the
+       blog_hugo index). One record per indexable page. */ -}}
+{{- $index := slice -}}
+{{- $pages := site.RegularPages -}}
+{{- /* Include docs section pages (they're branch-bundle, not in RegularPages). */ -}}
+{{- $pages = $pages | union (where (where site.Pages "Kind" "section") "Type" "docs") -}}
+{{- /* Include the author profile (so the bio is searchable). */ -}}
+{{- $pages = $pages | union (where (where site.Pages "Section" "authors") "Params.name" "!=" nil) -}}
+
+{{- range $pages -}}
+  {{- if and (not .Draft) (not .Params.private) -}}
+
+    {{- /* Description: prefer explicit summary, fall back to .Summary. */ -}}
+    {{- $desc := "" -}}
+    {{- if .Params.summary -}}
+      {{- $desc = .Params.summary -}}
+    {{- else -}}
+      {{- $desc = .Summary -}}
+    {{- end -}}
+
+    {{- $title := .Title -}}
+    {{- $relPermalink := .RelPermalink -}}
+    {{- $permalink := .Permalink -}}
+    {{- $authors := .Params.authors -}}
+
+    {{- /* Author profile pages use .Params.name as the title. */ -}}
+    {{- if eq .Section "authors" -}}
+      {{- $title = .Params.name -}}
+    {{- else if .Params.authors -}}
+      {{- /* Resolve author usernames to display names where possible. */ -}}
+      {{- $resolved := slice -}}
+      {{- range .Params.authors -}}
+        {{- $authorPage := site.GetPage (printf "/authors/%s" (urlize .)) -}}
+        {{- if and $authorPage $authorPage.File -}}
+          {{- $resolved = $resolved | append $authorPage.Params.name -}}
+        {{- else -}}
+          {{- $resolved = $resolved | append (. | plainify) -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $authors = $resolved -}}
+    {{- end -}}
+
+    {{- $index = $index | append (dict
+        "objectID"     .File.UniqueID
+        "date"         .Date.UTC.Unix
+        "publishdate"  .PublishDate
+        "lastmod"      .Lastmod.UTC.Unix
+        "expirydate"   .ExpiryDate.UTC.Unix
+        "lang"         .Lang
+        "permalink"    $permalink
+        "relpermalink" $relPermalink
+        "title"        $title
+        "summary"      (plainify $desc)
+        "content"      .Plain
+        "authors"      $authors
+        "kind"         .Kind
+        "type"         .Type
+        "section"      .Section
+        "tags"         .Params.Tags
+        "categories"   .Params.Categories
+    ) -}}
+
+  {{- end -}}
+{{- end -}}
+
+{{- $index | jsonify -}}
