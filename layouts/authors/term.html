@@ -49,7 +49,7 @@
           <dd class="text-[color:var(--color-signal)] tabular-nums">{{ len $upcoming }}</dd>
           {{ end }}
           <dt class="mono-label">Based</dt>
-          <dd class="text-[color:var(--color-paper)]" itemprop="homeLocation">Prague, CZ</dd>
+          <dd class="text-[color:var(--color-paper)]" itemprop="homeLocation">{{ site.Params.address | default "Prague, CZ" }}</dd>
         </dl>
       </div>
     </aside>

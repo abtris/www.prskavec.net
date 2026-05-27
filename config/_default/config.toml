@@ -1,53 +1,37 @@
-# Configuration of Academia
-# Documentation: https://sourcethemes.com/academic/
-#
-# This file is formatted using TOML syntax - learn more at https://learnxinyminutes.com/docs/toml/
-# Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
+# Hugo site configuration for prskavec.net.
+# Docs: https://gohugo.io/getting-started/configuration/
 
 # Title of your site
 title = "Prskavec.Net"
 
-# The URL of your site.
-# End your URL with a `/` trailing slash, e.g. `https://example.com/`.
+# The URL of your site (end with a trailing slash)
 baseURL = "https://www.prskavec.net/"
 
-# Enter a copyright notice to display in the site footer.
-# To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
-copyright = "&copy; {year}"
+# Copyright notice — used in the footer + RSS <copyright>
+copyright = "&copy; {year} Ladislav Prskavec"
 
-# Enable analytics by entering your Google Analytics tracking ID
-googleAnalytics = "UA-79221-1"
-
-# Enable comments by entering your Disqus shortname
-disqusShortname = ""
-
-############################
-## Advanced options below ##
-############################
-
-# Name of Academia theme folder in `themes/`.
+# Theme used as a fallback for any layout the project doesn't override
 theme = "academia"
 
-# Get last modified date for content from Git?
+# Get last modified date for content from Git
 enableGitInfo = false
 
-# Emit a robots.txt at the site root from layouts/robots.txt
+# Emit a /robots.txt from layouts/robots.txt
 enableRobotsTXT = true
 
-# Default language to use (if you setup multilingual support)
+# Default language
 defaultContentLanguage = "en"
-hasCJKLanguage = false  # Set `true` for Chinese/Japanese/Korean languages.
+hasCJKLanguage = false
 defaultContentLanguageInSubdir = false
-removePathAccents = true  # Workaround for https://github.com/gohugoio/hugo/issues/5687
-
-[pagination]
-pagerSize = "10"
+removePathAccents = true  # https://github.com/gohugoio/hugo/issues/5687
 
 enableEmoji = false
 footnotereturnlinkcontents = "<sup>^</sup>"
 ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 ignoreLogs = ['warning-goldmark-raw-html']
 
+[pagination]
+  pagerSize = 10
 
 [outputs]
   home = [ "HTML", "RSS", "JSON", "LLMS" ]
@@ -61,22 +45,22 @@ ignoreLogs = ['warning-goldmark-raw-html']
     isPlainText = true
     notAlternative = true
 
-# Configure BlackFriday Markdown rendering.
-#   See: https://gohugo.io/getting-started/configuration/#configure-blackfriday
+# Markdown rendering knobs (consulted by legacy BlackFriday paths; Goldmark
+# is the default renderer and inherits most defaults).
 [blackfriday]
-  hrefTargetBlank = true  # `true` opens external links in a new tab. See https://github.com/gohugoio/hugo/issues/2424
-	angledQuotes = false
-	latexDashes = true
+  hrefTargetBlank = true
+  angledQuotes = false
+  latexDashes = true
   extensions = ["backslashLineBreak"]
 
 [imaging]
   resampleFilter = "lanczos"
   quality = 90
-  anchor = "smart"  # Anchor for cropping. Options include Smart and Center.
+  anchor = "smart"
 
-# Taxonomies.
+# Taxonomies — `authors` powers the about page at /authors/abtris/;
+# tag / category drive the /tags/ and /categories/ archive pages.
 [taxonomies]
   tag = "tags"
   category = "categories"
-  publication_type = "publication_types"
   author = "authors"
