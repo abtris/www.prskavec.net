@@ -1,0 +1,103 @@
+{{- /*
+  Emit a JSON-LD <script> with the schema.org type that matches this
+  page's kind/section. Branches:
+    - Homepage          → WebSite
+    - /authors/<slug>/  → Person (current author bundle)
+    - /talk/<slug>/     → Event
+    - /reader/<slug>/   → Article (long-form write-up of a talk)
+    - /post/<slug>/     → Article
+    - course chapters   → Article
+  Other pages skip JSON-LD intentionally.
+*/ -}}
+
+{{- $author := site.GetPage "/authors/abtris" -}}
+{{- $authorURL := "" -}}
+{{- with $author }}{{ $authorURL = .Permalink }}{{ end -}}
+{{- $defaultImage := absURL "img/og-default.png" -}}
+
+{{- $data := "" -}}
+
+{{- if .IsHome -}}
+  {{- $data = dict
+    "@context"    "https://schema.org"
+    "@type"       "WebSite"
+    "name"        site.Title
+    "url"         site.BaseURL
+    "description" site.Params.description
+    "inLanguage"  (site.Language.Locale | default "en")
+    "publisher"   (dict "@type" "Person" "name" "Ladislav Prskavec" "url" $authorURL)
+  -}}
+
+{{- else if eq .Section "authors" -}}
+  {{- $sameAs := slice
+      "https://github.com/abtris"
+      "https://hachyderm.io/@abtris"
+      "https://twitter.com/abtris"
+      "https://www.linkedin.com/in/ladislavprskavec/"
+      "https://www.youtube.com/@abtris"
+  -}}
+  {{- $jobTitle := "" -}}
+  {{- with index (.Params.career | default slice) 0 -}}
+    {{- if eq (printf "%v" .end) "Present" -}}
+      {{- $jobTitle = printf "%s at %s" .title .company -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $img := "" -}}
+  {{- with .Params.avatar_image -}}{{ $img = absURL (printf "img/%s" .) }}{{- end -}}
+  {{- $data = dict
+    "@context"    "https://schema.org"
+    "@type"       "Person"
+    "name"        (.Params.name | default .Title)
+    "url"         .Permalink
+    "image"       ($img | default $defaultImage)
+    "jobTitle"    $jobTitle
+    "address"     (dict "@type" "PostalAddress" "addressLocality" "Prague" "addressCountry" "CZ")
+    "sameAs"      $sameAs
+    "description" (site.Params.description | plainify | truncate 220)
+  -}}
+
+{{- else if eq .Section "talk" -}}
+  {{- $location := dict "@type" "Place" "name" (.Params.location | default "Prague, Czech Republic") "address" (.Params.location | default "Prague, Czech Republic") -}}
+  {{- $organizer := dict "@type" "Organization" "name" (.Params.event | default site.Title) -}}
+  {{- with .Params.event_url -}}{{ $organizer = merge $organizer (dict "url" .) }}{{- end -}}
+  {{- $now := now -}}
+  {{- $status := "https://schema.org/EventScheduled" -}}
+  {{- $data = dict
+    "@context"            "https://schema.org"
+    "@type"               "Event"
+    "name"                .Title
+    "startDate"           (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "endDate"             (cond .Params.date_end (dateFormat "2006-01-02T15:04:05Z07:00" .Params.date_end) (.Date.Format "2006-01-02T15:04:05Z07:00"))
+    "eventStatus"         $status
+    "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode"
+    "location"            $location
+    "organizer"           $organizer
+    "performer"           (dict "@type" "Person" "name" "Ladislav Prskavec" "url" $authorURL)
+    "description"         (.Params.summary | default .Summary | plainify | truncate 320)
+    "url"                 .Permalink
+    "image"               $defaultImage
+  -}}
+
+{{- else if or (eq .Section "post") (eq .Section "reader") (eq .Type "docs") -}}
+  {{- $img := $defaultImage -}}
+  {{- with .Resources.GetMatch "{og.*,share.*,featured.*}" -}}{{ $img = .Permalink }}{{- end -}}
+  {{- $data = dict
+    "@context"         "https://schema.org"
+    "@type"            "Article"
+    "headline"         .Title
+    "description"      (.Params.summary | default .Summary | plainify | truncate 320)
+    "image"            $img
+    "datePublished"    (.Date.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified"     (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    "inLanguage"       (site.Language.Locale | default "en")
+    "url"              .Permalink
+    "mainEntityOfPage" .Permalink
+    "author"           (dict "@type" "Person" "name" "Ladislav Prskavec" "url" $authorURL)
+    "publisher"        (dict "@type" "Person" "name" "Ladislav Prskavec" "url" $authorURL)
+  -}}
+  {{- with .Params.tags -}}{{ $data = merge $data (dict "keywords" (delimit . ", ")) }}{{- end -}}
+{{- end -}}
+
+{{- with $data -}}
+<script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
+{{- end -}}

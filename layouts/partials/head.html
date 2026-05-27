@@ -60,3 +60,6 @@
 {{ if .IsPage }}
 <link rel="canonical" href="{{ .Permalink }}">
 {{ end }}
+
+{{/* ── JSON-LD structured data ─────────────────────────────────── */}}
+{{ partial "jsonld.html" . }}
