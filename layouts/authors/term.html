@@ -10,7 +10,7 @@
   <header class="rise">
     <div class="mono-label mb-6">About · The person behind prskavec.net</div>
     <h1 class="display text-[clamp(3rem,11vw,10.5rem)] leading-[0.92]">
-      <span itemprop="name">{{ .Params.name | default .Title }}<span class="text-[color:var(--color-signal)]">.</span></span>
+      <span itemprop="name">{{ .Params.name | default .Title }}</span>
     </h1>
     {{ with .Params.role }}
     <p class="mt-6 display italic text-2xl md:text-4xl leading-[1.05] text-[color:var(--color-paper-dim)] max-w-[36ch]" itemprop="jobTitle">
