@@ -6,7 +6,9 @@
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "css": "tailwindcss -i ./assets/css/input.css -o ./static/css/output.css --minify",
+    "css:watch": "tailwindcss -i ./assets/css/input.css -o ./static/css/output.css --watch"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,8 @@
   "homepage": "https://github.com/abtris/www.prskavec.net#readme",
   "devDependencies": {
     "@playwright/test": "^1.58.2",
-    "@types/node": "^25.5.0"
+    "@tailwindcss/cli": "^4.1.14",
+    "@types/node": "^25.5.0",
+    "tailwindcss": "^4.1.14"
   }
 }

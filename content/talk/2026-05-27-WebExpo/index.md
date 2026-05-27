@@ -31,6 +31,7 @@ links:
 #  url: https://twitter.com/georgecushen
 url_code: ""
 url_pdf: ""
+url_reader: "/reader/2026-05-27-webexpo/"
 url_slides: "https://speakerdeck.com/abtris/under-the-hood-of-ai-building-your-own-mcp-server-in-go"
 url_video: ""
 

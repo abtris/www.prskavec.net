@@ -1,0 +1,70 @@
+{{ define "main" }}
+{{ $talkURL := .Params.talk }}
+{{ $talk := "" }}
+{{ with $talkURL }}{{ $talk = site.GetPage . }}{{ end }}
+
+<article class="relative z-10 px-6 md:px-12 lg:px-20 py-10 md:py-14">
+
+  {{/* breadcrumb */}}
+  <div class="flex items-center gap-3 mb-10 rise">
+    <a href="{{ "/talk/" | relURL }}" class="mono-label hover:text-[color:var(--color-paper)] transition-colors">
+      ← Talks
+    </a>
+    {{ with $talk }}
+      <span class="mono-label text-[color:var(--color-paper-faint)]">/</span>
+      <a href="{{ .RelPermalink }}" class="mono-label hover:text-[color:var(--color-paper)] transition-colors">{{ .Params.event | default .Title }}</a>
+    {{ end }}
+  </div>
+
+  {{/* headline block */}}
+  <header class="max-w-5xl rise rise-1">
+    <div class="flex flex-wrap items-baseline gap-3 mb-6">
+      <span class="mono-tag mono-tag-signal">❡ Annotated Reader</span>
+      <span class="mono-label">{{ dateFormat "2006.01.02" .Date }}</span>
+      {{ with .ReadingTime }}<span class="mono-label">· {{ . }} min read</span>{{ end }}
+    </div>
+
+    <h1 class="display text-[clamp(2.8rem,7vw,7rem)] leading-[0.96] mb-3">
+      {{ .Title }}<span class="text-[color:var(--color-signal)]">.</span>
+    </h1>
+
+    {{ with .Params.subtitle }}
+    <p class="display italic text-2xl md:text-4xl leading-[1.05] text-[color:var(--color-paper-dim)] max-w-[40ch]">
+      {{ . }}
+    </p>
+    {{ end }}
+
+    {{ with .Params.author }}
+    <p class="mono-label mt-8 normal-case tracking-normal text-base text-[color:var(--color-paper)]">
+      {{ . }}
+    </p>
+    {{ end }}
+  </header>
+
+  {{/* body prose */}}
+  <div class="mt-16 md:mt-20 grid gap-10 md:grid-cols-[14rem_1fr] lg:grid-cols-[16rem_1fr]">
+    <aside class="hidden md:flex justify-end pt-2">
+      <span class="vert-label">Read the talk</span>
+    </aside>
+    <div class="prose-editorial rise rise-2 min-w-0">
+      {{ .Content }}
+    </div>
+  </div>
+
+  {{/* back-to-talk CTA */}}
+  {{ with $talk }}
+  <nav aria-label="Back to talk" class="mt-24 pt-8 border-t border-[color:var(--color-rule)] max-w-5xl">
+    <a href="{{ .RelPermalink }}" class="group block">
+      <div class="mono-label mb-2">← Back to the talk page</div>
+      <div class="display text-2xl md:text-3xl italic group-hover:text-[color:var(--color-signal)] transition-colors">
+        {{ .Title }}
+      </div>
+      <div class="mono-label mt-1 normal-case tracking-normal">
+        {{ .Params.event }} · {{ dateFormat "2006.01.02" .Date }}
+      </div>
+    </a>
+  </nav>
+  {{ end }}
+
+</article>
+{{ end }}

@@ -1,0 +1,21 @@
+{{ $src := .Get "src" }}
+{{ $poster := .Get "poster" }}
+{{ $resolved := "" }}
+{{ $posterResolved := "" }}
+
+{{ with .Page.Resources.GetMatch $src }}{{ $resolved = .RelPermalink }}{{ else }}{{ $resolved = $src }}{{ end }}
+{{ with $poster }}
+  {{ with $.Page.Resources.GetMatch . }}{{ $posterResolved = .RelPermalink }}{{ else }}{{ $posterResolved = . }}{{ end }}
+{{ end }}
+
+<figure class="reader-video">
+  <video
+    src="{{ $resolved }}"
+    {{ with $posterResolved }}poster="{{ . }}"{{ end }}
+    controls
+    preload="none"
+    playsinline>
+    Your browser does not support embedded video.
+    <a href="{{ $resolved }}">Download the demo recording.</a>
+  </video>
+</figure>

@@ -1,0 +1,83 @@
+{{ define "main" }}
+{{ $now := now }}
+{{ $all := sort .Pages "Date" "desc" }}
+{{ $upcoming := where $all "Date" "gt" $now }}
+{{ $past := where $all "Date" "le" $now }}
+
+<section class="relative z-10 px-6 md:px-12 lg:px-20 py-10 md:py-14 max-w-5xl">
+  <div class="mono-label mb-4 rise">Index · Conference appearances</div>
+  <h1 class="display italic text-6xl md:text-8xl lg:text-[8.5rem] leading-[0.9] mb-4 rise rise-1">
+    Talks.
+  </h1>
+  <p class="prose-editorial max-w-[58ch] text-[color:var(--color-paper-dim)] rise rise-2">
+    A running ledger of conference talks, meetup appearances and panel slots —
+    mostly about reliability, Go, infrastructure-as-code and the small operational
+    habits that keep distributed systems quiet at night.
+  </p>
+
+  {{ if $upcoming }}
+  <div class="mt-16 rise rise-3">
+    <div class="section-marker">
+      <span class="mono-label text-[color:var(--color-live)]">▲ Upcoming · {{ len $upcoming }}</span>
+    </div>
+    <ul>
+      {{ range $upcoming }}
+      <li>
+        <a href="{{ .RelPermalink }}" class="talk-row group">
+          <span class="talk-date">
+            <span class="text-[color:var(--color-live)]">●</span>
+            {{ dateFormat "2006.01.02" .Date }}
+          </span>
+          <div class="min-w-0">
+            <div class="talk-title">{{ .Title }}</div>
+            <span class="talk-event">{{ .Params.event }}{{ with .Params.location }} · {{ . }}{{ end }}</span>
+          </div>
+          <span class="mono-label group-hover:text-[color:var(--color-signal)] transition-colors">↗</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+  {{/* group past talks by year */}}
+  {{ $byYear := dict }}
+  {{ range $past }}
+    {{ $y := dateFormat "2006" .Date }}
+    {{ $existing := index $byYear $y | default slice }}
+    {{ $byYear = merge $byYear (dict $y (append . $existing)) }}
+  {{ end }}
+
+  {{ $years := slice }}
+  {{ range $y, $_ := $byYear }}{{ $years = $years | append $y }}{{ end }}
+  {{ $years = sort $years "value" "desc" }}
+
+  <div class="mt-16 rise rise-4">
+    <div class="section-marker">
+      <span class="mono-label">◆ Archive · {{ len $past }} prior</span>
+    </div>
+    {{ range $y := $years }}
+      {{ $items := index $byYear $y }}
+      <div class="mb-10">
+        <div class="display italic text-[color:var(--color-paper-faint)] text-7xl md:text-8xl leading-none -ml-1 mb-2 select-none">
+          {{ $y }}
+        </div>
+        <ul>
+          {{ range $items }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="talk-row group">
+              <span class="talk-date">{{ dateFormat "02 Jan" .Date }}</span>
+              <div class="min-w-0">
+                <div class="talk-title">{{ .Title }}</div>
+                <span class="talk-event">{{ .Params.event }}{{ with .Params.location }} · {{ . }}{{ end }}</span>
+              </div>
+              <span class="mono-label group-hover:text-[color:var(--color-signal)] transition-colors">→</span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

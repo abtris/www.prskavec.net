@@ -1,0 +1,133 @@
+{{ $slides := .Params.url_slides }}
+{{ $video  := .Params.url_video }}
+{{ $reader := .Params.url_reader }}
+
+{{ $hasSpeakerdeck := and $slides (strings.Contains $slides "speakerdeck.com") }}
+{{ $hasYouTube     := and $video (or (strings.Contains $video "youtube.com") (strings.Contains $video "youtu.be")) }}
+{{ $hasReader      := and $reader (or (hasPrefix $reader "http") (hasPrefix $reader "/")) }}
+{{ $readerIsLocal  := and $reader (hasPrefix $reader "/") }}
+
+{{ $videoID := "" }}
+{{ if $hasYouTube }}
+  {{ $matches := findRESubmatch `(?:v=|youtu\.be/|embed/)([a-zA-Z0-9_-]{11})` $video }}
+  {{ if $matches }}{{ $videoID = index (index $matches 0) 1 }}{{ end }}
+{{ end }}
+
+{{ $deckID := "" }}
+{{ $deckRatio := 1.7777 }}
+{{ if $hasSpeakerdeck }}
+  {{ $oURL := printf "https://speakerdeck.com/oembed.json?url=%s" $slides }}
+  {{ with try (resources.GetRemote $oURL) }}
+    {{ with .Err }}
+      {{ warnf "speakerdeck oembed failed for %s: %s" $slides . }}
+    {{ else with .Value }}
+      {{ $data := .Content | transform.Unmarshal }}
+      {{/* new format: <iframe ... src="https://speakerdeck.com/player/<id>" ...> */}}
+      {{ $idMatches := findRESubmatch `speakerdeck\.com/player/([a-f0-9]+)` $data.html }}
+      {{/* legacy format: <script class="speakerdeck-embed" data-id="<id>"> */}}
+      {{ if not $idMatches }}
+        {{ $idMatches = findRESubmatch `data-id="([^"]+)"` $data.html }}
+      {{ end }}
+      {{ if $idMatches }}{{ $deckID = index (index $idMatches 0) 1 }}{{ end }}
+      {{ with $data.ratio }}{{ $deckRatio = . }}{{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if or $videoID $deckID $hasReader }}
+<section class="mt-16 md:mt-20 grid gap-10 md:grid-cols-[14rem_1fr] lg:grid-cols-[16rem_1fr]">
+  <div class="hidden md:flex justify-end">
+    <span class="vert-label">Media</span>
+  </div>
+  <div class="rise rise-3 space-y-6">
+
+    {{ with $videoID }}
+    <button type="button" class="media-poster" data-embed-type="youtube" data-embed-id="{{ . }}" data-aspect="1.7777" aria-label="Play talk recording on YouTube">
+      <img class="media-thumb" src="https://i.ytimg.com/vi/{{ . }}/maxresdefault.jpg" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/{{ . }}/hqdefault.jpg';">
+      <span class="media-overlay">
+        <span class="mono-tag mono-tag-signal">▶ Recording</span>
+        <span class="media-title display italic">Watch the talk.</span>
+        <span class="mono-label">Click to load · youtube-nocookie.com</span>
+      </span>
+      <span class="media-play" aria-hidden="true">▶</span>
+    </button>
+    {{ end }}
+
+    {{ if $hasReader }}
+      {{ if $readerIsLocal }}
+        {{/* Internal reader: navigate to a styled Hugo page, no iframe */}}
+        {{ $readerPage := site.GetPage $reader }}
+        {{ $rtime := "" }}
+        {{ with $readerPage }}{{ $rtime = printf "%d min read" .ReadingTime }}{{ end }}
+        <a href="{{ $reader }}" class="media-poster media-poster-reader media-poster-link">
+          <span class="media-overlay">
+            <span class="mono-tag mono-tag-signal">❡ Annotated Reader</span>
+            <span class="media-title display italic">Read the talk,<br>slide by slide.</span>
+            <span class="mono-label">
+              On prskavec.net{{ with $rtime }} · {{ . }}{{ end }} · with our styling
+            </span>
+          </span>
+          <span class="media-play" aria-hidden="true">❡</span>
+        </a>
+      {{ else }}
+        {{ $host := "" }}
+        {{ with urls.Parse $reader }}{{ $host = .Host }}{{ end }}
+        <button type="button" class="media-poster media-poster-reader" data-embed-type="reader" data-embed-url="{{ $reader }}" data-aspect="1.5" aria-label="Open the annotated presentation reader">
+          <span class="media-overlay">
+            <span class="mono-tag mono-tag-signal">❡ Annotated Reader</span>
+            <span class="media-title display italic">Read the talk,<br>slide by slide.</span>
+            <span class="mono-label">Click to load · {{ $host }}</span>
+          </span>
+          <span class="media-play" aria-hidden="true">❡</span>
+        </button>
+      {{ end }}
+    {{ end }}
+
+    {{ with $deckID }}
+    <button type="button" class="media-poster media-poster-slides" data-embed-type="speakerdeck" data-embed-id="{{ . }}" data-aspect="{{ $deckRatio }}" aria-label="View slides on Speakerdeck">
+      <span class="media-overlay">
+        <span class="mono-tag mono-tag-signal">▤ Slides</span>
+        <span class="media-title display italic">Browse the deck.</span>
+        <span class="mono-label">Click to load · speakerdeck.com</span>
+      </span>
+      <span class="media-play" aria-hidden="true">▤</span>
+    </button>
+    {{ end }}
+
+  </div>
+</section>
+
+<script>
+(function(){
+  document.querySelectorAll('.media-poster').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var type = btn.dataset.embedType;
+      var id = btn.dataset.embedId;
+      var url = btn.dataset.embedUrl;
+      var aspect = parseFloat(btn.dataset.aspect) || 1.7777;
+      var src = '';
+      var allow = 'fullscreen';
+      if (type === 'youtube') {
+        src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+        allow = 'autoplay; encrypted-media; fullscreen';
+      } else if (type === 'speakerdeck') {
+        src = 'https://speakerdeck.com/player/' + id;
+      } else if (type === 'reader') {
+        src = url;
+      }
+      var wrap = document.createElement('div');
+      wrap.className = 'media-frame';
+      wrap.style.aspectRatio = aspect.toFixed(4);
+      var iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.setAttribute('allow', allow);
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('loading', 'lazy');
+      wrap.appendChild(iframe);
+      btn.replaceWith(wrap);
+    });
+  });
+})();
+</script>
+{{ end }}

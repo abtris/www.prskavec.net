@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{ $current := . }}
+{{ $parts := split (trim .RelPermalink "/") "/" }}
+{{ $menuName := index $parts 1 }}
+
+<div class="relative z-10 px-6 md:px-12 lg:px-20 py-8 md:py-10">
+  <div class="grid gap-10 lg:gap-16 lg:grid-cols-[18rem_1fr]">
+
+    <aside class="lg:sticky lg:top-8 lg:self-start lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto pb-6 lg:pb-12">
+      <a href="{{ "/courses/" | relURL }}" class="mono-label hover:text-[color:var(--color-paper)] transition-colors block mb-6">
+        ← All Courses
+      </a>
+      {{ partial "docs-sidebar.html" . }}
+    </aside>
+
+    <article class="min-w-0 rise">
+      <div class="flex flex-wrap items-baseline gap-3 mb-6">
+        <span class="mono-tag mono-tag-signal">◆ Course</span>
+        <span class="mono-label">Long-form guide</span>
+      </div>
+
+      <h1 class="display text-[clamp(2.4rem,6vw,5.5rem)] leading-[0.98] mb-10">
+        {{ .Title }}
+      </h1>
+
+      <div class="prose-editorial">
+        {{ .Content }}
+      </div>
+
+      <div class="mono-label mt-12 text-[color:var(--color-paper-faint)]">
+        Last updated: {{ .Lastmod.Format "2006.01.02" }}
+      </div>
+    </article>
+
+  </div>
+</div>
+{{ end }}

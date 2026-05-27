@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="500" viewBox="0 0 1120 500" role="img" aria-labelledby="title desc">
+  <title id="title">CLI versus MCP decision framework</title>
+  <desc id="desc">Two clean decision branches: local simple tools with shell access point to CLI; durable services needing discovery and boundaries point to MCP.</desc>
+  <defs>
+    <style>
+      text { font-family: 'Familjen Grotesk', 'Segoe UI', Arial, sans-serif; letter-spacing: 0; }
+      .q { font-size: 23px; font-weight: 700; }
+      .a { font-size: 17px; font-weight: 600; fill: #5A6359; }
+      .result { font-size: 30px; font-weight: 700; }
+      .small { font-size: 17px; font-weight: 600; fill: #5A6359; }
+      .branch { font-size: 18px; font-weight: 700; fill: #D85A14; }
+      .on-dark { fill: #FFF5E3; }
+      .on-dark-muted { fill: #D0C8BA; }
+    </style>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#FF7023"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#5A6359"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1120" height="500" rx="8" fill="none"/>
+
+  <text class="branch" x="74" y="42">Use the simplest thing that works</text>
+  <rect x="72" y="58" width="250" height="96" rx="8" fill="#FFFFFF" stroke="#D0C8BA" stroke-width="2"/>
+  <text class="q" x="197" y="98" text-anchor="middle">Local + simple?</text>
+  <text class="a" x="197" y="128" text-anchor="middle">files, git, one-off command</text>
+
+  <path d="M328 106 H384" stroke="#5A6359" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <text class="small" x="356" y="91" text-anchor="middle">yes</text>
+
+  <rect x="392" y="58" width="250" height="96" rx="8" fill="#FFFFFF" stroke="#D0C8BA" stroke-width="2"/>
+  <text class="q" x="517" y="98" text-anchor="middle">Agent has shell?</text>
+  <text class="a" x="517" y="128" text-anchor="middle">trusted local runtime</text>
+
+  <path d="M648 106 H764" stroke="#FF7023" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <text class="small" x="706" y="91" text-anchor="middle" fill="#D85A14">yes</text>
+
+  <rect x="776" y="44" width="286" height="124" rx="8" fill="#2D2A27"/>
+  <text class="result" x="919" y="94" text-anchor="middle" fill="#FFF5E3">Consider CLI</text>
+  <text class="small on-dark-muted" x="919" y="130" text-anchor="middle">cheaper, faster, great</text>
+  <text class="small on-dark-muted" x="919" y="154" text-anchor="middle">for local one-offs</text>
+
+  <text class="branch" x="74" y="228">Reach for MCP when the capability becomes a product</text>
+  <rect x="72" y="244" width="250" height="96" rx="8" fill="#FFFFFF" stroke="#D0C8BA" stroke-width="2"/>
+  <text class="q" x="197" y="284" text-anchor="middle">Need discovery?</text>
+  <text class="a" x="197" y="314" text-anchor="middle">schemas, descriptions, reuse</text>
+
+  <path d="M328 292 H384" stroke="#5A6359" stroke-width="3" stroke-linecap="round" marker-end="url(#arrow-muted)"/>
+  <text class="small" x="356" y="277" text-anchor="middle">yes</text>
+
+  <rect x="392" y="244" width="250" height="96" rx="8" fill="#FFFFFF" stroke="#D0C8BA" stroke-width="2"/>
+  <text class="q" x="517" y="284" text-anchor="middle">Need boundaries?</text>
+  <text class="a" x="517" y="314" text-anchor="middle">remote, permissions, audit</text>
+
+  <path d="M648 292 H764" stroke="#FF7023" stroke-width="4" stroke-linecap="round" marker-end="url(#arrow-orange)"/>
+  <text class="small" x="706" y="277" text-anchor="middle" fill="#D85A14">yes</text>
+
+  <rect x="776" y="230" width="286" height="124" rx="8" fill="#FF7023"/>
+  <text class="result" x="919" y="280" text-anchor="middle" fill="#FFF5E3">MCP Shines</text>
+  <text class="small on-dark" x="919" y="316" text-anchor="middle">discoverable, reusable,</text>
+  <text class="small on-dark" x="919" y="340" text-anchor="middle">secure service access</text>
+
+  <rect x="124" y="402" width="872" height="62" rx="8" fill="#FBEFD8" stroke="#D0C8BA" stroke-width="2"/>
+  <text class="small" x="560" y="428" text-anchor="middle">Hybrid option: Code Mode for local scripts; MCP for durable service capabilities.</text>
+  <text class="small" x="560" y="452" text-anchor="middle">The goal is good agent work, not protocol purity.</text>
+</svg>

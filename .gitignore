@@ -12,3 +12,6 @@ resources/_gen
 node_modules/
 playwright-report/
 test-results/
+
+# Tailwind build artifact (compiled by `make css` / Netlify build)
+static/css/output.css
