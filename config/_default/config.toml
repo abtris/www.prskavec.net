@@ -10,9 +10,6 @@ baseURL = "https://www.prskavec.net/"
 # Copyright notice — used in the footer + RSS <copyright>
 copyright = "&copy; {year} Ladislav Prskavec"
 
-# Theme used as a fallback for any layout the project doesn't override
-theme = "academia"
-
 # Get last modified date for content from Git
 enableGitInfo = false
 
