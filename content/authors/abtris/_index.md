@@ -1,4 +1,6 @@
 ---
+title: Ladislav Prskavec
+
 # Display name
 name: Ladislav Prskavec
 avatar_image: "ladislav.jpg"
