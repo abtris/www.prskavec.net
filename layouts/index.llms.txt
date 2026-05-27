@@ -1,0 +1,57 @@
+{{- $talks := sort (where site.RegularPages "Section" "talk") "Date" "desc" -}}
+{{- $posts := sort (where site.RegularPages "Section" "post") "Date" "desc" -}}
+{{- $readers := sort (where site.RegularPages "Section" "reader") "Date" "desc" -}}
+{{- $chapters := sort (where site.RegularPages "Section" "courses") "Weight" "asc" -}}
+# {{ site.Title }} — {{ site.BaseURL | replaceRE "https?://" "" | strings.TrimSuffix "/" }}
+
+> {{ site.Params.description }}
+
+Ladislav Prskavec is a Software Engineer and Site Reliability Engineer based in Prague, Czech Republic.
+He works with Go, Kubernetes, and cloud infrastructure (AWS, OCI, Azure); organises the Prague Go Meetup;
+and co-hosts the *You Build It, You Run It* podcast. Topics he writes and speaks about: site reliability,
+on-call design, observability, distributed systems, Go, Terraform / Terramate, and AI tooling (MCP).
+{{ with $talks }}
+## Talks
+{{ range . }}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Params.event }} — *{{ . }}*{{ end }}{{ with .Date }} ({{ dateFormat "2006-01-02" . }}){{ end }}{{ with .Params.summary }}: {{ . | plainify | truncate 220 }}{{ end }}
+{{- end }}
+{{ end -}}
+{{ with $readers }}
+## Annotated readers
+
+Long-form, reader-friendly write-ups of talks — fuller than slides, more readable than a recording transcript.
+{{ range . }}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Date }} ({{ dateFormat "2006-01-02" . }}){{ end }}{{ with .Params.summary }}: {{ . | plainify | truncate 220 }}{{ end }}
+{{- end }}
+{{ end -}}
+{{ with $posts }}
+## Writing
+{{ range . }}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Date }} ({{ dateFormat "2006-01-02" . }}){{ end }}{{ with .Params.summary | default .Summary }}: {{ . | plainify | truncate 220 }}{{ end }}
+{{- end }}
+{{ end -}}
+{{ with $chapters }}
+## OnCall design guide
+
+A long-form guide on how to design on-call rotations that don't burn out your team. Each chapter is a focused
+read; the *Tools* page compares the major pager / incident-management vendors.
+{{ range . }}
+- [{{ .Title }}]({{ .Permalink }})
+{{- end }}
+{{ end }}
+## Profiles & elsewhere
+
+- Email — <ladislav@prskavec.net>
+- GitHub — <https://github.com/abtris>
+- Mastodon — <https://hachyderm.io/@abtris>
+- Twitter / X — <https://twitter.com/abtris>
+- LinkedIn — <https://www.linkedin.com/in/ladislavprskavec/>
+- YouTube — <https://www.youtube.com/@abtris>
+- *You Build It, You Run It* podcast — <https://ybyr.net/podcast>
+- Prague Go Meetup (organiser) — <https://www.gomeetupprague.cz/>
+
+## About this file
+
+This is an [llms.txt](https://llmstxt.org) — a curated index intended for large language models and
+agentic search tools. It is auto-generated from the same Hugo content tree that builds the human site,
+so it stays in sync as new talks and posts are published.
