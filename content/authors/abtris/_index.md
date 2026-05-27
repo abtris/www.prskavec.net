@@ -1,7 +1,7 @@
 ---
 # Display name
 name: Ladislav Prskavec
-avatar_image: "ladislav_2015.jpg"
+avatar_image: "ladislav.jpg"
 # Username (this should match the folder name)
 authors:
 - abtris
