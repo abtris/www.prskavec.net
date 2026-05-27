@@ -26,7 +26,7 @@
 
   <!-- big italic display name -->
   <text x="90" y="295" fill="#ede4d3" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-size="148" letter-spacing="-0.5">Ladislav</text>
-  <text x="90" y="430" fill="#ede4d3" font-family="'Instrument Serif', Georgia, serif" font-size="148" letter-spacing="-0.5">Prskavec<tspan fill="#ff5c2e">.</tspan></text>
+  <text x="90" y="430" fill="#ede4d3" font-family="'Instrument Serif', Georgia, serif" font-size="148" letter-spacing="-0.5">Prskavec</text>
 
   <!-- role / metadata block -->
   <line x1="90" y1="475" x2="500" y2="475" stroke="#3a382f" stroke-width="1"/>
@@ -42,7 +42,7 @@
 
   <!-- signal mark, top-right vertical rule + accent -->
   <line x1="1015" y1="120" x2="1015" y2="540" stroke="#2a2823" stroke-width="1"/>
-  <text x="1110" y="540" fill="#ff5c2e" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-size="220" text-anchor="end" letter-spacing="-3">P</text>
+  <text x="1110" y="540" fill="#ff5c2e" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-size="200" text-anchor="end" letter-spacing="-6">LP</text>
 
   <!-- bottom hairline -->
   <line x1="90" y1="610" x2="1110" y2="610" stroke="#2a2823" stroke-width="1"/>
