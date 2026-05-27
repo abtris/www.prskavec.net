@@ -42,6 +42,25 @@ education:
     institution: Czech Technical University in Prague
     year: 1999-2003
 
+# Career history. Authoring form — one entry per role, newest doesn't have
+# to be first (the layout sorts by `start` descending automatically):
+#
+#   - start: YYYY            # required: four-digit start year
+#     end: YYYY              # required: four-digit end year, OR the literal "Present"
+#                            #   for the current role (renders with a "NOW" chip)
+#     company: Acme Corp     # required
+#     title: Staff Engineer  # required
+#     description: |         # optional; markdown allowed — *italics*, **bold**, links
+#       One short paragraph. Two sentences max reads best in the timeline.
+#
+# Section is hidden if `career:` is empty or missing.
+career:
+  - start: 2026
+    end: Present
+    company: Everpure
+    title: Staff Engineer
+    description: Go, Kubernetes, and cloud infrastructure across AWS, OCI, and Azure.
+
 # Social/academia Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the

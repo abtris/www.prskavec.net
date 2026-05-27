@@ -1,0 +1,207 @@
+{{ define "main" }}
+{{ $now := now }}
+{{ $talks := where site.RegularPages "Section" "talk" }}
+{{ $posts := where site.RegularPages "Section" "post" }}
+{{ $upcoming := where $talks "Date" "gt" $now }}
+
+<article class="relative z-10 px-6 md:px-12 lg:px-20 py-10 md:py-16" itemscope itemtype="http://schema.org/Person">
+
+  {{/* ── Headline ─────────────────────────────────────────────── */}}
+  <header class="rise">
+    <div class="mono-label mb-6">About · The person behind prskavec.net</div>
+    <h1 class="display text-[clamp(3rem,11vw,10.5rem)] leading-[0.92]">
+      <span itemprop="name">{{ .Params.name | default .Title }}<span class="text-[color:var(--color-signal)]">.</span></span>
+    </h1>
+    {{ with .Params.role }}
+    <p class="mt-6 display italic text-2xl md:text-4xl leading-[1.05] text-[color:var(--color-paper-dim)] max-w-[36ch]" itemprop="jobTitle">
+      {{ . }}
+    </p>
+    {{ end }}
+  </header>
+
+  {{/* ── Avatar + bio + meta ─────────────────────────────────── */}}
+  <div class="mt-16 md:mt-20 grid gap-12 lg:gap-16 lg:grid-cols-[20rem_1fr] items-start rise rise-1">
+
+    <aside class="lg:sticky lg:top-8 space-y-8">
+      {{ with .Params.avatar_image }}
+      <div class="relative">
+        <img src="{{ printf "/img/%s" . | relURL }}"
+             alt="{{ $.Params.name | default $.Title }}"
+             itemprop="image"
+             class="block w-full max-w-[20rem] aspect-square object-cover rounded-md border border-[color:var(--color-rule-bright)] grayscale-[20%]">
+        <span class="absolute -bottom-2 -right-2 mono-tag mono-tag-signal bg-[color:var(--color-ink-deep)]">
+          ▲ @abtris
+        </span>
+      </div>
+      {{ end }}
+
+      {{/* tiny stats card */}}
+      <div class="card">
+        <span class="card-accent"></span>
+        <div class="mono-label mb-4 text-[color:var(--color-paper)]">▾ Cardinals</div>
+        <dl class="grid grid-cols-[1fr_auto] gap-x-4 gap-y-2 font-[family-name:var(--font-mono)] text-sm">
+          <dt class="mono-label">Talks</dt>
+          <dd class="text-[color:var(--color-paper)] tabular-nums">{{ len $talks }}</dd>
+          <dt class="mono-label">Posts</dt>
+          <dd class="text-[color:var(--color-paper)] tabular-nums">{{ len $posts }}</dd>
+          {{ if $upcoming }}
+          <dt class="mono-label">Upcoming</dt>
+          <dd class="text-[color:var(--color-signal)] tabular-nums">{{ len $upcoming }}</dd>
+          {{ end }}
+          <dt class="mono-label">Based</dt>
+          <dd class="text-[color:var(--color-paper)]" itemprop="homeLocation">Prague, CZ</dd>
+        </dl>
+      </div>
+    </aside>
+
+    <div class="min-w-0 space-y-12">
+      {{/* ── Bio prose ──────────────────────────────────────── */}}
+      {{ with .Content }}
+      <section>
+        <div class="mono-label mb-5 text-[color:var(--color-paper)]">▾ Bio</div>
+        <div class="prose-editorial" itemprop="description">
+          {{ . }}
+        </div>
+      </section>
+      {{ end }}
+
+      {{/* ── Career ─────────────────────────────────────────── */}}
+      {{ with .Params.career }}
+      <section>
+        <div class="flex items-baseline justify-between mb-5">
+          <div class="mono-label text-[color:var(--color-paper)]">▾ Career</div>
+          <a href="https://www.linkedin.com/in/ladislavprskavec/" target="_blank" rel="noopener" class="mono-label hover:text-[color:var(--color-signal)] transition-colors">
+            Full history on LinkedIn ↗
+          </a>
+        </div>
+        <ol class="space-y-0">
+          {{ range sort . "start" "desc" }}
+          {{ $isPresent := eq (printf "%v" .end) "Present" }}
+          <li class="grid sm:grid-cols-[10rem_1fr] gap-2 sm:gap-6 py-5 border-t border-[color:var(--color-rule)]">
+            <div class="font-[family-name:var(--font-mono)] text-sm tracking-[0.05em] tabular-nums {{ if $isPresent }}text-[color:var(--color-signal)]{{ else }}text-[color:var(--color-paper-dim)]{{ end }}">
+              {{ .start }}–{{ .end }}
+              {{ if $isPresent }}<span class="mono-tag mono-tag-signal ml-1 align-middle" style="font-size:0.65rem;padding:0.1rem 0.4rem">NOW</span>{{ end }}
+            </div>
+            <div>
+              <div class="font-[family-name:var(--font-display)] italic text-2xl leading-tight">
+                <span class="text-[color:var(--color-paper)]">{{ .title }}</span>
+                <span class="text-[color:var(--color-paper-dim)] not-italic font-[family-name:var(--font-mono)] text-base mx-2">@</span>
+                <span class="text-[color:var(--color-paper)]">{{ .company }}</span>
+              </div>
+              {{ with .description }}
+              <p class="mt-2 font-[family-name:var(--font-body)] text-lg leading-snug text-[color:var(--color-paper-dim)]">
+                {{ . | markdownify }}
+              </p>
+              {{ end }}
+            </div>
+          </li>
+          {{ end }}
+        </ol>
+      </section>
+      {{ end }}
+
+      {{/* ── Interests ──────────────────────────────────────── */}}
+      {{ with .Params.interests }}
+      <section>
+        <div class="mono-label mb-5 text-[color:var(--color-paper)]">▾ Interests</div>
+        <ul class="grid sm:grid-cols-2 gap-x-6">
+          {{ range . }}
+          <li class="font-[family-name:var(--font-display)] italic text-2xl md:text-[1.6rem] leading-tight py-2 border-b border-[color:var(--color-rule)] flex items-baseline gap-3">
+            <span class="font-[family-name:var(--font-mono)] not-italic text-[color:var(--color-signal)] text-sm">→</span>
+            <span class="text-[color:var(--color-paper)]">{{ . }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+      {{ end }}
+
+      {{/* ── Education ──────────────────────────────────────── */}}
+      {{ with .Params.education }}
+        {{ with .courses }}
+        <section>
+          <div class="mono-label mb-5 text-[color:var(--color-paper)]">▾ Education</div>
+          <ul class="space-y-5">
+            {{ range . }}
+            <li class="grid sm:grid-cols-[8rem_1fr] gap-1 sm:gap-6 py-3 border-t border-[color:var(--color-rule)]">
+              <span class="font-[family-name:var(--font-mono)] text-sm tracking-wide text-[color:var(--color-paper-dim)] tabular-nums">{{ .year }}</span>
+              <div>
+                <div class="font-[family-name:var(--font-display)] italic text-xl text-[color:var(--color-paper)]">{{ .course }}</div>
+                <div class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)] mt-1">{{ .institution }}</div>
+              </div>
+            </li>
+            {{ end }}
+          </ul>
+        </section>
+        {{ end }}
+      {{ end }}
+
+      {{/* ── Elsewhere / social ─────────────────────────────── */}}
+      <section>
+        <div class="mono-label mb-5 text-[color:var(--color-paper)]">▾ Elsewhere</div>
+        <ul class="grid sm:grid-cols-2 gap-3">
+          <li>
+            <a href="mailto:{{ site.Params.email }}" class="link-arrow w-full justify-between">
+              <span>Email</span>
+              <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">{{ site.Params.email }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+              <span>GitHub</span>
+              <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">github.com/abtris ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://hachyderm.io/@abtris" target="_blank" rel="me noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+              <span>Mastodon</span>
+              <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">@abtris@hachyderm.io ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+              <span>Twitter / X</span>
+              <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">@abtris ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/ladislavprskavec/" target="_blank" rel="noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+              <span>LinkedIn</span>
+              <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">in/ladislavprskavec ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+              <span>YouTube</span>
+              <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">@abtris ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://ybyr.net/podcast" target="_blank" rel="noopener" class="link-arrow w-full justify-between">
+              <span>Podcast</span>
+              <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">ybyr.net ↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.gomeetupprague.cz/" target="_blank" rel="noopener" class="link-arrow w-full justify-between">
+              <span>Prague Go Meetup</span>
+              <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">gomeetupprague.cz ↗</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      {{/* ── Closing CTA ────────────────────────────────────── */}}
+      <section class="pt-6 border-t border-[color:var(--color-rule)]">
+        <p class="display text-2xl md:text-3xl leading-tight">
+          Want to talk about <em class="italic text-[color:var(--color-signal)]">reliability</em>,
+          <em class="italic">Go</em>, or having me speak at your meetup?
+        </p>
+        <a href="mailto:{{ site.Params.email }}" class="mt-5 link-arrow inline-flex">
+          {{ site.Params.email }} <span class="arr">→</span>
+        </a>
+      </section>
+    </div>
+
+  </div>
+</article>
+{{ end }}
