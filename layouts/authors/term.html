@@ -4,16 +4,16 @@
 {{ $posts := where site.RegularPages "Section" "post" }}
 {{ $upcoming := where $talks "Date" "gt" $now }}
 
-<article class="relative z-10 px-6 md:px-12 lg:px-20 py-10 md:py-16" itemscope itemtype="https://schema.org/Person">
+<article class="relative z-10 px-6 md:px-12 lg:px-20 py-10 md:py-16">
 
   {{/* ── Headline ─────────────────────────────────────────────── */}}
   <header class="rise">
     <div class="mono-label mb-6">About · The person behind prskavec.net</div>
     <h1 class="display text-[clamp(3rem,11vw,10.5rem)] leading-[0.92]">
-      <span itemprop="name">{{ .Params.name | default .Title }}</span>
+      <span>{{ .Params.name | default .Title }}</span>
     </h1>
     {{ with .Params.role }}
-    <p class="mt-6 display italic text-2xl md:text-4xl leading-[1.05] text-[color:var(--color-paper-dim)] max-w-[36ch]" itemprop="jobTitle">
+    <p class="mt-6 display italic text-2xl md:text-4xl leading-[1.05] text-[color:var(--color-paper-dim)] max-w-[36ch]">
       {{ . }}
     </p>
     {{ end }}
@@ -27,7 +27,7 @@
       <div class="relative">
         <img src="{{ printf "/img/%s" . | relURL }}"
              alt="{{ $.Params.name | default $.Title }}"
-             itemprop="image"
+            
              class="block w-full max-w-[20rem] aspect-square object-cover rounded-md border border-[color:var(--color-rule-bright)] grayscale-[20%]">
         <span class="absolute -bottom-2 -right-2 mono-tag mono-tag-signal bg-[color:var(--color-ink-deep)]">
           ▲ @abtris
@@ -49,7 +49,7 @@
           <dd class="text-[color:var(--color-signal)] tabular-nums">{{ len $upcoming }}</dd>
           {{ end }}
           <dt class="mono-label">Based</dt>
-          <dd class="text-[color:var(--color-paper)]" itemprop="homeLocation">{{ site.Params.address | default "Prague, CZ" }}</dd>
+          <dd class="text-[color:var(--color-paper)]">{{ site.Params.address | default "Prague, CZ" }}</dd>
         </dl>
       </div>
     </aside>
@@ -59,7 +59,7 @@
       {{ with .Content }}
       <section>
         <div class="mono-label mb-5 text-[color:var(--color-paper)]">▾ Bio</div>
-        <div class="prose-editorial" itemprop="description">
+        <div class="prose-editorial">
           {{ . }}
         </div>
       </section>
@@ -160,31 +160,31 @@
             </a>
           </li>
           <li>
-            <a href="https://github.com/abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+            <a href="https://github.com/abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between">
               <span>GitHub</span>
               <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">github.com/abtris ↗</span>
             </a>
           </li>
           <li>
-            <a href="https://hachyderm.io/@abtris" target="_blank" rel="me noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+            <a href="https://hachyderm.io/@abtris" target="_blank" rel="me noopener" class="link-arrow w-full justify-between">
               <span>Mastodon</span>
               <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">@abtris@hachyderm.io ↗</span>
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+            <a href="https://twitter.com/abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between">
               <span>Twitter / X</span>
               <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">@abtris ↗</span>
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/ladislavprskavec/" target="_blank" rel="noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+            <a href="https://www.linkedin.com/in/ladislavprskavec/" target="_blank" rel="noopener" class="link-arrow w-full justify-between">
               <span>LinkedIn</span>
               <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">in/ladislavprskavec ↗</span>
             </a>
           </li>
           <li>
-            <a href="https://www.youtube.com/@abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between" itemprop="sameAs">
+            <a href="https://www.youtube.com/@abtris" target="_blank" rel="noopener" class="link-arrow w-full justify-between">
               <span>YouTube</span>
               <span class="mono-label normal-case tracking-normal text-[color:var(--color-paper-dim)]">@abtris ↗</span>
             </a>

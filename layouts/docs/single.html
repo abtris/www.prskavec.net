@@ -39,7 +39,7 @@
     </aside>
 
     {{/* ── Article ─────────────────────────────────────────────────── */}}
-    <article class="min-w-0 rise" itemscope itemtype="https://schema.org/Article">
+    <article class="min-w-0 rise">
       <div class="flex flex-wrap items-baseline gap-3 mb-6">
         <span class="mono-tag mono-tag-signal">◆ Chapter</span>
         {{ with .Parent }}
@@ -47,11 +47,11 @@
         {{ end }}
       </div>
 
-      <h1 class="display text-[clamp(2.2rem,5vw,4.5rem)] leading-[0.98] mb-10" itemprop="name">
+      <h1 class="display text-[clamp(2.2rem,5vw,4.5rem)] leading-[0.98] mb-10">
         {{ .Title }}
       </h1>
 
-      <div class="prose-editorial" itemprop="articleBody">
+      <div class="prose-editorial">
         {{ .Content }}
       </div>
 

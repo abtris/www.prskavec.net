@@ -5,7 +5,7 @@
 {{ $isUpcoming := gt $date $now }}
 {{ $isLive := and (le $date $now) (and $dateEnd (gt $dateEnd $now)) }}
 
-<article class="relative z-10 px-6 md:px-12 lg:px-20 py-8 md:py-12" itemscope itemtype="https://schema.org/Event">
+<article class="relative z-10 px-6 md:px-12 lg:px-20 py-8 md:py-12">
 
   {{/* ── breadcrumb + status chip ───────────────────────────────────── */}}
   <div class="flex items-center justify-between gap-4 mb-12 rise">
@@ -79,7 +79,7 @@
         </span>
       </div>
 
-      <h1 class="display display-italic text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[5.2rem] mb-8" itemprop="name">
+      <h1 class="display display-italic text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[5.2rem] mb-8">
         {{ .Title }}
       </h1>
 
@@ -97,7 +97,7 @@
 
         {{ with .Params.summary }}
         <span class="mono-label self-start mt-1">Brief</span>
-        <p class="font-[family-name:var(--font-body)] text-lg leading-snug text-[color:var(--color-paper-dim)] italic" itemprop="description">
+        <p class="font-[family-name:var(--font-body)] text-lg leading-snug text-[color:var(--color-paper-dim)] italic">
           {{ . }}
         </p>
         {{ end }}
