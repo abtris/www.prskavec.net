@@ -1,0 +1,9 @@
+{{- /* Wrap every markdown image with loading="lazy" decoding="async" and
+       safe defaults. The render-image hook runs for both block and inline
+       images; Goldmark itself wraps standalone block images in a <p>. */ -}}
+<img src="{{ .Destination | safeURL }}"
+     alt="{{ .PlainText }}"
+     loading="lazy"
+     decoding="async"
+     {{- with .Title }} title="{{ . }}"{{ end -}}
+>

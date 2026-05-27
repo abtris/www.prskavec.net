@@ -1,8 +1,4 @@
-# Languages
-#   Create a `[X]` block for each language you want, where X is the language ID.
-#   Refer to https://sourcethemes.com/academic/docs/language/
-
-# Configure the English version of the site.
+# Per-language configuration. Hugo expects one [language-id] block per
+# language you want to publish. Today we only ship English.
 [en]
-  languageCode = "en-us"
-  # contentDir = "content/en"  # Uncomment for multi-lingual sites, and move English content into `en` sub-folder.
+  locale = "en"
