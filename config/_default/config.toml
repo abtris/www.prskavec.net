@@ -31,6 +31,9 @@ theme = "academia"
 # Get last modified date for content from Git?
 enableGitInfo = false
 
+# Emit a robots.txt at the site root from layouts/robots.txt
+enableRobotsTXT = true
+
 # Default language to use (if you setup multilingual support)
 defaultContentLanguage = "en"
 hasCJKLanguage = false  # Set `true` for Chinese/Japanese/Korean languages.
@@ -47,8 +50,16 @@ ignoreLogs = ['warning-goldmark-raw-html']
 
 
 [outputs]
-  home = [ "HTML", "RSS", "JSON" ]
+  home = [ "HTML", "RSS", "JSON", "LLMS" ]
   section = [ "HTML", "RSS" ]
+
+# Custom output format for /llms.txt — see https://llmstxt.org
+[outputFormats]
+  [outputFormats.LLMS]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
 
 # Configure BlackFriday Markdown rendering.
 #   See: https://gohugo.io/getting-started/configuration/#configure-blackfriday

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemaps and machine-readable indexes
+Sitemap: {{ "sitemap.xml" | absURL }}
+
+# LLM/agent-friendly index — see https://llmstxt.org
+# {{ "llms.txt" | absURL }}
