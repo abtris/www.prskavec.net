@@ -1,0 +1,11 @@
+{
+  "esversion": 11,
+  "browser": true,
+  "undef": true,
+  "unused": false,
+  "globals": {
+    "console": true,
+    "AbortController": true,
+    "fetch": true
+  }
+}

@@ -1,0 +1,27 @@
+<div id="search-overlay" class="search-overlay" data-open="false" role="dialog" aria-modal="true" aria-label="Search the site">
+  <div class="search-backdrop" data-search-close></div>
+  <div class="search-panel" role="document">
+    <div class="search-panel-header">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input
+        id="search-input"
+        type="search"
+        autocomplete="off"
+        autocapitalize="off"
+        autocorrect="off"
+        spellcheck="false"
+        placeholder="Search talks, posts, chapters…"
+        aria-label="Search">
+
+      <button type="button" class="search-close" data-search-close aria-label="Close search">ESC</button>
+    </div>
+    <ul id="search-results" class="search-results" role="listbox" aria-label="Search results"></ul>
+    <div id="search-empty" class="search-empty" data-visible="true">Try a search above.</div>
+    <div class="search-footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+      <span class="search-attribution">Powered by Algolia</span>
+    </div>
+  </div>
+</div>
