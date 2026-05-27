@@ -1,0 +1,82 @@
+{{ define "main" }}
+{{ $recentTalks := first 3 (sort (where site.RegularPages "Section" "talk") "Date" "desc") }}
+{{ $recentPosts := first 3 (sort (where site.RegularPages "Section" "post") "Date" "desc") }}
+
+<section class="relative z-10 px-6 md:px-12 lg:px-20 py-12 md:py-20">
+
+  <div class="grid lg:grid-cols-[1fr_22rem] gap-12 lg:gap-20 items-start">
+
+    {{/* ── Headline ─────────────────────────────────────────────── */}}
+    <div>
+      <div class="mono-tag mono-tag-signal mb-8 rise">▲ Page not on the roster</div>
+
+      <h1 class="display text-[clamp(7rem,22vw,18rem)] leading-[0.85] -ml-2 rise rise-1">
+        4<em class="italic text-[color:var(--color-signal)]">0</em>4<span class="text-[color:var(--color-signal)]">.</span>
+      </h1>
+
+      <p class="mt-8 max-w-[58ch] text-xl md:text-2xl leading-snug text-[color:var(--color-paper-dim)] font-[family-name:var(--font-body)] rise rise-2">
+        This page is currently <em class="italic text-[color:var(--color-paper)]">off-duty</em> — nobody acknowledged
+        the alert. It may have been moved, renamed, or never existed at all.
+        Try one of the on-call paths below.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3 rise rise-3">
+        <a href="{{ "/" | relURL }}" class="link-arrow">Home <span class="arr">→</span></a>
+        <a href="{{ "/talk/" | relURL }}" class="link-arrow">Talks <span class="arr">→</span></a>
+        <a href="{{ "/post/" | relURL }}" class="link-arrow">Writing <span class="arr">→</span></a>
+        <a href="{{ "/courses/how-to-make-oncall/" | relURL }}" class="link-arrow">OnCall Guide <span class="arr">→</span></a>
+      </div>
+
+      <div class="mt-12 mono-label text-[color:var(--color-paper-faint)]">
+        404 · {{ now.Format "2006.01.02 · 15:04 MST" }}
+      </div>
+    </div>
+
+    {{/* ── Recent content rail ──────────────────────────────────── */}}
+    <aside class="rise rise-4 space-y-10">
+      {{ with $recentTalks }}
+      <div>
+        <div class="section-marker">
+          <span class="mono-label">§ Recent talks</span>
+        </div>
+        <ul>
+          {{ range . }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="talk-row group">
+              <span class="talk-date">{{ dateFormat "2006.01.02" .Date }}</span>
+              <div class="min-w-0">
+                <div class="talk-title" style="font-size:1.2rem">{{ .Title }}</div>
+              </div>
+              <span class="mono-label group-hover:text-[color:var(--color-signal)] transition-colors">→</span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+      {{ with $recentPosts }}
+      <div>
+        <div class="section-marker">
+          <span class="mono-label">§ Recent writing</span>
+        </div>
+        <ul>
+          {{ range . }}
+          <li>
+            <a href="{{ .RelPermalink }}" class="talk-row group">
+              <span class="talk-date">{{ dateFormat "2006.01.02" .Date }}</span>
+              <div class="min-w-0">
+                <div class="talk-title" style="font-size:1.2rem">{{ .Title }}</div>
+              </div>
+              <span class="mono-label group-hover:text-[color:var(--color-signal)] transition-colors">→</span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </aside>
+
+  </div>
+</section>
+{{ end }}
