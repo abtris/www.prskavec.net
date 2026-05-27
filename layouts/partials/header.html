@@ -14,6 +14,11 @@
       <a class="nav-link" data-active="{{ hasPrefix $cur "/post" }}" href="{{ "/post/" | relURL }}">Writing</a>
       <a class="nav-link" data-active="{{ hasPrefix $cur "/courses" }}" href="{{ "/courses/how-to-make-oncall/" | relURL }}">Oncall</a>
       <a class="nav-link" href="https://ybyr.net/podcast" target="_blank" rel="noopener">Podcast ↗</a>
+      <button type="button" class="nav-search" data-search-trigger aria-label="Open search (press /)">
+        <span aria-hidden="true">⌕</span>
+        <span class="sr-only">Search</span>
+        <kbd class="nav-search-kbd" aria-hidden="true">/</kbd>
+      </button>
     </nav>
   </div>
 </header>

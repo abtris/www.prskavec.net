@@ -1,133 +1,116 @@
 import { test, expect } from '@playwright/test';
 
 /**
- * Algolia search tests.
+ * Search overlay tests.
  *
- * The site uses instantsearch.js with the Algolia backend.
- * DOM structure:
- *   nav#navbar-main a.nav-link.js-search  — navbar search icon (toggle)
- *   <aside id="search" class="search-results"> — overlay (visibility:hidden by default)
- *     Overlay becomes visible when <body> gets class "searching"
- *     <div id="search-box"> — instantsearch injects an <input class="ais-SearchBox-input"> here
- *     <div id="search-hits"> — results container
+ * The new theme ships a command-palette modal that queries the Algolia
+ * blog_hugo index directly via REST (search-only key). DOM shape:
  *
- * Note: there is a second a.js-search (the ✕ close button) INSIDE the overlay which
- * is hidden; always select the navbar icon via a.nav-link.js-search.
+ *   button[data-search-trigger]      — header trigger
+ *   #search-overlay                  — modal container, [data-open] toggled
+ *   #search-input                    — the search field
+ *   #search-results > li > a.search-hit  — each result row
+ *   #search-empty                    — empty / no-results state
  */
 
-// The Algolia search overlay was part of the Academia theme and has not yet
-// been re-implemented in the new theme. The Algolia index is still being
-// built (see algolia.go) so re-adding a search UI is a follow-up. Tests
-// disabled to keep CI green; re-enable once a search UI is wired up.
-test.describe.skip('Algolia search', () => {
-  test.beforeEach(async ({ page, isMobile }) => {
+test.describe('Search overlay', () => {
+  test.beforeEach(async ({ page }) => {
     await page.goto('/');
-    // Wait for the page JS (including instantsearch) to initialise
-    await page.waitForLoadState('networkidle');
-    // On mobile the navbar collapses; open the hamburger so the search icon is visible.
-    if (isMobile) {
-      await page.locator('button.navbar-toggler').click();
-      await expect(page.locator('#navbar')).toBeVisible();
-    }
+    // Defer-loaded script — make sure it's wired up before interacting.
+    await page.waitForFunction(() =>
+      document.querySelector('[data-search-trigger]') !== null
+    );
   });
 
-  test('search icon is present in navbar', async ({ page }) => {
-    // The navbar icon has both nav-link and js-search classes; the overlay close
-    // button has only js-search, so we must be specific to avoid picking the hidden one.
-    const searchIcon = page.locator('a.nav-link.js-search');
-    await expect(searchIcon).toBeVisible();
+  test('header shows a search trigger button', async ({ page }) => {
+    const trigger = page.locator('[data-search-trigger]');
+    await expect(trigger).toBeVisible();
   });
 
-  test('clicking search icon opens the search overlay', async ({ page }) => {
-    // Overlay uses visibility:hidden by default; body gains class "searching" on open.
-    const overlay = page.locator('aside#search');
-    await expect(overlay).toBeHidden();
+  test('clicking the trigger opens the overlay', async ({ page }) => {
+    const overlay = page.locator('#search-overlay');
+    await expect(overlay).toHaveAttribute('data-open', 'false');
 
-    await page.locator('a.nav-link.js-search').click();
+    await page.locator('[data-search-trigger]').click();
 
-    await expect(overlay).toBeVisible({ timeout: 5_000 });
+    await expect(overlay).toHaveAttribute('data-open', 'true');
+    await expect(page.locator('#search-input')).toBeFocused();
   });
 
-  test('instantsearch renders an input inside #search-box', async ({ page }) => {
-    await page.locator('a.nav-link.js-search').click();
-
-    // instantsearch.js injects <input class="ais-SearchBox-input"> (or similar)
-    const input = page.locator('#search-box input');
-    await expect(input).toBeVisible({ timeout: 5_000 });
+  test('pressing "/" opens the overlay from the page body', async ({ page }) => {
+    const overlay = page.locator('#search-overlay');
+    await page.locator('body').click();
+    await page.keyboard.press('/');
+    await expect(overlay).toHaveAttribute('data-open', 'true');
+    await expect(page.locator('#search-input')).toBeFocused();
   });
 
-  test('typing a query returns results from Algolia', async ({ page }) => {
-    await page.locator('a.nav-link.js-search').click();
+  test('typing a query returns hits from Algolia', async ({ page }) => {
+    await page.locator('[data-search-trigger]').click();
+    await page.locator('#search-input').fill('go');
 
-    const input = page.locator('#search-box input');
-    await expect(input).toBeVisible({ timeout: 5_000 });
-
-    await input.fill('go');
-
-    // #search-hits becomes visible and contains at least one hit
-    const hits = page.locator('#search-hits');
-    await expect(hits).toBeVisible({ timeout: 10_000 });
-
-    // Wait for at least one search-hit div from Algolia
-    const firstHit = hits.locator('.search-hit').first();
+    const firstHit = page.locator('#search-results .search-hit').first();
     await expect(firstHit).toBeVisible({ timeout: 10_000 });
 
-    // The hit should contain a link
-    await expect(firstHit.locator('a')).toBeVisible();
+    await expect(firstHit.locator('.search-hit-title')).toBeVisible();
+    await expect(firstHit.locator('.search-hit-section')).toBeVisible();
   });
 
-  test('search results contain a clickable link that navigates', async ({ page }) => {
-    await page.locator('a.nav-link.js-search').click();
+  test('hits are real links that navigate when clicked', async ({ page }) => {
+    await page.locator('[data-search-trigger]').click();
+    await page.locator('#search-input').fill('go');
 
-    const input = page.locator('#search-box input');
-    await expect(input).toBeVisible({ timeout: 5_000 });
-    await input.fill('go');
+    const firstHit = page.locator('#search-results .search-hit').first();
+    await expect(firstHit).toBeVisible({ timeout: 10_000 });
 
-    const firstHitLink = page.locator('#search-hits .search-hit a').first();
-    await expect(firstHitLink).toBeVisible({ timeout: 10_000 });
-
-    const href = await firstHitLink.getAttribute('href');
+    const href = await firstHit.getAttribute('href');
     expect(href).toBeTruthy();
-    expect(href).toMatch(/prskavec\.net|^\//);
+    expect(href).toMatch(/^\/|prskavec\.net/);
+
+    await firstHit.click();
+    await expect(page).not.toHaveURL(/\/$|^http:\/\/localhost:1313\/$/);
   });
 
-  test('empty query hides the results container', async ({ page }) => {
-    await page.locator('a.nav-link.js-search').click();
+  test('a query with no matches shows the empty state', async ({ page }) => {
+    await page.locator('[data-search-trigger]').click();
+    await page.locator('#search-input').fill('xyzzy1234noresults');
 
-    const input = page.locator('#search-box input');
-    await expect(input).toBeVisible({ timeout: 5_000 });
-
-    // Type something first so hits appear, then clear it
-    await input.fill('go');
-    await expect(page.locator('#search-hits')).toBeVisible({ timeout: 10_000 });
-
-    await input.fill('');
-    // The algolia-search.js sets display:none when query is empty
-    await expect(page.locator('#search-hits')).toHaveCSS('display', 'none', { timeout: 5_000 });
+    const empty = page.locator('#search-empty');
+    await expect(empty).toHaveAttribute('data-visible', 'true', { timeout: 10_000 });
+    await expect(empty).toContainText(/no results/i);
   });
 
-  test('no-match query shows "no results" message', async ({ page }) => {
-    await page.locator('a.nav-link.js-search').click();
+  test('Esc closes the overlay', async ({ page }) => {
+    await page.locator('[data-search-trigger]').click();
+    const overlay = page.locator('#search-overlay');
+    await expect(overlay).toHaveAttribute('data-open', 'true');
 
-    const input = page.locator('#search-box input');
-    await expect(input).toBeVisible({ timeout: 5_000 });
-
-    // A query unlikely to match anything in the index
-    await input.fill('xyzzy1234noresults');
-
-    const hits = page.locator('#search-hits');
-    await expect(hits).toBeVisible({ timeout: 10_000 });
-    await expect(hits.locator('.search-no-results')).toBeVisible({ timeout: 10_000 });
+    await page.keyboard.press('Escape');
+    await expect(overlay).toHaveAttribute('data-open', 'false');
   });
 
-  test('closing search overlay with × button hides it', async ({ page }) => {
-    await page.locator('a.nav-link.js-search').click();
-    const overlay = page.locator('aside#search');
-    await expect(overlay).toBeVisible({ timeout: 5_000 });
+  test('clicking the backdrop closes the overlay', async ({ page }) => {
+    await page.locator('[data-search-trigger]').click();
+    const overlay = page.locator('#search-overlay');
+    await expect(overlay).toHaveAttribute('data-open', 'true');
 
-    // The ✕ close button inside the overlay also has class js-search (but NOT nav-link)
-    await overlay.locator('a.js-search').click();
-    await expect(overlay).toBeHidden({ timeout: 5_000 });
+    await page.locator('.search-backdrop').click();
+    await expect(overlay).toHaveAttribute('data-open', 'false');
+  });
+
+  test('arrow keys move selection between hits', async ({ page }) => {
+    await page.locator('[data-search-trigger]').click();
+    await page.locator('#search-input').fill('go');
+
+    const hits = page.locator('#search-results .search-hit');
+    await expect(hits.first()).toBeVisible({ timeout: 10_000 });
+
+    await expect(hits.nth(0)).toHaveAttribute('aria-selected', 'true');
+
+    await page.keyboard.press('ArrowDown');
+    await expect(hits.nth(1)).toHaveAttribute('aria-selected', 'true');
+
+    await page.keyboard.press('ArrowUp');
+    await expect(hits.nth(0)).toHaveAttribute('aria-selected', 'true');
   });
 });
-
