@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0c0c0a">
+
+{{ $title := .Title }}
+{{ if .IsHome }}{{ $title = site.Title }}{{ end }}
+<title>{{ $title }}{{ if not .IsHome }} — {{ site.Title }}{{ end }}</title>
+
+{{ $desc := .Params.summary | default site.Params.description }}
+{{ with $desc }}
+<meta name="description" content="{{ . | plainify | truncate 180 }}">
+{{ end }}
+
+<meta property="og:title" content="{{ $title }}">
+{{ with $desc }}<meta property="og:description" content="{{ . | plainify | truncate 180 }}">{{ end }}
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="stylesheet" href="{{ "/css/output.css" | relURL }}">
+
+{{ if .IsPage }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{ end }}

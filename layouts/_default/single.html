@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article class="px-6 md:px-12 lg:px-20 py-12 max-w-3xl mx-auto">
+  <div class="mono-label mb-6">
+    {{ .Section | upper }} · {{ dateFormat "2006.01.02" .Date }}
+  </div>
+  <h1 class="display text-5xl md:text-7xl mb-8 rise">{{ .Title }}</h1>
+  <div class="prose-editorial rise rise-2">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

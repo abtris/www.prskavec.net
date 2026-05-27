@@ -1,0 +1,217 @@
+{{ define "main" }}
+{{ $now := now }}
+{{ $allTalks := sort (where site.RegularPages "Section" "talk") "Date" "desc" }}
+{{ $upcomingTalks := where $allTalks "Date" "gt" $now }}
+{{ $pastTalks := where $allTalks "Date" "le" $now }}
+{{ $featuredTalk := index $upcomingTalks 0 | default (index $pastTalks 0) }}
+{{ $featuredIsUpcoming := and $featuredTalk (gt $featuredTalk.Date $now) }}
+{{ $recentTalks := first 5 $pastTalks }}
+{{ $recentPosts := first 4 (sort (where site.RegularPages "Section" "post") "Date" "desc") }}
+
+{{/* ── HERO ───────────────────────────────────────────────────────────── */}}
+<section class="relative z-10 px-6 md:px-12 lg:px-20 pt-10 md:pt-16 pb-24">
+
+  <div class="grid lg:grid-cols-[1fr_24rem] gap-12 lg:gap-20 items-start">
+    <div>
+      <div class="mono-label mb-6 rise rise-1">
+        <span class="mono-tag mono-tag-live"><span class="live-dot"></span> Currently in Prague · CET</span>
+      </div>
+
+      <h1 class="display text-[clamp(2.8rem,9vw,8.5rem)] leading-[0.98] rise rise-2">
+        Software <em class="italic text-[color:var(--color-signal)]">reliability</em>,
+        <br>
+        distributed <em class="italic">systems</em>,
+        <br>
+        and one Go meetup<span class="text-[color:var(--color-signal)]">.</span>
+      </h1>
+
+      <p class="mt-10 max-w-[58ch] text-xl md:text-2xl leading-relaxed text-[color:var(--color-paper-dim)] font-[family-name:var(--font-body)] rise rise-3">
+        I'm <span class="text-[color:var(--color-paper)] italic font-[family-name:var(--font-display)] text-2xl md:text-3xl">Ladislav Prskavec</span> — a software engineer and SRE focused on
+        the small operational habits that keep production systems quiet:
+        <em class="italic text-[color:var(--color-paper)]">on-call hygiene</em>,
+        <em class="italic text-[color:var(--color-paper)]">observability</em>,
+        and writing infrastructure that doesn't surprise you at 3am.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3 rise rise-4">
+        <a href="/talk/" class="link-arrow">View Talks <span class="arr">→</span></a>
+        <a href="/post/" class="link-arrow">Read Writing <span class="arr">→</span></a>
+        <a href="https://ybyr.net/podcast" target="_blank" rel="noopener" class="link-arrow">Podcast: YBYR ↗</a>
+      </div>
+    </div>
+
+    {{/* ── Right rail: vitals card ─────────────────────────────────── */}}
+    <aside class="rise rise-3 lg:sticky lg:top-8">
+      <div class="card">
+        <span class="card-accent"></span>
+        <div class="mono-label mb-5 text-[color:var(--color-paper)]">▾ Vitals</div>
+        <dl class="grid grid-cols-[auto_1fr] gap-x-5 gap-y-3 font-[family-name:var(--font-mono)] text-sm">
+          <dt class="mono-label">Role</dt>
+          <dd class="text-[color:var(--color-paper)]">Software Engineer · SRE</dd>
+
+          <dt class="mono-label">Based</dt>
+          <dd class="text-[color:var(--color-paper)]">Prague, CZ</dd>
+
+          <dt class="mono-label">Speaks</dt>
+          <dd class="text-[color:var(--color-paper)]">Go · Terraform · MCP · Observability</dd>
+
+          <dt class="mono-label">Runs</dt>
+          <dd class="text-[color:var(--color-paper)]">
+            <a href="https://www.gomeetupprague.cz/" target="_blank" rel="noopener" class="border-b border-[color:var(--color-rule-bright)] hover:border-[color:var(--color-signal)] hover:text-[color:var(--color-signal)]">Prague Go Meetup ↗</a>
+          </dd>
+
+          <dt class="mono-label">Co-hosts</dt>
+          <dd class="text-[color:var(--color-paper)]">
+            <a href="https://ybyr.net/podcast" target="_blank" rel="noopener" class="border-b border-[color:var(--color-rule-bright)] hover:border-[color:var(--color-signal)] hover:text-[color:var(--color-signal)]">You Build It, You Run It ↗</a>
+          </dd>
+
+          <dt class="mono-label">Org</dt>
+          <dd class="text-[color:var(--color-paper)]">
+            <a href="https://github.com/abtris" target="_blank" rel="noopener" class="border-b border-[color:var(--color-rule-bright)] hover:border-[color:var(--color-signal)] hover:text-[color:var(--color-signal)]">github.com/abtris ↗</a>
+          </dd>
+        </dl>
+
+        <div class="mt-6 pt-5 border-t border-[color:var(--color-rule)] font-[family-name:var(--font-mono)] text-xs tracking-[0.14em] uppercase text-[color:var(--color-paper-faint)] leading-relaxed">
+          Talks delivered: {{ len $pastTalks }} · Posts published: {{ len (where site.RegularPages "Section" "post") }}
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+{{/* ── FEATURED TALK STRIP ────────────────────────────────────────────── */}}
+{{ with $featuredTalk }}
+<section class="relative z-10 px-6 md:px-12 lg:px-20 mb-24">
+  <div class="border-y border-[color:var(--color-rule)] py-10 md:py-14 grid gap-8 md:grid-cols-[1fr_auto] items-center rise">
+    <div class="min-w-0">
+      <div class="flex items-center gap-4 mb-5">
+        {{ if $featuredIsUpcoming }}
+          <span class="mono-tag mono-tag-live"><span class="live-dot"></span> Next on Stage</span>
+        {{ else }}
+          <span class="mono-tag mono-tag-signal">◆ Latest Talk</span>
+        {{ end }}
+        <span class="mono-label">{{ dateFormat "02 Jan 2006" .Date }} · {{ .Params.event }}</span>
+      </div>
+      <a href="{{ .RelPermalink }}" class="block group">
+        <h2 class="display italic text-3xl md:text-5xl lg:text-6xl leading-[0.95] group-hover:text-[color:var(--color-signal)] transition-colors">
+          {{ .Title }}
+        </h2>
+        <p class="mt-5 max-w-[68ch] text-lg leading-snug text-[color:var(--color-paper-dim)] line-clamp-3">
+          {{ .Params.summary | truncate 280 }}
+        </p>
+      </a>
+    </div>
+    <a href="{{ .RelPermalink }}" class="link-arrow whitespace-nowrap">Read Details <span class="arr">→</span></a>
+  </div>
+</section>
+{{ end }}
+
+{{/* ── RECENT TALKS ───────────────────────────────────────────────────── */}}
+{{ if $recentTalks }}
+<section class="relative z-10 px-6 md:px-12 lg:px-20 mb-32">
+  <div class="section-marker">
+    <span class="mono-label">§ 01 / Recent Talks</span>
+    <a href="/talk/" class="mono-label hover:text-[color:var(--color-signal)] transition-colors">All {{ len $allTalks }} →</a>
+  </div>
+  <ul>
+    {{ range $recentTalks }}
+    <li>
+      <a href="{{ .RelPermalink }}" class="talk-row group">
+        <span class="talk-date">{{ dateFormat "2006.01.02" .Date }}</span>
+        <div class="min-w-0">
+          <div class="talk-title">{{ .Title }}</div>
+          <span class="talk-event">{{ .Params.event }}{{ with .Params.location }} · {{ . }}{{ end }}</span>
+        </div>
+        <span class="mono-label group-hover:text-[color:var(--color-signal)] transition-colors">→</span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
+
+{{/* ── PODCAST + MEETUP DUET ──────────────────────────────────────────── */}}
+<section class="relative z-10 px-6 md:px-12 lg:px-20 mb-32">
+  <div class="section-marker">
+    <span class="mono-label">§ 02 / Communities</span>
+  </div>
+
+  <div class="grid gap-6 md:grid-cols-2">
+    {{/* podcast card */}}
+    <a href="https://ybyr.net/podcast" target="_blank" rel="noopener" class="card group flex flex-col">
+      <span class="card-accent"></span>
+      <div class="flex items-baseline justify-between mb-6">
+        <span class="mono-tag mono-tag-signal">◉ Podcast</span>
+        <span class="font-[family-name:var(--font-mono)] text-xs text-[color:var(--color-paper-faint)] group-hover:text-[color:var(--color-signal)] transition-colors">ybyr.net ↗</span>
+      </div>
+      <h3 class="display italic text-4xl md:text-5xl leading-[0.95] mb-4 group-hover:text-[color:var(--color-signal)] transition-colors">
+        You Build It,<br>You Run It.
+      </h3>
+      <p class="font-[family-name:var(--font-body)] text-lg text-[color:var(--color-paper-dim)] leading-snug flex-1">
+        Co-hosted podcast on operating software in production — the discipline,
+        the failure modes, and the people behind the on-call rotation.
+      </p>
+      <div class="mt-6 mono-label group-hover:text-[color:var(--color-signal)] transition-colors">
+        Listen on ybyr.net →
+      </div>
+    </a>
+
+    {{/* meetup card */}}
+    <a href="https://www.gomeetupprague.cz/" target="_blank" rel="noopener" class="card group flex flex-col">
+      <span class="card-accent"></span>
+      <div class="flex items-baseline justify-between mb-6">
+        <span class="mono-tag mono-tag-signal">▲ Meetup</span>
+        <span class="font-[family-name:var(--font-mono)] text-xs text-[color:var(--color-paper-faint)] group-hover:text-[color:var(--color-signal)] transition-colors">gomeetupprague.cz ↗</span>
+      </div>
+      <h3 class="display italic text-4xl md:text-5xl leading-[0.95] mb-4 group-hover:text-[color:var(--color-signal)] transition-colors">
+        Prague Go<br>Meetup.
+      </h3>
+      <p class="font-[family-name:var(--font-body)] text-lg text-[color:var(--color-paper-dim)] leading-snug flex-1">
+        I organise the Prague Go community — monthly talks, recordings on YouTube,
+        and a Slack of folks shipping Go in production across Czech tech.
+      </p>
+      <div class="mt-6 mono-label group-hover:text-[color:var(--color-signal)] transition-colors">
+        Join the meetup →
+      </div>
+    </a>
+  </div>
+</section>
+
+{{/* ── RECENT POSTS ───────────────────────────────────────────────────── */}}
+{{ if $recentPosts }}
+<section class="relative z-10 px-6 md:px-12 lg:px-20 mb-24">
+  <div class="section-marker">
+    <span class="mono-label">§ 03 / Recent Writing</span>
+    <a href="/post/" class="mono-label hover:text-[color:var(--color-signal)] transition-colors">All posts →</a>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2">
+    {{ range $i, $p := $recentPosts }}
+    <a href="{{ .RelPermalink }}" class="group block p-6 border border-[color:var(--color-rule)] hover:border-[color:var(--color-rule-bright)] transition-colors">
+      <div class="mono-label mb-3">{{ dateFormat "2006.01.02" .Date }} · {{ .ReadingTime }} min read</div>
+      <h3 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl leading-[1.05] group-hover:text-[color:var(--color-signal)] transition-colors text-balance">
+        {{ .Title }}
+      </h3>
+      {{ with .Params.summary | default .Summary }}
+      <p class="mt-3 font-[family-name:var(--font-body)] text-base text-[color:var(--color-paper-dim)] leading-snug line-clamp-2">
+        {{ . | plainify | truncate 160 }}
+      </p>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{/* ── COLOPHON / CLOSING ─────────────────────────────────────────────── */}}
+<section class="relative z-10 px-6 md:px-12 lg:px-20 mb-12">
+  <div class="border-t border-[color:var(--color-rule)] pt-12 grid md:grid-cols-[1fr_auto] gap-8 items-end">
+    <p class="display text-3xl md:text-5xl lg:text-6xl leading-[1.02] max-w-[26ch]">
+      Want to talk about <em class="italic text-[color:var(--color-signal)]">reliability</em>,
+      <em class="italic">Go</em>, or speaking at a meetup?
+    </p>
+    <a href="mailto:ladislav@prskavec.net" class="link-arrow whitespace-nowrap">ladislav@prskavec.net <span class="arr">→</span></a>
+  </div>
+</section>
+
+{{ end }}

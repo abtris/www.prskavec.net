@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="500" viewBox="0 0 1120 500" role="img" aria-labelledby="title desc">
+  <title id="title">Three pillars of MCP design</title>
+  <desc id="desc">Discovery, iteration, and context are the three pillars of agent experience design for MCP servers.</desc>
+  <defs>
+    <style>
+      text { font-family: 'Familjen Grotesk', 'Segoe UI', Arial, sans-serif; letter-spacing: 0; }
+      .title { font-size: 31px; font-weight: 700; }
+      .goal { font-size: 21px; font-weight: 700; fill: #D85A14; }
+      .body { font-size: 18px; font-weight: 500; fill: #5A6359; }
+      .num { font-size: 48px; font-weight: 700; fill: #FFF5E3; }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1120" height="500" rx="8" fill="none"/>
+  <text class="body" x="560" y="44" text-anchor="middle">Design for AgentEx: the agent should discover, choose, call, recover, and finish.</text>
+
+  <g transform="translate(64 84)">
+    <rect x="0" y="0" width="304" height="304" rx="8" fill="#FFFFFF" stroke="#D0C8BA" stroke-width="2"/>
+    <rect x="0" y="0" width="304" height="84" rx="8" fill="#FF7023"/>
+    <text class="num" x="48" y="60">1</text>
+    <text x="158" y="54" text-anchor="middle" font-size="29" font-weight="700" fill="#FFF5E3">Discovery</text>
+    <text class="goal" x="152" y="130" text-anchor="middle">Minimize token footprint</text>
+    <text class="body" x="152" y="184" text-anchor="middle">Few tools, clear names,</text>
+    <text class="body" x="152" y="212" text-anchor="middle">short descriptions,</text>
+    <text class="body" x="152" y="240" text-anchor="middle">obvious parameters.</text>
+  </g>
+
+  <g transform="translate(408 84)">
+    <rect x="0" y="0" width="304" height="304" rx="8" fill="#FFFFFF" stroke="#D0C8BA" stroke-width="2"/>
+    <rect x="0" y="0" width="304" height="84" rx="8" fill="#BD673D"/>
+    <text class="num" x="48" y="60">2</text>
+    <text x="158" y="54" text-anchor="middle" font-size="29" font-weight="700" fill="#FFF5E3">Iteration</text>
+    <text class="goal" x="152" y="130" text-anchor="middle">Minimize turns to done</text>
+    <text class="body" x="152" y="184" text-anchor="middle">Return actionable errors,</text>
+    <text class="body" x="152" y="212" text-anchor="middle">stable IDs, examples,</text>
+    <text class="body" x="152" y="240" text-anchor="middle">and next-step hints.</text>
+  </g>
+
+  <g transform="translate(752 84)">
+    <rect x="0" y="0" width="304" height="304" rx="8" fill="#FFFFFF" stroke="#D0C8BA" stroke-width="2"/>
+    <rect x="0" y="0" width="304" height="84" rx="8" fill="#8FA596"/>
+    <text class="num" x="48" y="60">3</text>
+    <text x="158" y="54" text-anchor="middle" font-size="29" font-weight="700" fill="#FFF5E3">Context</text>
+    <text class="goal" x="152" y="130" text-anchor="middle">All signal, no noise</text>
+    <text class="body" x="152" y="184" text-anchor="middle">Shape responses for the</text>
+    <text class="body" x="152" y="212" text-anchor="middle">agent's next prompt,</text>
+    <text class="body" x="152" y="240" text-anchor="middle">not for raw API parity.</text>
+  </g>
+
+  <rect x="230" y="426" width="660" height="52" rx="8" fill="#2D2A27"/>
+  <text x="560" y="460" text-anchor="middle" font-size="24" font-weight="700" fill="#FFF5E3">MCP is a UI replacement, not an API wrapper.</text>
+</svg>

@@ -1,0 +1,187 @@
+{{ define "main" }}
+{{ $now := now }}
+{{ $date := .Date }}
+{{ $dateEnd := .Params.date_end }}
+{{ $isUpcoming := gt $date $now }}
+{{ $isLive := and (le $date $now) (and $dateEnd (gt $dateEnd $now)) }}
+
+<article class="relative z-10 px-6 md:px-12 lg:px-20 py-8 md:py-12" itemscope itemtype="http://schema.org/Event">
+
+  {{/* ── breadcrumb + status chip ───────────────────────────────────── */}}
+  <div class="flex items-center justify-between gap-4 mb-12 rise">
+    <a href="{{ "/talk/" | relURL }}" class="mono-label hover:text-[color:var(--color-paper)] transition-colors">
+      ← All Talks
+    </a>
+    {{ if $isLive }}
+      <span class="mono-tag mono-tag-live">
+        <span class="live-dot"></span> Live · Right Now
+      </span>
+    {{ else if $isUpcoming }}
+      <span class="mono-tag status-upcoming">
+        ▲ Upcoming
+      </span>
+    {{ else }}
+      <span class="mono-tag status-past">
+        ◆ Past
+      </span>
+    {{ end }}
+  </div>
+
+  {{/* ── headline grid: date stack + title block ────────────────────── */}}
+  <div class="grid gap-10 md:gap-14 lg:gap-20 md:grid-cols-[14rem_1fr] lg:grid-cols-[16rem_1fr]">
+
+    {{/* ── date stack (left rail) ────────────────────────────────── */}}
+    <aside class="rise rise-1">
+      <div class="mono-label mb-4 text-[color:var(--color-paper)]">▾ When</div>
+
+      <div class="font-[family-name:var(--font-mono)] text-sm tracking-[0.14em] uppercase text-[color:var(--color-paper-dim)]">
+        {{ dateFormat "Mon" $date }}
+      </div>
+
+      <div class="display italic text-[8rem] md:text-[9rem] leading-[0.9] text-[color:var(--color-signal)] -ml-1">
+        {{ dateFormat "02" $date }}
+      </div>
+
+      <div class="font-[family-name:var(--font-mono)] text-base tracking-[0.14em] uppercase text-[color:var(--color-paper)] mt-1">
+        {{ dateFormat "Jan" $date }} · {{ dateFormat "2006" $date }}
+      </div>
+
+      <div class="mt-6 border-t border-[color:var(--color-rule)] pt-5 space-y-2 font-[family-name:var(--font-mono)] text-sm text-[color:var(--color-paper-dim)]">
+        {{ if not .Params.all_day }}
+          <div class="flex items-baseline gap-2">
+            <span class="mono-label">Time</span>
+            <span class="text-[color:var(--color-paper)]">
+              {{ dateFormat "15:04" $date }}{{ with $dateEnd }} – {{ dateFormat "15:04" . }}{{ end }} <span class="text-[color:var(--color-paper-faint)]">CET</span>
+            </span>
+          </div>
+        {{ end }}
+        {{ with .Params.location }}
+        <div class="flex items-baseline gap-2">
+          <span class="mono-label">Place</span>
+          <span class="text-[color:var(--color-paper)]">{{ . }}</span>
+        </div>
+        {{ end }}
+      </div>
+    </aside>
+
+    {{/* ── headline + event ──────────────────────────────────────── */}}
+    <header class="min-w-0 rise rise-2">
+      <div class="mono-label mb-5">
+        Talk · No.
+        <span class="text-[color:var(--color-signal)]">
+          {{- $idx := 0 -}}
+          {{- range $i, $p := where site.RegularPages "Section" "talk" -}}
+            {{- if eq $p.RelPermalink $.RelPermalink -}}
+              {{- $idx = add (sub (len (where site.RegularPages "Section" "talk")) $i) 0 -}}
+            {{- end -}}
+          {{- end -}}
+          {{- printf "%03d" $idx -}}
+        </span>
+      </div>
+
+      <h1 class="display display-italic text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[5.2rem] mb-8" itemprop="name">
+        {{ .Title }}
+      </h1>
+
+      <div class="border-y border-[color:var(--color-rule)] py-5 grid sm:grid-cols-[auto_1fr] gap-x-6 gap-y-3 items-baseline">
+        <span class="mono-label">Event</span>
+        <span class="font-[family-name:var(--font-display)] text-2xl md:text-3xl leading-snug">
+          {{ with .Params.event_url }}
+            <a href="{{ . }}" target="_blank" rel="noopener" class="hover:text-[color:var(--color-signal)] transition-colors border-b border-[color:var(--color-rule-bright)] hover:border-[color:var(--color-signal)]">
+              {{ $.Params.event }} <span class="text-base text-[color:var(--color-paper-dim)]">↗</span>
+            </a>
+          {{ else }}
+            {{ .Params.event }}
+          {{ end }}
+        </span>
+
+        {{ with .Params.summary }}
+        <span class="mono-label self-start mt-1">Brief</span>
+        <p class="font-[family-name:var(--font-body)] text-lg leading-snug text-[color:var(--color-paper-dim)] italic" itemprop="description">
+          {{ . }}
+        </p>
+        {{ end }}
+      </div>
+    </header>
+  </div>
+
+  {{/* ── body prose ─────────────────────────────────────────────────── */}}
+  <div class="mt-16 md:mt-20 grid gap-10 md:grid-cols-[14rem_1fr] lg:grid-cols-[16rem_1fr]">
+    <div class="hidden md:flex justify-end pt-2">
+      <span class="vert-label">Abstract / Notes</span>
+    </div>
+    <div class="prose-editorial rise rise-3">
+      {{ .Content }}
+    </div>
+  </div>
+
+  {{/* ── lazy-loaded media embeds (YouTube / Speakerdeck) ────────────── */}}
+  {{ partial "talk-media.html" . }}
+
+  {{/* ── resource links (slides / video / code / pdf) ───────────────── */}}
+  {{ $slides := .Params.url_slides }}
+  {{ $video  := .Params.url_video }}
+  {{ $code   := .Params.url_code }}
+  {{ $pdf    := .Params.url_pdf }}
+  {{ if or $slides $video $code $pdf }}
+  <section class="mt-20 grid gap-10 md:grid-cols-[14rem_1fr] lg:grid-cols-[16rem_1fr]">
+    <div class="hidden md:flex justify-end">
+      <span class="vert-label">Resources</span>
+    </div>
+    <div class="rise rise-4">
+      <div class="mono-label mb-5 text-[color:var(--color-paper)]">▾ Materials</div>
+      <div class="grid gap-3 sm:grid-cols-2">
+        {{ with $slides }}
+          {{ partial "talk-resource.html" (dict "url" . "kind" "slides" "label" "Slides") }}
+        {{ end }}
+        {{ with $video }}
+          {{ partial "talk-resource.html" (dict "url" . "kind" "video" "label" "Video") }}
+        {{ end }}
+        {{ with $code }}
+          {{ partial "talk-resource.html" (dict "url" . "kind" "code" "label" "Code") }}
+        {{ end }}
+        {{ with $pdf }}
+          {{ partial "talk-resource.html" (dict "url" . "kind" "pdf" "label" "PDF") }}
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* ── prev/next nav ──────────────────────────────────────────────── */}}
+  {{ $sectionPages := where site.RegularPages "Section" "talk" }}
+  {{ $sorted := sort $sectionPages "Date" "desc" }}
+  {{ $prev := "" }}
+  {{ $next := "" }}
+  {{ $found := false }}
+  {{ range $i, $p := $sorted }}
+    {{ if eq $p.RelPermalink $.RelPermalink }}
+      {{ if gt $i 0 }}{{ $next = index $sorted (sub $i 1) }}{{ end }}
+      {{ if lt $i (sub (len $sorted) 1) }}{{ $prev = index $sorted (add $i 1) }}{{ end }}
+      {{ $found = true }}
+    {{ end }}
+  {{ end }}
+
+  <nav aria-label="Adjacent talks" class="mt-24 pt-8 border-t border-[color:var(--color-rule)] grid gap-6 md:grid-cols-2">
+    <div>
+      {{ with $prev }}
+      <a href="{{ .RelPermalink }}" class="group block">
+        <div class="mono-label mb-2">← Previous</div>
+        <div class="display text-xl group-hover:text-[color:var(--color-signal)] transition-colors">{{ .Title }}</div>
+        <div class="mono-label mt-1 normal-case tracking-normal">{{ .Params.event }} · {{ dateFormat "2006" .Date }}</div>
+      </a>
+      {{ end }}
+    </div>
+    <div class="md:text-right">
+      {{ with $next }}
+      <a href="{{ .RelPermalink }}" class="group block">
+        <div class="mono-label mb-2">Next →</div>
+        <div class="display text-xl group-hover:text-[color:var(--color-signal)] transition-colors">{{ .Title }}</div>
+        <div class="mono-label mt-1 normal-case tracking-normal">{{ .Params.event }} · {{ dateFormat "2006" .Date }}</div>
+      </a>
+      {{ end }}
+    </div>
+  </nav>
+
+</article>
+{{ end }}

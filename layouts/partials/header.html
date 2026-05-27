@@ -1,0 +1,19 @@
+<header class="relative z-10 px-6 md:px-12 lg:px-20 pt-8 pb-6">
+  <div class="flex items-baseline justify-between gap-6 flex-wrap">
+    <a href="{{ "/" | relURL }}" class="group inline-flex items-baseline gap-3">
+      <span class="display text-[1.6rem] md:text-3xl transition-colors group-hover:text-[color:var(--color-signal)]">
+        Ladislav <em class="italic">Prskavec</em>
+      </span>
+      <span class="mono-label">/ prskavec.net</span>
+    </a>
+
+    <nav aria-label="Primary" class="flex items-center gap-5 md:gap-7">
+      {{ $cur := .RelPermalink }}
+      <a class="nav-link" data-active="{{ eq $cur "/" }}" href="{{ "/" | relURL }}">Index</a>
+      <a class="nav-link" data-active="{{ hasPrefix $cur "/talk" }}" href="{{ "/talk/" | relURL }}">Talks</a>
+      <a class="nav-link" data-active="{{ hasPrefix $cur "/post" }}" href="{{ "/post/" | relURL }}">Writing</a>
+      <a class="nav-link" data-active="{{ hasPrefix $cur "/courses" }}" href="{{ "/courses/how-to-make-oncall/" | relURL }}">Oncall</a>
+      <a class="nav-link" href="https://ybyr.net/podcast" target="_blank" rel="noopener">Podcast ↗</a>
+    </nav>
+  </div>
+</header>

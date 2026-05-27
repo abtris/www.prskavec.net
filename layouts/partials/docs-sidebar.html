@@ -1,0 +1,31 @@
+{{/* derive the menu name from the URL: /courses/<menu>/... */}}
+{{ $current := . }}
+{{ $parts := split (trim .RelPermalink "/") "/" }}
+{{ $menuName := index $parts 1 }}
+
+{{ with (index site.Menus $menuName) }}
+<nav aria-label="Chapters" class="docs-side">
+  <div class="mono-label mb-5 text-[color:var(--color-paper)]">▾ Course</div>
+  {{ range .ByWeight }}
+    {{ $parentURL := .URL }}
+    {{ if and (not $parentURL) .HasChildren }}{{ $parentURL = (index .Children 0).URL }}{{ end }}
+    <a href="{{ $parentURL }}" class="block font-[family-name:var(--font-display)] text-2xl italic mb-3 transition-colors {{ if $current.IsMenuCurrent $menuName . }}text-[color:var(--color-signal)]{{ else }}text-[color:var(--color-paper)] hover:text-[color:var(--color-signal)]{{ end }}">
+      {{ .Name }}
+    </a>
+    {{ if .HasChildren }}
+    <ol class="space-y-0 mb-6 border-l border-[color:var(--color-rule)] pl-4">
+      {{ range $i, $child := .Children }}
+      <li class="relative">
+        <a href="{{ $child.URL }}" class="group flex items-baseline gap-3 py-1.5 font-[family-name:var(--font-mono)] text-sm transition-colors {{ if $current.IsMenuCurrent $menuName $child }}text-[color:var(--color-signal)]{{ else }}text-[color:var(--color-paper-dim)] hover:text-[color:var(--color-paper)]{{ end }}">
+          <span class="font-[family-name:var(--font-mono)] text-xs tracking-[0.05em] tabular-nums {{ if $current.IsMenuCurrent $menuName $child }}text-[color:var(--color-signal)]{{ else }}text-[color:var(--color-paper-faint)]{{ end }}">
+            {{ printf "%02d" (add $i 1) }}
+          </span>
+          <span class="leading-snug">{{ $child.Name }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+    {{ end }}
+  {{ end }}
+</nav>
+{{ end }}

@@ -1,0 +1,26 @@
+{{ $url := .url }}
+{{ $kind := .kind }}
+{{ $label := .label }}
+{{ $host := $url }}
+{{ if hasPrefix $url "http" }}
+  {{ $u := urls.Parse $url }}
+  {{ $host = $u.Host }}
+{{ end }}
+{{ $icon := "→" }}
+{{ if eq $kind "slides" }}{{ $icon = "▤" }}{{ end }}
+{{ if eq $kind "video"  }}{{ $icon = "▷" }}{{ end }}
+{{ if eq $kind "code"   }}{{ $icon = "{ }" }}{{ end }}
+{{ if eq $kind "pdf"    }}{{ $icon = "PDF" }}{{ end }}
+
+<a href="{{ $url }}" target="_blank" rel="noopener" class="group relative block border border-[color:var(--color-rule-bright)] p-5 transition-all hover:border-[color:var(--color-signal)] hover:-translate-y-[2px]">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="mono-label group-hover:text-[color:var(--color-signal)] transition-colors">{{ $label }}</span>
+    <span class="font-[family-name:var(--font-mono)] text-xs text-[color:var(--color-paper-faint)] group-hover:text-[color:var(--color-signal)] transition-colors">{{ $icon }}</span>
+  </div>
+  <div class="font-[family-name:var(--font-display)] text-xl italic group-hover:text-[color:var(--color-signal)] transition-colors">
+    Open {{ $label | lower }} ↗
+  </div>
+  <div class="font-[family-name:var(--font-mono)] text-[0.7rem] tracking-wide text-[color:var(--color-paper-dim)] mt-1 truncate">
+    {{ $host }}
+  </div>
+</a>

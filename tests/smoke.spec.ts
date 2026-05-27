@@ -6,52 +6,32 @@ test.describe('Homepage', () => {
     await expect(page).toHaveTitle(/Prskavec/i);
   });
 
-  test('navigation bar is visible with expected links', async ({ page, isMobile }) => {
+  test('navigation bar is visible with expected links', async ({ page }) => {
     await page.goto('/');
-    const nav = page.locator('nav#navbar-main');
+    const nav = page.locator('nav[aria-label="Primary"]');
     await expect(nav).toBeVisible();
 
-    // On mobile the navbar collapses; expand it via the hamburger before asserting links.
-    if (isMobile) {
-      await page.locator('button.navbar-toggler').click();
-      await expect(page.locator('#navbar')).toBeVisible();
-    }
-
-    await expect(nav.getByRole('link', { name: 'Home' })).toBeVisible();
-    await expect(nav.getByRole('link', { name: 'Posts' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'Index' })).toBeVisible();
     await expect(nav.getByRole('link', { name: 'Talks' })).toBeVisible();
-    await expect(nav.getByRole('link', { name: 'Oncall Guide' })).toBeVisible();
-    await expect(nav.getByRole('link', { name: 'Contact' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'Writing' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'Oncall' })).toBeVisible();
+    await expect(nav.getByRole('link', { name: /Podcast/i })).toBeVisible();
   });
 
-  test('about section is present with author name', async ({ page }) => {
+  test('hero contains author name', async ({ page }) => {
     await page.goto('/');
-    const about = page.locator('section#about');
-    await expect(about).toBeVisible();
-    await expect(about).toContainText('Ladislav Prskavec');
+    await expect(page.locator('main')).toContainText('Ladislav Prskavec');
   });
 
-  test('recent posts section is present', async ({ page }) => {
+  test('recent talks block has at least one row', async ({ page }) => {
     await page.goto('/');
-    const section = page.locator('section#posts');
-    await expect(section).toBeVisible();
-    // Homepage uses view=3 (Card) → li_card.html → div.card-simple
-    await expect(section.locator('.card-simple').first()).toBeVisible();
+    const talkRows = page.locator('main .talk-row');
+    expect(await talkRows.count()).toBeGreaterThan(0);
   });
 
-  test('talks section is present', async ({ page }) => {
+  test('contact email is exposed', async ({ page }) => {
     await page.goto('/');
-    const section = page.locator('section#talks');
-    await expect(section).toBeVisible();
-    // Homepage uses view=3 (Card) → li_card.html → div.card-simple
-    await expect(section.locator('.card-simple').first()).toBeVisible();
-  });
-
-  test('contact section is present with Calendly link', async ({ page }) => {
-    await page.goto('/');
-    const contact = page.locator('section#contact');
-    await expect(contact).toBeVisible();
-    await expect(contact.getByRole('link', { name: /book|appointment|calendly/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /ladislav@prskavec\.net/i }).first()).toBeVisible();
   });
 
   test('no placeholder subtitle copy is visible', async ({ page }) => {
@@ -68,17 +48,14 @@ test.describe('Posts archive (/post/)', () => {
 
   test('shows a list of posts', async ({ page }) => {
     await page.goto('/post/');
-    // Posts archive uses view=2 (Compact) → li_compact.html → div.media.stream-item
-    // Falls back to view=1 (List) → li_list.html → div.view-list-item if not yet deployed
-    const items = page.locator('.media.stream-item, .view-list-item');
+    const items = page.locator('.talk-row');
     await expect(items.first()).toBeVisible();
     expect(await items.count()).toBeGreaterThan(0);
   });
 
   test('post links navigate to post pages', async ({ page }) => {
     await page.goto('/post/');
-    // Works for view=1 (List → .view-list-item a) and view=2 (Compact → .media.stream-item h3 a)
-    const firstLink = page.locator('.view-list-item a[itemprop="url"], .media.stream-item h3 a').first();
+    const firstLink = page.locator('.talk-row').first();
     const href = await firstLink.getAttribute('href');
     expect(href).toBeTruthy();
     await firstLink.click();
@@ -94,16 +71,23 @@ test.describe('Talks archive (/talk/)', () => {
 
   test('shows a list of talks', async ({ page }) => {
     await page.goto('/talk/');
-    // Talks archive uses view=2 (Compact) → li_compact.html → div.media.stream-item
-    const items = page.locator('.media.stream-item');
+    const items = page.locator('.talk-row');
     await expect(items.first()).toBeVisible();
     expect(await items.count()).toBeGreaterThan(0);
   });
+});
 
-  test('does not say "Upcoming" in heading (all talks are past)', async ({ page }) => {
-    await page.goto('/talk/');
-    const h1 = page.locator('h1').first();
-    await expect(h1).not.toContainText('Upcoming');
+test.describe('Talk detail page', () => {
+  test('loads and shows status chip + event name', async ({ page }) => {
+    await page.goto('/talk/2025-04-23-cloudnative/');
+    await expect(page.locator('h1')).toContainText('Terralith');
+    await expect(page.locator('body')).toContainText('Cloud Native Prague');
+  });
+
+  test('media posters are present (lazy-loaded, no iframes yet)', async ({ page }) => {
+    await page.goto('/talk/2025-04-23-cloudnative/');
+    await expect(page.locator('.media-poster').first()).toBeVisible();
+    await expect(page.locator('iframe')).toHaveCount(0);
   });
 });
 
@@ -121,17 +105,21 @@ test.describe('OnCall Guide', () => {
 
   test('a chapter page loads and has content', async ({ page }) => {
     await page.goto('/courses/how-to-make-oncall/chapter01/');
-    // Use .first() to avoid strict-mode violation when multiple containers match
-    await expect(page.locator('article, .article-container, main').first()).toBeVisible();
-    // Chapter should have meaningful text
-    await expect(page.locator('body')).toContainText('roster');
+    await expect(page.locator('article').first()).toBeVisible();
+    await expect(page.locator('body')).toContainText(/roster/i);
   });
 
-  test('tools page loads and has last-updated note', async ({ page }) => {
+  test('tools page loads, has last-updated note and a table', async ({ page }) => {
     await page.goto('/courses/how-to-make-oncall/tools/');
     await expect(page.locator('body')).toContainText('Last updated');
-    // Should have a comparison table
-    await expect(page.locator('table')).toBeVisible();
+    await expect(page.locator('.table-scroll table')).toBeVisible();
   });
 });
 
+test.describe('Annotated reader', () => {
+  test('WebExpo 2026 reader loads with prose content', async ({ page }) => {
+    await page.goto('/reader/2026-05-27-webexpo/');
+    await expect(page.locator('h1')).toContainText('Under the Hood of AI');
+    await expect(page.locator('.prose-editorial')).toBeVisible();
+  });
+});
