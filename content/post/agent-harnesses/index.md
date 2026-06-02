@@ -67,7 +67,7 @@ This is not an argument against AI coding agents. It is an argument for putting 
 
 ### Own the harness with pi
 
-[pi](https://pi.dev) is a minimal, extensible terminal coding harness. The whole philosophy is "adapt the tool to your workflow, not the other way around" — and crucially, you do that *without forking the agent's internals*. You extend it with TypeScript [extensions](https://pi.dev), [skills](https://pi.dev), prompt templates, and themes, then package and share those across your team via npm or git.
+[pi](https://pi.dev) is a minimal, extensible terminal coding harness. The whole philosophy is "adapt the tool to your workflow, not the other way around" — and crucially, you do that *without forking the agent's internals*. You extend it with TypeScript extensions, skills, prompt templates, and themes, then package and share those across your team via npm or git.
 
 That is exactly the property you want from a company harness:
 
