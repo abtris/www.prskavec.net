@@ -4,6 +4,7 @@
 
 {{ $hasSpeakerdeck := and $slides (strings.Contains $slides "speakerdeck.com") }}
 {{ $hasYouTube     := and $video (or (strings.Contains $video "youtube.com") (strings.Contains $video "youtu.be")) }}
+{{ $hasSlidesLive  := and $video (strings.Contains $video "slideslive.com") }}
 {{ $hasReader      := and $reader (or (hasPrefix $reader "http") (hasPrefix $reader "/")) }}
 {{ $readerIsLocal  := and $reader (hasPrefix $reader "/") }}
 
@@ -11,6 +12,12 @@
 {{ if $hasYouTube }}
   {{ $matches := findRESubmatch `(?:v=|youtu\.be/|embed/)([a-zA-Z0-9_-]{11})` $video }}
   {{ if $matches }}{{ $videoID = index (index $matches 0) 1 }}{{ end }}
+{{ end }}
+
+{{ $slidesLiveID := "" }}
+{{ if $hasSlidesLive }}
+  {{ $matches := findRESubmatch `(?:presentation_id=|slideslive\.com/(?:embed/presentation/)?)([0-9]{6,})` $video }}
+  {{ if $matches }}{{ $slidesLiveID = index (index $matches 0) 1 }}{{ end }}
 {{ end }}
 
 {{ $deckID := "" }}
@@ -34,7 +41,7 @@
   {{ end }}
 {{ end }}
 
-{{ if or $videoID $deckID $hasReader }}
+{{ if or $videoID $slidesLiveID $deckID $hasReader }}
 <section class="mt-16 md:mt-20 grid gap-10 md:grid-cols-[14rem_1fr] lg:grid-cols-[16rem_1fr]">
   <div class="hidden md:flex justify-end">
     <span class="vert-label">Media</span>
@@ -48,6 +55,17 @@
         <span class="mono-tag mono-tag-signal">▶ Recording</span>
         <span class="media-title display italic">Watch the talk.</span>
         <span class="mono-label">Click to load · youtube-nocookie.com</span>
+      </span>
+      <span class="media-play" aria-hidden="true">▶</span>
+    </button>
+    {{ end }}
+
+    {{ with $slidesLiveID }}
+    <button type="button" class="media-poster" data-embed-type="slideslive" data-embed-id="{{ . }}" data-aspect="1.7777" aria-label="Play talk recording on SlidesLive">
+      <span class="media-overlay">
+        <span class="mono-tag mono-tag-signal">▶ Recording</span>
+        <span class="media-title display italic">Watch the talk.</span>
+        <span class="mono-label">Click to load · slideslive.com</span>
       </span>
       <span class="media-play" aria-hidden="true">▶</span>
     </button>
@@ -112,6 +130,9 @@
         allow = 'autoplay; encrypted-media; fullscreen';
       } else if (type === 'speakerdeck') {
         src = 'https://speakerdeck.com/player/' + id;
+      } else if (type === 'slideslive') {
+        src = 'https://slideslive.com/embed/presentation/' + id + '?autoPlay=true';
+        allow = 'autoplay; encrypted-media; fullscreen';
       } else if (type === 'reader') {
         src = url;
       }
