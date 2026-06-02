@@ -79,7 +79,7 @@ You get the ergonomics of Claude Code or Codex, but the workflow logic belongs t
 
 ### Rent the model through a gateway
 
-Keep the model pluggable. The easiest path is [opencode.ai](https://opencode.ai), which acts as a model gateway giving you access to basically every model worth using behind one consistent interface. Swap Anthropic, OpenAI, Google, and open-weight models based on price/performance without rewriting anything.
+Keep the model pluggable. The easiest path is [OpenRouter](https://openrouter.ai), which acts as a model gateway giving you access to basically every model worth using behind one consistent interface. Swap Anthropic, OpenAI, Google, and open-weight models based on price/performance without rewriting anything.
 
 If you have stricter data or compliance requirements — and many companies do — go through a **cloud provider gateway** instead. [Amazon Bedrock](https://aws.amazon.com/bedrock/) and [Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry) give you the same model menu inside your existing cloud account, with your org's networking, IAM, logging, and data-residency guarantees already in place. For regulated or IP-sensitive work, that is often the right answer.
 
@@ -101,6 +101,6 @@ Use the good tools. Just don't build your house on rented land.
 - The **model** should be a swappable commodity; lock-in robs you of that lever.
 - Data, compliance, and cost control are all weaker when the harness is a black box.
 - Use an extensible harness like **[pi](https://pi.dev)** and keep your prompts, tools, and skills version-controlled in your own repo.
-- Rent models through a gateway — **[opencode.ai](https://opencode.ai)** for breadth, or **Bedrock / Azure AI Foundry** when compliance and data residency matter.
+- Rent models through a gateway — **[OpenRouter](https://openrouter.ai)** for breadth, or **Bedrock / Azure AI Foundry** when compliance and data residency matter.
 
 Adopt agents aggressively. Own the boundary deliberately.
