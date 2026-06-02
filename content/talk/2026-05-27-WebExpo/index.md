@@ -2,6 +2,7 @@
 title: "Under the Hood of AI: Building Your Own MCP Server in Go"
 event: WebExpo Prague 2026
 event_url: https://webexpo.net/prague2026/sessions/under-the-hood-of-ai-building-your-own-mcp-server-in-go/
+venue: Lucerna Cinema
 location: Prague, Czech Republic
 summary: "Everyone talks about using AI models, but few developers know how to extend them. In this talk, we go one level deeper and build our own Model Context Protocol (MCP) server in Go. MCP is an emerging standard that lets AI systems securely access tools, APIs, and real-world data. You'll see how to design a minimal, production-ready MCP service, connect it to an AI client, and expose your own capabilities - from querying observability data to automating workflows. We will extend the capabilities of our coding agent with an MCP server to help us in the future."
 
