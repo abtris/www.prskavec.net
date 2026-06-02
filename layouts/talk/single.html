@@ -55,16 +55,14 @@
             </span>
           </div>
         {{ end }}
-        {{ with .Params.venue }}
+        {{ if or .Params.venue .Params.location }}
         <div class="flex items-baseline gap-2">
           <span class="mono-label">Where</span>
-          <span class="text-[color:var(--color-paper)]">{{ . }}</span>
-        </div>
-        {{ end }}
-        {{ with .Params.location }}
-        <div class="flex items-baseline gap-2">
-          <span class="mono-label">City</span>
-          <span class="text-[color:var(--color-paper)]">{{ . }}</span>
+          <span class="text-[color:var(--color-paper)]">
+            {{- with .Params.venue }}{{ . }}{{ end -}}
+            {{- if and .Params.venue .Params.location }} <span class="text-[color:var(--color-paper-faint)]">·</span> {{ end -}}
+            {{- with .Params.location }}{{ . }}{{ end -}}
+          </span>
         </div>
         {{ end }}
       </div>
