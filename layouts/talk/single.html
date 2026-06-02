@@ -118,6 +118,9 @@
   {{/* ── lazy-loaded media embeds (YouTube / Speakerdeck) ────────────── */}}
   {{ partial "talk-media.html" . }}
 
+  {{/* ── photos from the room (audience / venue) ─────────────────────── */}}
+  {{ partial "talk-photos.html" . }}
+
   {{/* ── resource links (slides / video / code / pdf) ───────────────── */}}
   {{ $slides := .Params.url_slides }}
   {{ $video  := .Params.url_video }}

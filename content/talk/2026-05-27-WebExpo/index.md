@@ -33,7 +33,7 @@ url_code: ""
 url_pdf: ""
 url_reader: "/reader/2026-05-27-webexpo/"
 url_slides: "https://speakerdeck.com/abtris/under-the-hood-of-ai-building-your-own-mcp-server-in-go"
-url_video: ""
+url_video: "https://slideslive.com/39082764/under-the-hood-of-ai-building-your-own-mcp-server-in-go"
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
