@@ -70,17 +70,8 @@
 
     {{/* ── headline + event ──────────────────────────────────────── */}}
     <header class="min-w-0 rise rise-2">
-      <div class="mono-label mb-5">
-        Talk · No.
-        <span class="text-[color:var(--color-signal)]">
-          {{- $idx := 0 -}}
-          {{- range $i, $p := where site.RegularPages "Section" "talk" -}}
-            {{- if eq $p.RelPermalink $.RelPermalink -}}
-              {{- $idx = add (sub (len (where site.RegularPages "Section" "talk")) $i) 0 -}}
-            {{- end -}}
-          {{- end -}}
-          {{- printf "%03d" $idx -}}
-        </span>
+      <div class="mono-label mb-5 text-[color:var(--color-signal)]">
+        ▾ What
       </div>
 
       <h1 class="display display-italic text-[2.6rem] sm:text-5xl md:text-6xl lg:text-[5.2rem] mb-8">
