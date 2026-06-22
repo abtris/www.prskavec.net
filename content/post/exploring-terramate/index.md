@@ -3,7 +3,7 @@
 
 title: "Exploring Terramate - A Solution to Terraform Orchestration Challenges"
 subtitle: ""
-summary: "Terramate seeks to complement Terraform by providing additional structure and tools for managing multiple Terraform stacks, environments, and configurations more effectively. It is engineered to ease the pain points associated with large-scale Terraform deployments, including dependency management, stack management, and environment differentiation"
+summary: "Terramate complements Terraform with structure and tooling for managing multiple Terraform stacks, environments, and configurations. It targets the pain points of large-scale Terraform: dependency management, stack management, and environment differentiation."
 authors: ["abtris"]
 tags: ["terraform"]
 categories: []
@@ -28,34 +28,34 @@ image:
 projects: []
 ---
 
-As the adoption of infrastructure as code (IaC) practices continues to grow, Terraform by HashiCorp has emerged as a leading tool for defining and provisioning infrastructure through code. Terraform's declarative configuration language allows developers and operations teams to manage infrastructure with unprecedented precision and efficiency. However, with the growth in complexity and scale of infrastructure projects, users often encounter challenges related to orchestration, state management, and configuration across multiple environments. Enter Terramate, a tool designed to address these very challenges and streamline Terraform projects.
+Terraform by HashiCorp has become a leading tool for defining and provisioning infrastructure as code. Its declarative configuration language lets developers and operations teams manage infrastructure precisely. But as projects grow in size and complexity, you run into orchestration, state management, and configuration spread across many environments. Terramate is built to help with exactly those problems.
 
 ![](./featured.jpeg)
 
-#### **The Rise of Terramate**
+## What Terramate does
 
-[Terramate](https://terramate.io/docs/cli/introduction#what-is-terramate-cli) seeks to complement Terraform by providing additional structure and tools for managing multiple Terraform stacks, environments, and configurations more effectively. It is engineered to ease the pain points associated with large-scale Terraform deployments, including dependency management, stack management, and environment differentiation.
+[Terramate](https://terramate.io/docs/cli/introduction#what-is-terramate-cli) complements Terraform with extra structure and tooling for managing multiple stacks, environments, and configurations. It targets the pain points of large-scale Terraform deployments: dependency management, stack management, and environment differentiation.
 
-#### **Key Features of Terramate**
+## Key features
 
-1. **Stack Management:** Terramate introduces an efficient way to organize Terraform configurations into stacks, making it easier to manage complex infrastructures. This hierarchical organization allows teams to handle various aspects of their infrastructure in a more modular and understandable manner. 
+1. **Stack management:** Terramate organizes Terraform configurations into stacks, which makes complex infrastructure easier to manage. The hierarchy lets teams handle parts of their infrastructure in a more modular way. 
 
-2. **Orchestration:** One of Terramate's strengths is its ability to define and manage dependencies between stacks. This ensures that infrastructure components are deployed in the correct order, addressing one of the common challenges in multi-stack Terraform projects. Define and reuse data in stacks by using variables and metadata. Terramate can be seamlessly integrated into CI/CD pipelines, facilitating the automation of testing and deployment workflows. This capability is crucial for teams aiming to implement DevOps practices and looking to streamline their infrastructure deployment processes. Terramate support Terraform, OpenTofu, Terragrunt, Kubernetes, Pulumi, AWS Cloud Formation, AWS Cloud Development Kit (CDK), Azure Resource Manager (ARM), Biceps, and others.
+2. **Orchestration:** Terramate can define and manage dependencies between stacks, so components deploy in the right order, a common problem in multi-stack projects. You can define and reuse data across stacks with variables and metadata, and integrate Terramate into CI/CD pipelines to automate testing and deployment. It supports Terraform, OpenTofu, Terragrunt, Kubernetes, Pulumi, AWS CloudFormation, AWS Cloud Development Kit (CDK), Azure Resource Manager (ARM), Bicep, and others.
 
-3. **Code Generation:** Generating code is another advantage of Terramate. By leveraging templates and modules, it reduces code duplication and fosters consistency across your infrastructure, making your codebase more maintainable and scalable.
+3. **Code generation:** Generate code from templates and modules to cut duplication and keep configuration consistent across your infrastructure.
 
-4. **Git integration:** Helps to detect and manage stacks that contain changes in a branch, commit or pull request.
+4. **Git integration:** Detects and manages stacks with changes in a branch, commit, or pull request.
 
-#### **Is Terramate the Right Tool for You?**
+## Is it the right tool for you?
 
-While Terramate presents solutions to several Terraform-related challenges, whether it's the best fit for your project depends on various factors. These include the complexity of your infrastructure, the specific challenges you face, and your team's workflow preferences. It's essential to consider Terramate alongside other tools and practices within the Terraform ecosystem, such as Terragrunt, to determine the most suitable approach for your needs.
+Whether Terramate fits depends on your situation: how complex your infrastructure is, the specific problems you have, and how your team likes to work. It's worth weighing it against other tools in the Terraform space, like Terragrunt, before deciding.
 
 My use case is focus make our infrastructure in Azure Cloud automated. Our infrastructure team give us recommendation to make modules smallest as possible to work with their pipelines. It's nice idea but it's very hard to do it with complex infrastructure that have tens of modules. So I decided to use Terramate for my project. Split modules into stacks and use features for ordering to make graph how I want run them to be sure that order is right. 
 
 I really like generating code. I make templates for backend and providers, that can works for everyone. But I can setup templates specific for project. We generate common variables, injected data from others team etc. That simplify many parts that was duplicated on many places.
 
-#### **Conclusion**
+## Conclusion
 
-Terramate emerges as a promising solution for Terraform users grappling with the complexities of orchestrating and managing large-scale infrastructure projects. By offering features such as stack management, environment handling, dependency management, and more, Terramate aims to simplify these challenges, making infrastructure as code even more accessible and manageable. Whether you're a seasoned Terraform user or new to infrastructure as code, exploring Terramate could be a step forward in optimizing your IaC practices.
+Terramate helps if you're orchestrating and managing large Terraform projects. Stack management, environment handling, and dependency management take some of the pain out of infrastructure as code. If you're running into these problems, it's worth a look.
 
 I will about more details how we using Terramate after our project will be released to public.
