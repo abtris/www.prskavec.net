@@ -4,7 +4,7 @@ event: WebExpo Prague 2026
 event_url: https://webexpo.net/prague2026/sessions/under-the-hood-of-ai-building-your-own-mcp-server-in-go/
 venue: Lucerna Cinema
 location: Prague, Czech Republic
-summary: "Everyone talks about using AI models, but few developers know how to extend them. In this talk, we go one level deeper and build our own Model Context Protocol (MCP) server in Go. MCP is an emerging standard that lets AI systems securely access tools, APIs, and real-world data. You'll see how to design a minimal, production-ready MCP service, connect it to an AI client, and expose your own capabilities - from querying observability data to automating workflows. We will extend the capabilities of our coding agent with an MCP server to help us in the future."
+summary: "Most developers use AI models, but few extend them. In this talk we go a level deeper and build our own Model Context Protocol (MCP) server in Go. MCP is an emerging standard that lets AI systems securely reach tools, APIs, and real-world data. I show how to build a small, working MCP service, connect it to an AI client, and expose your own capabilities, from querying observability data to automating workflows. By the end we extend our own coding agent with an MCP server so it can do more for us."
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
@@ -55,9 +55,9 @@ projects:
 math: false
 ---
 
-Everyone talks about using AI models, but few developers know how to extend them. In this talk, we go one level deeper and build our own Model Context Protocol (MCP) server in Go. We use one of the AI assistants (Claude, Augment, Gemini) to code it. You can use any language, but I think AI using Go is super good and I explain why.
+Most developers use AI models, but few extend them. In this talk we go a level deeper and build our own Model Context Protocol (MCP) server in Go, using an AI assistant (Claude, Augment, Gemini) to write the code. You can use any language, but I think AI is especially good at Go, and I explain why.
 
-MCP is an emerging standard that lets AI systems securely access tools, APIs, and real-world data. You'll see how to design a minimal, production-ready MCP service, connect it to an AI client, and expose your own capabilities - from querying observability data to automating workflows. We extend the capabilities of our coding agent with an MCP server to help us in the future.
+MCP is an emerging standard that lets AI systems securely reach tools, APIs, and real-world data. I show how to build a small, working MCP service, connect it to an AI client, and expose your own capabilities, from querying observability data to automating workflows. By the end we extend our own coding agent with an MCP server so it can do more for us.
 
 - Go
 - MCP
