@@ -7,7 +7,7 @@
       <a href="{{ "/" | relURL }}" class="mono-label hover:text-[color:var(--color-paper)] transition-colors">/ prskavec.net</a>
     </div>
 
-    <nav aria-label="Primary" class="flex items-center gap-5 md:gap-7">
+    <nav aria-label="Primary" class="flex flex-wrap items-center gap-x-5 gap-y-1 md:gap-x-7">
       {{ $cur := .RelPermalink }}
       <a class="nav-link" data-active="{{ eq $cur "/" }}" href="{{ "/" | relURL }}">Index</a>
       <a class="nav-link" data-active="{{ hasPrefix $cur "/talk" }}" href="{{ "/talk/" | relURL }}">Talks</a>

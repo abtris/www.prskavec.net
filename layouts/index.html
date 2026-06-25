@@ -17,7 +17,7 @@
         <span class="mono-tag mono-tag-signal">▲ Based in Prague · CET</span>
       </div>
 
-      <h1 class="display text-[clamp(2.8rem,9vw,8.5rem)] leading-[0.98] rise rise-2">
+      <h1 class="display text-[clamp(2.8rem,8vw,6rem)] leading-[0.98] rise rise-2">
         Software <em class="italic text-[color:var(--color-signal)]">reliability</em>,
         <br>
         distributed <em class="italic">systems</em>,
@@ -34,9 +34,9 @@
       </p>
 
       <div class="mt-10 flex flex-wrap gap-3 rise rise-4">
-        <a href="/talk/" class="link-arrow">View Talks <span class="arr">→</span></a>
-        <a href="/post/" class="link-arrow">Read Writing <span class="arr">→</span></a>
-        <a href="https://ybyr.net/podcast" target="_blank" rel="noopener" class="link-arrow">Podcast: YBYR ↗</a>
+        <a href="/talk/" class="link-arrow link-arrow-primary">View Talks <span class="arr">→</span></a>
+        <a href="/post/" class="link-quiet">Read Writing <span class="arr">→</span></a>
+        <a href="https://ybyr.net/podcast" target="_blank" rel="noopener" class="link-quiet">Podcast: YBYR ↗</a>
       </div>
     </div>
 
@@ -71,7 +71,7 @@
           </dd>
         </dl>
 
-        <div class="mt-6 pt-5 border-t border-[color:var(--color-rule)] font-[family-name:var(--font-mono)] text-xs tracking-[0.14em] uppercase text-[color:var(--color-paper-faint)] leading-relaxed">
+        <div class="mt-6 pt-5 border-t border-[color:var(--color-rule)] font-[family-name:var(--font-mono)] text-sm tracking-[0.14em] uppercase text-[color:var(--color-paper-faint)] leading-relaxed">
           Talks delivered: {{ len $pastTalks }} · Posts published: {{ len (where site.RegularPages "Section" "post") }}
         </div>
       </div>
@@ -110,7 +110,7 @@
 {{ if $recentTalks }}
 <section class="relative z-10 px-6 md:px-12 lg:px-20 mb-32">
   <div class="section-marker">
-    <span class="mono-label">§ 01 / Recent Talks</span>
+    <h2 class="mono-label">§ Recent Talks</h2>
     <a href="/talk/" class="mono-label hover:text-[color:var(--color-signal)] transition-colors">All {{ len $allTalks }} →</a>
   </div>
   <ul>
@@ -133,7 +133,7 @@
 {{/* ── PODCAST + MEETUP DUET ──────────────────────────────────────────── */}}
 <section class="relative z-10 px-6 md:px-12 lg:px-20 mb-32">
   <div class="section-marker">
-    <span class="mono-label">§ 02 / Communities</span>
+    <h2 class="mono-label">§ Communities</h2>
   </div>
 
   <div class="grid gap-6 md:grid-cols-2">
@@ -142,7 +142,7 @@
       <span class="card-accent"></span>
       <div class="flex items-baseline justify-between mb-6">
         <span class="mono-tag mono-tag-signal">◉ Podcast</span>
-        <span class="font-[family-name:var(--font-mono)] text-xs text-[color:var(--color-paper-faint)] group-hover:text-[color:var(--color-signal)] transition-colors">ybyr.net ↗</span>
+        <span class="font-[family-name:var(--font-mono)] text-sm text-[color:var(--color-paper-faint)] group-hover:text-[color:var(--color-signal)] transition-colors">ybyr.net ↗</span>
       </div>
       <h3 class="display italic text-4xl md:text-5xl leading-[0.95] mb-4 group-hover:text-[color:var(--color-signal)] transition-colors">
         You Build It,<br>You Run It.
@@ -161,7 +161,7 @@
       <span class="card-accent"></span>
       <div class="flex items-baseline justify-between mb-6">
         <span class="mono-tag mono-tag-signal">▲ Meetup</span>
-        <span class="font-[family-name:var(--font-mono)] text-xs text-[color:var(--color-paper-faint)] group-hover:text-[color:var(--color-signal)] transition-colors">gomeetupprague.cz ↗</span>
+        <span class="font-[family-name:var(--font-mono)] text-sm text-[color:var(--color-paper-faint)] group-hover:text-[color:var(--color-signal)] transition-colors">gomeetupprague.cz ↗</span>
       </div>
       <h3 class="display italic text-4xl md:text-5xl leading-[0.95] mb-4 group-hover:text-[color:var(--color-signal)] transition-colors">
         Prague Go<br>Meetup.
@@ -181,7 +181,7 @@
 {{ if $recentPosts }}
 <section class="relative z-10 px-6 md:px-12 lg:px-20 mb-24">
   <div class="section-marker">
-    <span class="mono-label">§ 03 / Recent Writing</span>
+    <h2 class="mono-label">§ Recent Writing</h2>
     <a href="/post/" class="mono-label hover:text-[color:var(--color-signal)] transition-colors">All posts →</a>
   </div>
 

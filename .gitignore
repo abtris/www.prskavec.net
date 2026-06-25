@@ -15,3 +15,6 @@ test-results/
 
 # Tailwind build artifact (compiled by `make css` / Netlify build)
 static/css/output.css
+
+# Impeccable design-skill local state (hook cache, critique snapshots, sidecar)
+.impeccable/
