@@ -19,13 +19,8 @@
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="{{ replace (site.Language.Lang | default "en_US") "-" "_" }}">
 
-{{/* per-page sharing image if a page-bundle image resource exists, else the site default */}}
-{{ $ogImage := "" }}
-{{ with .Resources.GetMatch "{og.*,share.*,featured.*}" }}
-  {{ $ogImage = .Permalink }}
-{{ else }}
-  {{ $ogImage = absURL "img/og-default.png" }}
-{{ end }}
+{{/* per-page sharing image: explicit bundle image, generated per-post card, or site default */}}
+{{ $ogImage := partial "og-image.html" . }}
 <meta property="og:image" content="{{ $ogImage }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">

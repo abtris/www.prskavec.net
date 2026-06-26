@@ -79,8 +79,7 @@
   -}}
 
 {{- else if or (eq .Section "post") (eq .Section "reader") (eq .Type "docs") -}}
-  {{- $img := $defaultImage -}}
-  {{- with .Resources.GetMatch "{og.*,share.*,featured.*}" -}}{{ $img = .Permalink }}{{- end -}}
+  {{- $img := partial "og-image.html" . -}}
   {{- $data = dict
     "@context"         "https://schema.org"
     "@type"            "Article"
