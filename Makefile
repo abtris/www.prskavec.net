@@ -12,7 +12,7 @@ help:  ## Display this help
 deps: ## Install JS dependencies (Tailwind, Playwright)
 	npm install
 
-css: ## Compile Tailwind CSS (one-shot, minified)
+css: deps ## Compile Tailwind CSS (one-shot, minified)
 	npm run css
 
 css-watch: ## Compile Tailwind CSS in watch mode
