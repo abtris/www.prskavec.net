@@ -271,3 +271,5 @@ when there is enough signal to write a page worth keeping.
 
 That delay is the trick. It keeps the inbox easy and the knowledge layer clean
 enough to be useful months later.
+
+![Logseq graph view showing the knowledge base connections](logseq-graph-view.png)
