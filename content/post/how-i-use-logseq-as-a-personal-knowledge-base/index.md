@@ -24,6 +24,19 @@ image:
 projects: []
 ---
 
+This setup was inspired by Andrej Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f),
+but my version is deliberately local and boring: Logseq journals as the inbox,
+source files as the archive, and compact pages as the durable layer.
+
+Google is making a similar argument with [Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing):
+[Markdown](https://spec.commonmark.org/) plus [YAML front matter](https://jekyllrb.com/docs/front-matter/)
+as a shareable knowledge format. I think the format is the easy part.
+[Markdown](https://spec.commonmark.org/), [reStructuredText](https://docutils.sourceforge.io/rst.html),
+[AsciiDoc](https://docs.asciidoctor.org/asciidoc/latest/), or any plain text
+format with metadata can work. For company-wide use, the harder part is the
+documentation pipeline: how you ingest sources from different places, keep them
+fresh, and assign curators, human or LLM, to maintain the useful layer.
+
 My Logseq graph is not where every thought becomes permanent. It is where raw
 material waits until I decide whether it deserves a second life.
 
