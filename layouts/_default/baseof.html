@@ -12,6 +12,25 @@
     </main>
     {{ partial "footer.html" . }}
     {{ partial "search-overlay.html" . }}
+    {{ if .Store.Get "hasMermaid" }}
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        themeVariables: {
+          background: "transparent",
+          primaryColor: "#f4f1e8",
+          primaryTextColor: "#181713",
+          primaryBorderColor: "#ff5a1f",
+          lineColor: "#d8d1c3",
+          edgeLabelBackground: "#0c0c0a",
+          edgeLabelTextColor: "#f4f1e8",
+          tertiaryColor: "#f4f1e8"
+        }
+      });
+    </script>
+    {{ end }}
     <script src="{{ "/js/search.js" | relURL }}" defer></script>
   </body>
 </html>

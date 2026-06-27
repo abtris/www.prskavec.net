@@ -1282,3 +1282,11 @@
 #main:focus {
   outline: none;
 }
+
+/* ── Mermaid diagrams ────────────────────────────────────────────────── */
+.mermaid .edgeLabel,
+.mermaid .edgeLabel p,
+.mermaid .edgeLabel span {
+  color: var(--color-paper) !important;
+  background: var(--color-ink-deep) !important;
+}
