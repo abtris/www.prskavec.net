@@ -1,0 +1,84 @@
+{{/*
+  og-image.html — returns the absolute URL of the social-share image for a page.
+
+  Priority:
+    1. An explicit image in the page bundle (og, share or featured resource)
+    2. A per-page card generated at build time: the brand frame (assets/og/og-bg.png)
+       with the page title + metadata rendered on top via images.Text.
+    3. The static site default (static/img/og-default.png).
+
+  All text is drawn with the committed TTFs in assets/og/fonts so the brand
+  faces render identically wherever `hugo` runs (local, CI, Netlify).
+*/}}
+{{ $default := absURL "img/og-default.png" }}
+{{ $result := $default }}
+
+{{ with .Resources.GetMatch "{og.*,share.*,featured.*}" }}
+  {{ $result = .Permalink }}
+{{ else }}
+  {{ $bg := resources.Get "og/og-bg.png" }}
+  {{ $serif := resources.Get "og/fonts/InstrumentSerif-Regular.ttf" }}
+  {{ $italic := resources.Get "og/fonts/InstrumentSerif-Italic.ttf" }}
+  {{ $mono := resources.Get "og/fonts/JetBrainsMono-Regular.ttf" }}
+  {{ $monoMed := resources.Get "og/fonts/JetBrainsMono-Medium.ttf" }}
+
+  {{ if and .IsPage .Title $bg $serif $mono }}
+    {{ $title := .Title | plainify }}
+
+    {{/* size + wrap width scale with title length so long titles still fit */}}
+    {{ $n := len $title }}
+    {{ $size := 82 }}{{ $max := 22 }}{{ $titleY := 205 }}
+    {{ if gt $n 30 }}{{ $size = 72 }}{{ $max = 26 }}{{ $titleY = 195 }}{{ end }}
+    {{ if gt $n 55 }}{{ $size = 60 }}{{ $max = 32 }}{{ $titleY = 188 }}{{ end }}
+    {{ if gt $n 90 }}{{ $size = 52 }}{{ $max = 38 }}{{ $titleY = 182 }}{{ end }}
+    {{ $lsp := 16 }}
+
+    {{/* greedy word-wrap to $max characters per line, capped at 4 lines */}}
+    {{ $lines := slice }}
+    {{ $cur := "" }}
+    {{ range $w := split $title " " }}
+      {{ $try := cond (eq $cur "") $w (printf "%s %s" $cur $w) }}
+      {{ if le (len $try) $max }}
+        {{ $cur = $try }}
+      {{ else }}
+        {{ $lines = $lines | append $cur }}
+        {{ $cur = $w }}
+      {{ end }}
+    {{ end }}
+    {{ if ne $cur "" }}{{ $lines = $lines | append $cur }}{{ end }}
+    {{ $lines = first 4 $lines }}
+    {{ $titleText := delimit $lines "\n" }}
+
+    {{/* kicker — up to 3 tags, uppercased */}}
+    {{ $tags := slice }}
+    {{ range first 3 (.Params.tags | default slice) }}{{ $tags = $tags | append (upper .) }}{{ end }}
+    {{ $kicker := delimit $tags " · " }}
+
+    {{/* top-right meta — reading time */}}
+    {{ $meta := "" }}
+    {{ with .ReadingTime }}{{ $meta = printf "%d MIN READ" . }}{{ end }}
+
+    {{ $date := "" }}
+    {{ with .Date }}{{ if not .IsZero }}{{ $date = .Format "January 2, 2006" }}{{ end }}{{ end }}
+
+    {{ $filters := slice }}
+    {{/* top hairline labels */}}
+    {{ $filters = $filters | append (images.Text "PRSKAVEC.NET" (dict "color" "#8b8378" "size" 18 "x" 90 "y" 62 "font" $mono)) }}
+    {{ with $meta }}{{ $filters = $filters | append (images.Text . (dict "color" "#8b8378" "size" 18 "x" 1110 "y" 62 "alignx" "right" "font" $mono)) }}{{ end }}
+    {{/* kicker */}}
+    {{ with $kicker }}{{ $filters = $filters | append (images.Text . (dict "color" "#ff5c2e" "size" 22 "x" 90 "y" 108 "font" $monoMed)) }}{{ end }}
+    {{/* title */}}
+    {{ $filters = $filters | append (images.Text $titleText (dict "color" "#ede4d3" "size" $size "x" 90 "y" $titleY "linespacing" $lsp "alignx" "left" "font" $serif)) }}
+    {{/* byline */}}
+    {{ $filters = $filters | append (images.Text "Ladislav Prskavec" (dict "color" "#ede4d3" "size" 20 "x" 90 "y" 576 "font" $mono)) }}
+    {{ with $date }}{{ $filters = $filters | append (images.Text . (dict "color" "#8b8378" "size" 20 "x" 318 "y" 576 "font" $mono)) }}{{ end }}
+    {{/* LP mark */}}
+    {{ $lpfont := $italic | default $serif }}
+    {{ $filters = $filters | append (images.Text "LP" (dict "color" "#ff5c2e" "size" 84 "x" 1110 "y" 470 "alignx" "right" "font" $lpfont)) }}
+
+    {{ $img := $bg.Filter $filters }}
+    {{ $result = $img.Permalink }}
+  {{ end }}
+{{ end }}
+
+{{ return $result }}
