@@ -45,6 +45,9 @@
 <link rel="icon" type="image/svg+xml" href="{{ "/favicon.svg" | relURL }}">
 <link rel="icon" type="image/x-icon" href="{{ "/favicon.ico" | relURL }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | relURL }}">
+{{ with .OutputFormats.Get "RSS" }}
+<link rel="alternate" type="{{ .MediaType }}" href="{{ .Permalink }}" title="{{ if $.IsHome }}{{ site.Title }}{{ else }}{{ $.Title }} — {{ site.Title }}{{ end }}">
+{{ end }}
 
 {{/* ── Fonts + stylesheet ──────────────────────────────────────── */}}
 <link rel="preconnect" href="https://fonts.googleapis.com">

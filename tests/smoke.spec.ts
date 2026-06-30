@@ -34,6 +34,12 @@ test.describe('Homepage', () => {
     await expect(page.getByRole('link', { name: /ladislav@prskavec\.net/i }).first()).toBeVisible();
   });
 
+  test('RSS feed is discoverable', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('link[rel="alternate"][type="application/rss+xml"]')).toHaveAttribute('href', /\/index\.xml$/);
+    await expect(page.getByRole('link', { name: 'RSS feed' })).toHaveAttribute('href', '/index.xml');
+  });
+
   test('no placeholder subtitle copy is visible', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByText('MY FANS')).toHaveCount(0);
