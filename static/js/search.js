@@ -201,10 +201,16 @@
 
   overlay.addEventListener('click', (e) => {
     // Click on the backdrop (not the inner panel) closes
-    if (e.target === overlay || e.target.dataset.searchClose) close();
+    if (e.target === overlay || e.target.hasAttribute('data-search-close')) close();
   });
 
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.dataset.open === 'true') {
+      e.preventDefault();
+      close();
+      return;
+    }
+
     // "/" opens the overlay (GitHub-style); skipped when the user is typing
     // in any form field so they can still type a literal slash there.
     if (e.key === '/' && overlay.dataset.open !== 'true') {
