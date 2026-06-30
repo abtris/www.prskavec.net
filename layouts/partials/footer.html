@@ -15,7 +15,6 @@
         <li><a class="nav-link" href="https://twitter.com/abtris" target="_blank" rel="noopener">twitter.com/abtris ↗</a></li>
         <li><a class="nav-link" href="https://ybyr.net/podcast" target="_blank" rel="noopener">ybyr.net (podcast) ↗</a></li>
         <li><a class="nav-link" href="https://www.gomeetupprague.cz/" target="_blank" rel="noopener">gomeetupprague.cz ↗</a></li>
-        <li><a class="nav-link" href="{{ "/index.xml" | relURL }}">RSS feed</a></li>
       </ul>
     </div>
 
@@ -24,6 +23,11 @@
       <a href="mailto:ladislav@prskavec.net" class="display italic text-2xl text-[color:var(--color-paper)] hover:text-[color:var(--color-signal)] transition-colors">
         ladislav@prskavec.net
       </a>
+      <ul class="mt-5 space-y-1.5 font-[family-name:var(--font-mono)] text-sm">
+        <li><a class="nav-link" href="{{ "/index.xml" | relURL }}">All RSS</a></li>
+        <li><a class="nav-link" href="{{ "/post/index.xml" | relURL }}">Posts RSS</a></li>
+        <li><a class="nav-link" href="{{ "/talk/index.xml" | relURL }}">Talks RSS</a></li>
+      </ul>
       <div class="mono-label mt-6 text-[color:var(--color-paper-faint)]">
         © {{ now.Format "2006" }} — Built with Hugo · Set in Instrument Serif, Newsreader & JetBrains Mono
       </div>

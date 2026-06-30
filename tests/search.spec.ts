@@ -68,7 +68,7 @@ test.describe('Search overlay', () => {
     expect(href).toMatch(/^\/|prskavec\.net/);
 
     await firstHit.click();
-    await expect(page).not.toHaveURL(/\/$|^http:\/\/localhost:1313\/$/);
+    await expect(page).not.toHaveURL('/');
   });
 
   test('a query with no matches shows the empty state', async ({ page }) => {
@@ -94,7 +94,7 @@ test.describe('Search overlay', () => {
     const overlay = page.locator('#search-overlay');
     await expect(overlay).toHaveAttribute('data-open', 'true');
 
-    await page.locator('.search-backdrop').click();
+    await page.locator('.search-backdrop').click({ position: { x: 10, y: 10 } });
     await expect(overlay).toHaveAttribute('data-open', 'false');
   });
 
