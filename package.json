@@ -9,7 +9,9 @@
     "test:report": "playwright show-report",
     "css": "tailwindcss -i ./assets/css/input.css -o ./static/css/output.css --minify",
     "css:watch": "tailwindcss -i ./assets/css/input.css -o ./static/css/output.css --watch",
-    "mermaid": "node scripts/render-mermaid.mjs"
+    "mermaid": "node scripts/render-mermaid.mjs",
+    "links": "node scripts/check-links.mjs",
+    "links:external": "node scripts/check-links.mjs --external"
   },
   "repository": {
     "type": "git",

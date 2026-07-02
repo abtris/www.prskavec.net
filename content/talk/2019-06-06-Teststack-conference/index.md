@@ -1,7 +1,7 @@
 ---
 title: Testing Cloud Infrastructure
 event:  Teststack Conference
-event_url: http://www.datascript.cz/test-stack/
+event_url: https://web.archive.org/web/20190619162849/http://www.datascript.cz/test-stack/
 location: Prague, Czech Republic
 summary: Talk is focused on Compliance as Code and Infrastructure as Code.
 abstract: "Every developer testing own code today. It doesn't matter if is on the frontend or backend. For DevOps, you need to go to the next level and start testing security and infrastructure. I will show tools that help with that."
@@ -43,4 +43,3 @@ url_video: ""
 slides:
 math: false
 ---
-
