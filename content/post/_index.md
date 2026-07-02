@@ -11,4 +11,11 @@ view: 2
 header:
   caption: ""
   image: ""
+
+# Every post also renders a Substack-ready export at <post-url>/substack.html
+# (layouts/post/single.substack.html) for copy-pasting into the Substack editor.
+cascade:
+  outputs:
+    - HTML
+    - SUBSTACK
 ---

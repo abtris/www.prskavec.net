@@ -1,0 +1,45 @@
+<!doctype html>
+{{- /*
+  Substack export — a stripped-down rendering of the post for pasting into
+  the Substack editor. Workflow: publish the post on the site first (so the
+  image URLs below are live for Substack to fetch), open this page, press
+  Cmd+A / Cmd+C, and paste into a new Substack post. The instructions block
+  is user-select:none so Select All skips it. Title and subtitle go into
+  Substack's own fields, so they're shown as labelled lines, not content.
+
+  All root-relative and bundle-relative src/href attributes are rewritten to
+  absolute URLs — Substack rehosts images by fetching them from the source.
+*/ -}}
+{{- $content := .Content -}}
+{{- /* root-relative URLs → absolute (site.BaseURL ends with a slash) */ -}}
+{{- $content = replaceRE `(src|href)="/([^"]*)"` (printf `$1="%s$2"` site.BaseURL) $content -}}
+{{- /* bundle-relative URLs (no scheme/anchor/leading slash) → page permalink */ -}}
+{{- $content = replaceRE `(src|href)="([^"/:#][^":]*)"` (printf `$1="%s$2"` .Permalink) $content -}}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>{{ .Title }} — Substack export</title>
+<style>
+  body { max-width: 42rem; margin: 3rem auto; padding: 0 1rem; font: 18px/1.6 Georgia, serif; }
+  .howto { user-select: none; -webkit-user-select: none; background: #f5f0e6; border: 1px solid #d8cdb8; padding: 1rem 1.25rem; font: 14px/1.5 monospace; }
+  .fields { border-bottom: 2px solid #333; padding-bottom: 1rem; }
+  img { max-width: 100%; height: auto; }
+  pre { background: #f4f4f4; padding: 1rem; overflow-x: auto; }
+</style>
+</head>
+<body>
+  <div class="howto">
+    Substack export · Select All (Cmd+A) skips this box. Paste the Title and
+    Subtitle lines into Substack's own fields and delete them from the body,
+    then paste everything else as-is. Publish the post on prskavec.net first
+    so Substack can fetch the images.
+  </div>
+  <div class="fields">
+    <p><strong>Title:</strong> {{ .Title }}</p>
+    {{ with .Params.summary }}<p><strong>Subtitle:</strong> {{ . }}</p>{{ end }}
+  </div>
+  {{ $content | safeHTML }}
+  <p><em>Originally published at <a href="{{ .Permalink }}">{{ .Permalink }}</a>.</em></p>
+</body>
+</html>
