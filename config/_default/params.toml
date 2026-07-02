@@ -8,6 +8,11 @@ description = "Personal site of Ladislav Prskavec — Software Engineer & Site R
 # meta tags. Empty disables the tags.
 twitter = "abtris"
 
+# Substack publication (host only) — the email-subscription path for readers
+# who don't use RSS. Rendered in the footer and the end-of-post subscribe
+# line. Empty disables both.
+substack = "abtris.substack.com"
+
 # Contact details. `email` is rendered on the about page and used as the
 # RSS <managingEditor> / <webMaster>. `address` powers the location line
 # on the about page vitals card.
