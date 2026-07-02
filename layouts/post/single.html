@@ -37,6 +37,15 @@
     </div>
   </div>
 
+  {{/* subscribe — the email path for readers who don't use RSS */}}
+  {{ with site.Params.substack }}
+  <div class="mt-24 pt-8 border-t border-[color:var(--color-rule)] max-w-5xl flex flex-wrap items-baseline gap-x-8 gap-y-3">
+    <span class="mono-label">§ New posts by email</span>
+    <a href="https://{{ . }}" target="_blank" rel="noopener" class="link-arrow">Subscribe on Substack <span class="arr">↗</span></a>
+    <a href="{{ "/post/index.xml" | relURL }}" class="link-quiet">or grab the RSS feed <span class="arr">→</span></a>
+  </div>
+  {{ end }}
+
   {{/* prev/next */}}
   {{ $sectionPages := where site.RegularPages "Section" "post" }}
   {{ $sorted := sort $sectionPages "Date" "desc" }}
