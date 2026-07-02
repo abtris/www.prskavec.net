@@ -34,6 +34,12 @@ ignoreLogs = ['warning-goldmark-raw-html']
   home = [ "HTML", "RSS", "JSON", "LLMS" ]
   section = [ "HTML", "RSS" ]
 
+# Google Analytics 4 — emitted by the internal template in head.html,
+# production builds only (HUGO_ENV=production, set in netlify.toml).
+[services]
+  [services.googleAnalytics]
+    ID = "G-YGZB4EL45B"
+
 # Custom output format for /llms.txt — see https://llmstxt.org
 [outputFormats]
   [outputFormats.LLMS]

@@ -12,8 +12,16 @@
 [context.deploy-preview]
   command = "npm ci && npm run css && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
+# Keep analytics out of previews/branch deploys — head.html gates the GA
+# snippet on hugo.IsProduction, which HUGO_ENV controls.
+[context.deploy-preview.environment]
+  HUGO_ENV = "development"
+
 [context.branch-deploy]
   command = "npm ci && npm run css && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+
+[context.branch-deploy.environment]
+  HUGO_ENV = "development"
 
 [[headers]]
   for = "*.webmanifest"

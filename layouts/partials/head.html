@@ -62,3 +62,8 @@
 
 {{/* ── JSON-LD structured data ─────────────────────────────────── */}}
 {{ partial "jsonld.html" . }}
+
+{{/* ── Analytics (production builds only) ──────────────────────── */}}
+{{ if hugo.IsProduction }}
+{{ template "_internal/google_analytics.html" . }}
+{{ end }}
