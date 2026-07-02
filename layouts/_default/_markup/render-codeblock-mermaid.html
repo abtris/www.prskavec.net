@@ -1,4 +1,12 @@
 {{ .Page.Store.Set "hasMermaid" true }}
-<pre class="mermaid">
+{{- /* The site renders diagrams client-side; data-static points at the
+       pre-rendered PNG (scripts/render-mermaid.mjs → static/img/mermaid/)
+       so RSS/Substack output (partials/content-portable.html) can swap in
+       a static image. Key derivation must match the script's. */ -}}
+{{- $i := add (.Page.Store.Get "mermaidIdx" | default 0) 1 -}}
+{{- .Page.Store.Set "mermaidIdx" $i -}}
+{{- $key := .Page.File.Path | strings.TrimSuffix ".md" | strings.TrimSuffix "/index" | replaceRE `/` "-" -}}
+{{- $img := printf "img/mermaid/%s-%d.png" $key $i -}}
+<pre class="mermaid"{{ if fileExists (printf "/static/%s" $img) }} data-static="{{ absURL $img }}"{{ end }}>
 {{- .Inner | htmlEscape | safeHTML -}}
 </pre>

@@ -47,6 +47,14 @@ ignoreLogs = ['warning-goldmark-raw-html']
     baseName = "llms"
     isPlainText = true
     notAlternative = true
+  # Substack-ready export of a post — clean HTML with absolute URLs for
+  # copy-pasting into the Substack editor. Rendered per post as
+  # <post>/substack.html via the cascade in content/post/_index.md.
+  [outputFormats.SUBSTACK]
+    mediaType = "text/html"
+    baseName = "substack"
+    isHTML = true
+    notAlternative = true
 
 # Markdown rendering knobs (consulted by legacy BlackFriday paths; Goldmark
 # is the default renderer and inherits most defaults).

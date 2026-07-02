@@ -1,0 +1,33 @@
+{{- /*
+  content-portable.html — page content transformed for consumers that read
+  it *outside* the site: RSS <content:encoded> and the Substack export.
+  Context: a page. Returns the transformed content string.
+
+  1. Root-relative and bundle-relative src/href are rewritten to absolute
+     URLs (feed readers and Substack fetch images from the source).
+  2. Mermaid <pre> blocks (client-side JS on the site, dead code anywhere
+     else) become static <img>: the pre-rendered PNG from data-static when
+     scripts/render-mermaid.mjs produced one, otherwise a mermaid.ink
+     fallback URL built from the diagram source.
+
+  Invoke via partialCached keyed on .Permalink — a page can appear in
+  several feeds (home, section, tags).
+*/ -}}
+{{- $content := .Content -}}
+{{- $content = replaceRE `(src|href)="/([^"]*)"` (printf `$1="%s$2"` site.BaseURL) $content -}}
+{{- $content = replaceRE `(src|href)="([^"/:#][^":]*)"` (printf `$1="%s$2"` .Permalink) $content -}}
+{{- range findRE `(?s)<pre class="mermaid"[^>]*>.*?</pre>` $content -}}
+  {{- $img := "" -}}
+  {{- $static := findRE `data-static="[^"]+"` . 1 -}}
+  {{- if $static -}}
+    {{- $url := index $static 0 | replaceRE `data-static="([^"]+)"` "$1" -}}
+    {{- $img = printf `<img src="%s" alt="Diagram (rendered from Mermaid)">` $url -}}
+  {{- else -}}
+    {{- $code := replaceRE `(?s)^<pre class="mermaid"[^>]*>(.*)</pre>$` "$1" . | htmlUnescape -}}
+    {{- $payload := dict "code" $code "mermaid" (dict "theme" "default") | jsonify -}}
+    {{- $b64 := $payload | base64Encode | replaceRE `\+` "-" | replaceRE `/` "_" | replaceRE `=+$` "" -}}
+    {{- $img = printf `<img src="https://mermaid.ink/img/%s?type=png" alt="Diagram (rendered from Mermaid)">` $b64 -}}
+  {{- end -}}
+  {{- $content = replace $content . $img -}}
+{{- end -}}
+{{- return $content -}}
