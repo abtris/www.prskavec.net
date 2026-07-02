@@ -10,11 +10,9 @@
   All root-relative and bundle-relative src/href attributes are rewritten to
   absolute URLs — Substack rehosts images by fetching them from the source.
 */ -}}
-{{- $content := .Content -}}
-{{- /* root-relative URLs → absolute (site.BaseURL ends with a slash) */ -}}
-{{- $content = replaceRE `(src|href)="/([^"]*)"` (printf `$1="%s$2"` site.BaseURL) $content -}}
-{{- /* bundle-relative URLs (no scheme/anchor/leading slash) → page permalink */ -}}
-{{- $content = replaceRE `(src|href)="([^"/:#][^":]*)"` (printf `$1="%s$2"` .Permalink) $content -}}
+{{- /* URL absolutizing + Mermaid→static-image conversion live in the
+       shared partial, which the RSS template uses too. */ -}}
+{{- $content := partialCached "content-portable.html" . .Permalink -}}
 <html lang="en">
 <head>
 <meta charset="utf-8">

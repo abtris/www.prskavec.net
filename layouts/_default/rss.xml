@@ -36,7 +36,7 @@
       {{- end }}
       <guid>{{ .Permalink }}</guid>
       <description>{{ with .Params.summary }}{{ . | html }}{{ else }}{{ .Summary | html }}{{ end }}</description>
-      <content:encoded>{{ .Content | html }}</content:encoded>
+      <content:encoded>{{ partialCached "content-portable.html" . .Permalink | html }}</content:encoded>
     </item>
     {{- end }}
   </channel>

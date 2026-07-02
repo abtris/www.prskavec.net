@@ -4,7 +4,7 @@ SHELL:=/bin/bash
 
 TITLE := $(shell echo $(name) | tr [:upper:] [:lower:] | sed -e 's/ /_/g')
 
-.PHONY: help deps clean build watch css css-watch test test-headed test-ci test-report
+.PHONY: help deps clean build watch css css-watch mermaid test test-headed test-ci test-report
 
 help:  ## Display this help
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
@@ -18,7 +18,10 @@ css: deps ## Compile Tailwind CSS (one-shot, minified)
 css-watch: ## Compile Tailwind CSS in watch mode
 	npm run css:watch
 
-build: css ## Build the project (compiles CSS, then Hugo)
+mermaid: deps ## Render mermaid diagrams in content to static/img/mermaid (commit the PNGs)
+	npm run mermaid
+
+build: css mermaid ## Build the project (compiles CSS + mermaid PNGs, then Hugo)
 	hugo
 
 watch: ## Watch file changes and build (run `make css-watch` in another tab)
