@@ -130,6 +130,31 @@
 </section>
 {{ end }}
 
+{{/* ── ONCALL GUIDE ───────────────────────────────────────────────────── */}}
+{{ with site.GetPage "/courses/how-to-make-oncall" }}
+<section class="relative z-10 px-6 md:px-12 lg:px-20 mb-32">
+  <div class="border-y border-[color:var(--color-rule)] py-10 md:py-14 grid gap-8 md:grid-cols-[1fr_auto] items-center rise">
+    <div class="min-w-0">
+      <div class="flex items-center gap-4 mb-5">
+        <span class="mono-tag mono-tag-signal">▣ Field Guide</span>
+        <span class="mono-label">{{ len .Pages }} chapters · free to read</span>
+      </div>
+      <a href="{{ .RelPermalink }}" class="block group">
+        <h2 class="display italic text-3xl md:text-5xl lg:text-6xl leading-[0.95] group-hover:text-[color:var(--color-signal)] transition-colors">
+          On-call that doesn't kill your team.
+        </h2>
+        <p class="mt-5 max-w-[68ch] text-lg leading-snug text-[color:var(--color-paper-dim)]">
+          A practical guide to designing on-call from scratch — rosters and schedules,
+          alert budgets, escalation policies, documentation, postmortems, and the
+          tooling market. Opinions earned running real 24/7 rotations.
+        </p>
+      </a>
+    </div>
+    <a href="{{ .RelPermalink }}" class="link-arrow whitespace-nowrap">Read the Guide <span class="arr">→</span></a>
+  </div>
+</section>
+{{ end }}
+
 {{/* ── PODCAST + MEETUP DUET ──────────────────────────────────────────── */}}
 <section class="relative z-10 px-6 md:px-12 lg:px-20 mb-32">
   <div class="section-marker">
