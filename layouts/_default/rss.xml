@@ -1,4 +1,11 @@
-{{- $pages := .Data.Pages -}}
+{{- /* .Data.Pages on the home page yields the top-level *sections* (empty
+       stub items), not posts — the home feed should carry every content page
+       on the site, section/term feeds their own regular pages. */ -}}
+{{- $pages := .RegularPages -}}
+{{- if .IsHome -}}
+  {{- $pages = site.RegularPages -}}
+{{- end -}}
+{{- $pages = $pages.ByDate.Reverse -}}
 {{- $limit := site.Config.Services.RSS.Limit -}}
 {{- if ge $limit 1 -}}
   {{- $pages = $pages | first $limit -}}
