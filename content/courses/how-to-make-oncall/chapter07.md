@@ -49,8 +49,8 @@ Some numbers first — calculate and consider what matters most to you, and whet
 
 | Month | 1w | 2w | 3w | 4w |
 | --- | :-: | :-: | :-: | :-: |
-| Primary | A | B | C | D |
-| Secondary | E | F | G | H |
+| Primary | Ann | Ben | Cara | Dan |
+| Secondary | Eve | Finn | Gina | Hank |
 
 We have 8 people rotating every 4 weeks. If you share primary and secondary across the same people, you need to extend this to 2 months and swap the roles each month. I don't recommend back-to-back shifts, as many teams do — it's not healthy. All these tables represent a minimum and are not optimal. You need extra capacity for vacations, sick days, and to stay safely below that 25% on-call threshold.
 
@@ -58,10 +58,10 @@ We have 8 people rotating every 4 weeks. If you share primary and secondary acro
 
 | Month | 1w | 2w | 3w | 4w |
 | --- | :-: | :-: | :-: | :-: |
-| Site 1 – Primary | A | E | G | C |
-| Site 1 – Secondary | C | A | E | G |
-| Site 2 – Primary | B | F | H | D |
-| Site 2 – Secondary | D | B | F | H |
+| Site 1 – Primary | Ann | Eve | Gina | Cara |
+| Site 1 – Secondary | Cara | Ann | Eve | Gina |
+| Site 2 – Primary | Ben | Finn | Hank | Dan |
+| Site 2 – Secondary | Dan | Ben | Finn | Hank |
 
 We have 8 people rotating every 4 weeks. The SRE book recommends 6 people per site, and I agree. This calculation is a bare minimum — I recommend at least 6 people per site.
 
@@ -69,12 +69,12 @@ We have 8 people rotating every 4 weeks. The SRE book recommends 6 people per si
 
 | Month | 1w | 2w | 3w | 1=4w |
 | --- | :-: | :-: | :-: | :-: |
-| Site 1 – Primary | A | D | G | A |
-| Site 1 – Secondary | G | A | D | G |
-| Site 2 – Primary | B | E | H | B |
-| Site 2 – Secondary | H | B | E | H |
-| Site 3 – Primary | C | F | I | C |
-| Site 3 – Secondary | I | C | F | I |
+| Site 1 – Primary | Ann | Dan | Gina | Ann |
+| Site 1 – Secondary | Gina | Ann | Dan | Gina |
+| Site 2 – Primary | Ben | Eve | Hank | Ben |
+| Site 2 – Secondary | Hank | Ben | Eve | Hank |
+| Site 3 – Primary | Cara | Finn | Ivy | Cara |
+| Site 3 – Secondary | Ivy | Cara | Finn | Ivy |
 
 We have 9 people rotating every 3 weeks. Still, I would go with 6 people per site.
 
