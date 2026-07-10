@@ -94,44 +94,44 @@ Many US teams use India, but that doesn't work well with Europe for on-call. The
 
 Working hours 9–17, mapped against UTC (local hour shown when a site is on shift):
 
-| UTC | Singapur (UTC+7) | London (UTC) | Paris (UTC+1) | SF (PST, UTC-9) |
+| UTC | Singapur (UTC+8) | London (UTC) | Paris (UTC+1) | SF (PST, UTC-8) |
 | :-: | :-: | :-: | :-: | :-: |
-| 0 |  |  |  | 15 |
-| 1 |  |  |  | 16 |
-| 2 | 9 |  |  | 17 |
-| 3 | 10 |  |  |  |
-| 4 | 11 |  |  |  |
-| 5 | 12 |  |  |  |
-| 6 | 13 |  |  |  |
-| 7 | 14 |  |  |  |
-| 8 | 15 |  |  |  |
-| 9 | 16 | 9 |  |  |
-| 10 | 17 | 10 | 9 |  |
-| 11 |  | 11 | 10 |  |
-| 12 |  | 12 | 11 |  |
-| 13 |  | 13 | 12 |  |
-| 14 |  | 14 | 13 |  |
-| 15 |  | 15 | 14 |  |
-| 16 |  | 16 | 15 |  |
-| 17 |  | 17 | 16 |  |
-| 18 |  |  | 17 | 9 |
-| 19 |  |  |  | 10 |
-| 20 |  |  |  | 11 |
-| 21 |  |  |  | 12 |
-| 22 |  |  |  | 13 |
-| 23 |  |  |  | 14 |
+| 0 |  |  |  | 16 |
+| 1 | 9 |  |  | 17 |
+| 2 | 10 |  |  |  |
+| 3 | 11 |  |  |  |
+| 4 | 12 |  |  |  |
+| 5 | 13 |  |  |  |
+| 6 | 14 |  |  |  |
+| 7 | 15 |  |  |  |
+| 8 | 16 |  | 9 |  |
+| 9 | 17 | 9 | 10 |  |
+| 10 |  | 10 | 11 |  |
+| 11 |  | 11 | 12 |  |
+| 12 |  | 12 | 13 |  |
+| 13 |  | 13 | 14 |  |
+| 14 |  | 14 | 15 |  |
+| 15 |  | 15 | 16 |  |
+| 16 |  | 16 | 17 |  |
+| 17 |  | 17 |  | 9 |
+| 18 |  |  |  | 10 |
+| 19 |  |  |  | 11 |
+| 20 |  |  |  | 12 |
+| 21 |  |  |  | 13 |
+| 22 |  |  |  | 14 |
+| 23 |  |  |  | 15 |
 
 Two-site 12h shifts, mapped against UTC:
 
-| UTC | London (UTC) | SF (PST, UTC-9) |
+| UTC | London (UTC) | SF (PST, UTC-8) |
 | :-: | :-: | :-: |
-| 0 |  | 15 |
-| 1 |  | 16 |
-| 2 |  | 17 |
-| 3 |  | 18 |
-| 4 |  | 19 |
-| 5 |  | 20 |
-| 6 | 6 | 21 |
+| 0 |  | 16 |
+| 1 |  | 17 |
+| 2 |  | 18 |
+| 3 |  | 19 |
+| 4 |  | 20 |
+| 5 |  | 21 |
+| 6 | 6 |  |
 | 7 | 7 |  |
 | 8 | 8 |  |
 | 9 | 9 |  |
@@ -142,12 +142,12 @@ Two-site 12h shifts, mapped against UTC:
 | 14 | 14 |  |
 | 15 | 15 |  |
 | 16 | 16 |  |
-| 17 | 17 |  |
-| 18 | 18 | 9 |
-| 19 |  | 10 |
-| 20 |  | 11 |
-| 21 |  | 12 |
-| 22 |  | 13 |
-| 23 |  | 14 |
+| 17 | 17 | 9 |
+| 18 | 18 | 10 |
+| 19 |  | 11 |
+| 20 |  | 12 |
+| 21 |  | 13 |
+| 22 |  | 14 |
+| 23 |  | 15 |
 
 [^3]: T. A. Limoncelli, S. R. Chalup, and C. J. Hogan, The Practice of Cloud System Administration: Designing and Operating Large Distributed Systems, Volume 2: Addison-Wesley, 2014. - https://learning.oreilly.com/library/view/practice-of-cloud/9780133478549/title.html
