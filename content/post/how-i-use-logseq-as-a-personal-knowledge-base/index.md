@@ -166,6 +166,18 @@ Not every page needs every heading. The format is only there to force the useful
 work: make the page searchable, connect it to related pages, and show where the
 material came from.
 
+A recent addition to that shape is claim-level footnotes. `## Links` is a fine
+roster of further reading, and `## Source Notes` records which journal a page
+grew from, but neither tells a reader which specific source backs a specific
+sentence. When a page states a number, a benchmark result, or a direct
+attribution, I now tie it to its source with a footnote at the point of the
+claim, so the reader lands on the primary source instead of guessing which of
+ten links in the list is the right one. Logseq renders standard Markdown
+footnotes: `[^1]` next to the claim, and `[^1]: Title, date, URL` collected at
+the bottom of the page. The `curate-journals` skill treats this as a rule now:
+any paper, post, or video a page relies on has to be reachable from the page
+itself, because the journal it came from usually holds only a bare link.
+
 Logseq links are the connective tissue. A page about local models can point to
 `[[Claude Code]]`, `[[AI/Harness engineering]]`, or `[[Observability/LLM observability]]`
 without needing a separate taxonomy project. If a page name contains a slash,
