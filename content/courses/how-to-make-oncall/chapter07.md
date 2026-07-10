@@ -90,6 +90,8 @@ I worked with US (PST) and EU teams — the common overlap is very limited at 2-
 
 Many US teams use India, but that doesn't work well with Europe for on-call. The time difference between Paris and Mumbai is only 3.5 hours, which is too small to meaningfully cover night shifts.
 
+> **Note:** the offsets below are for winter (standard time). During summer daylight saving time (DST) most of these shift by an hour, so the overlap windows move accordingly.
+
 Working hours 9–17, mapped against UTC (local hour shown when a site is on shift):
 
 | UTC | Singapur (UTC+7) | London (UTC) | Paris (UTC+1) | SF (PST, UTC-9) |
