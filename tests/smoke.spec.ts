@@ -82,6 +82,7 @@ test.describe('Talks archive (/talk/)', () => {
     const items = page.locator('.talk-row');
     await expect(items.first()).toBeVisible();
     expect(await items.count()).toBeGreaterThan(0);
+    await expect(items.first().locator('.talk-date')).toHaveText(/\d{2} [A-Z][a-z]{2}/);
   });
 });
 
@@ -100,6 +101,11 @@ test.describe('Talk detail page', () => {
 });
 
 test.describe('OnCall Guide', () => {
+  test('courses archive uses numbers instead of dates', async ({ page }) => {
+    await page.goto('/courses/');
+    await expect(page.locator('.talk-date')).toHaveText(['01']);
+  });
+
   test('course index loads', async ({ page }) => {
     await page.goto('/courses/how-to-make-oncall/');
     await expect(page).toHaveTitle(/OnCall/i);
@@ -109,6 +115,10 @@ test.describe('OnCall Guide', () => {
     await page.goto('/courses/how-to-make-oncall/');
     const links = page.locator('a[href*="how-to-make-oncall"]');
     expect(await links.count()).toBeGreaterThan(3);
+    await expect(page.locator('.talk-date')).toHaveText(
+      Array.from({ length: 15 }, (_, i) => String(i + 1).padStart(2, '0')),
+    );
+    await expect(page.locator('.talk-row').nth(10)).toHaveAttribute('href', /chapter10a/);
   });
 
   test('a chapter page loads and has content', async ({ page }) => {
