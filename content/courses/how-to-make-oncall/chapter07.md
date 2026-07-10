@@ -26,23 +26,55 @@ But now to my example:
 
 Some numbers first — calculate and consider what matters most to you, and whether you have enough people to reach at least this minimum with your conditions. My example uses two rosters, and we can choose between 1-3 sites.
 
-![](/courses/chapter-7.png)
+| Weekly on-call shifts | 1 site | 2 sites | 3 sites |
+| --- | ---: | ---: | ---: |
+| Monthly hours | 720 | 720 | 720 |
+| Number of handovers | 1 | 2 | 3 |
+| Number of rosters (primary, secondary, ..) | 2 | 2 | 2 |
+| Daily shift (hours) | 24 | 12 | 8 |
+| Weekly shift (hours) | 168 | 84 | 56 |
+| Recommended min. hours per month (10%) | 72 | 72 | 72 |
+| Recommended max. hours per month (25%) | 180 | 180 | 180 |
+| Weekly shift is this amount of percent per recommend value (%) | 93% | 47% | 31% |
+| Daily ratio percent per recommend value (%) | 13% | 7% | 4% |
+| How many weekly shifts in persons need for month | 4 | 8 | 12 |
+| Number of people that you need (weekly shifts) | 8 | 8 | 9 |
+| Number of weeks for rotation (to get 25% occupancy) | 8 | 4 | 3 |
+| Number hours per person and month | 90 | 90 | 80 |
+| Number hours out of work time per daily shift (workday) | 15 | 4 | 0 |
+| Number hours out of work time per daily shift (weekend) | 48 | 24 | 16 |
+| Number hours out of work time per week shift | 123 | 44 | 16 |
 
 ## One site
 
-![](/courses/chapter-7-1.png)
+| Month | 1w | 2w | 3w | 4w |
+| --- | :-: | :-: | :-: | :-: |
+| Primary | Ann | Ben | Cara | Dan |
+| Secondary | Eve | Finn | Gina | Hank |
 
 We have 8 people rotating every 4 weeks. If you share primary and secondary across the same people, you need to extend this to 2 months and swap the roles each month. I don't recommend back-to-back shifts, as many teams do — it's not healthy. All these tables represent a minimum and are not optimal. You need extra capacity for vacations, sick days, and to stay safely below that 25% on-call threshold.
 
 ## Two sites
 
-![](/courses/chapter-7-2.png)
+| Month | 1w | 2w | 3w | 4w |
+| --- | :-: | :-: | :-: | :-: |
+| Site 1 – Primary | Ann | Eve | Gina | Cara |
+| Site 1 – Secondary | Cara | Ann | Eve | Gina |
+| Site 2 – Primary | Ben | Finn | Hank | Dan |
+| Site 2 – Secondary | Dan | Ben | Finn | Hank |
 
 We have 8 people rotating every 4 weeks. The SRE book recommends 6 people per site, and I agree. This calculation is a bare minimum — I recommend at least 6 people per site.
 
 ## Three sites
 
-![](/courses/chapter-7-3.png)
+| Month | 1w | 2w | 3w | 1=4w |
+| --- | :-: | :-: | :-: | :-: |
+| Site 1 – Primary | Ann | Dan | Gina | Ann |
+| Site 1 – Secondary | Gina | Ann | Dan | Gina |
+| Site 2 – Primary | Ben | Eve | Hank | Ben |
+| Site 2 – Secondary | Hank | Ben | Eve | Hank |
+| Site 3 – Primary | Cara | Finn | Ivy | Cara |
+| Site 3 – Secondary | Ivy | Cara | Finn | Ivy |
 
 We have 9 people rotating every 3 weeks. Still, I would go with 6 people per site.
 
@@ -58,6 +90,64 @@ I worked with US (PST) and EU teams — the common overlap is very limited at 2-
 
 Many US teams use India, but that doesn't work well with Europe for on-call. The time difference between Paris and Mumbai is only 3.5 hours, which is too small to meaningfully cover night shifts.
 
-![](/courses/chapter-7-4.png)
+> **Note:** the offsets below are for winter (standard time). During summer daylight saving time (DST) most of these shift by an hour, so the overlap windows move accordingly.
+
+Working hours 9–17, mapped against UTC (local hour shown when a site is on shift):
+
+| UTC | Singapur (UTC+8) | London (UTC) | Paris (UTC+1) | SF (PST, UTC-8) |
+| :-: | :-: | :-: | :-: | :-: |
+| 0 |  |  |  | 16 |
+| 1 | 9 |  |  | 17 |
+| 2 | 10 |  |  |  |
+| 3 | 11 |  |  |  |
+| 4 | 12 |  |  |  |
+| 5 | 13 |  |  |  |
+| 6 | 14 |  |  |  |
+| 7 | 15 |  |  |  |
+| 8 | 16 |  | 9 |  |
+| 9 | 17 | 9 | 10 |  |
+| 10 |  | 10 | 11 |  |
+| 11 |  | 11 | 12 |  |
+| 12 |  | 12 | 13 |  |
+| 13 |  | 13 | 14 |  |
+| 14 |  | 14 | 15 |  |
+| 15 |  | 15 | 16 |  |
+| 16 |  | 16 | 17 |  |
+| 17 |  | 17 |  | 9 |
+| 18 |  |  |  | 10 |
+| 19 |  |  |  | 11 |
+| 20 |  |  |  | 12 |
+| 21 |  |  |  | 13 |
+| 22 |  |  |  | 14 |
+| 23 |  |  |  | 15 |
+
+Two-site 12h shifts, mapped against UTC:
+
+| UTC | London (UTC) | SF (PST, UTC-8) |
+| :-: | :-: | :-: |
+| 0 |  | 16 |
+| 1 |  | 17 |
+| 2 |  | 18 |
+| 3 |  | 19 |
+| 4 |  | 20 |
+| 5 |  | 21 |
+| 6 | 6 |  |
+| 7 | 7 |  |
+| 8 | 8 |  |
+| 9 | 9 |  |
+| 10 | 10 |  |
+| 11 | 11 |  |
+| 12 | 12 |  |
+| 13 | 13 |  |
+| 14 | 14 |  |
+| 15 | 15 |  |
+| 16 | 16 |  |
+| 17 | 17 | 9 |
+| 18 | 18 | 10 |
+| 19 |  | 11 |
+| 20 |  | 12 |
+| 21 |  | 13 |
+| 22 |  | 14 |
+| 23 |  | 15 |
 
 [^3]: T. A. Limoncelli, S. R. Chalup, and C. J. Hogan, The Practice of Cloud System Administration: Designing and Operating Large Distributed Systems, Volume 2: Addison-Wesley, 2014. - https://learning.oreilly.com/library/view/practice-of-cloud/9780133478549/title.html
