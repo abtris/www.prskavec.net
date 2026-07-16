@@ -17,12 +17,14 @@ draft: false
 # Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
   caption: ""
-  focal_point: ""
-  preview_only: false
+  focal_point: "smart"
+  preview_only: true
 
 # Projects (optional).
 projects: []
 ---
+
+![](./featured.png)
 
 [Google's Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing)
 sounded relevant to me immediately. OKF v0.1 is a directory of Markdown files
