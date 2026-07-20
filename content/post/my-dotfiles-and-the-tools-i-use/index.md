@@ -176,8 +176,10 @@ A few desktop tools round it out:
 - **Launcher: [LaunchBar](https://www.obdev.at/products/launchbar/index.html).**
   [Raycast](https://www.raycast.com/) is probably the better choice today, but I
   have not felt enough pain to switch.
-- **Window management: [Magnet](https://magnet.crowdcafe.com/).** I keep eyeing
-  [yabai](https://github.com/koekeishiya/yabai) but have not made time to test it.
+- **Window management: [Magnet](https://magnet.crowdcafe.com/).** I want to try
+  [AeroSpace](https://github.com/nikitabobko/AeroSpace), an i3-like tiling
+  manager that does not need SIP disabled the way yabai does, but have not made
+  time yet.
 
 ## Takeaways
 
