@@ -12,8 +12,8 @@
   <text x="618" y="36" font-size="12.5" fill="#52514e">Fixed</text>
 
   <!-- panel titles -->
-  <text x="180" y="80" font-size="13.5" font-weight="600" text-anchor="middle" fill="#0b0b0b">Goroutines leaked</text>
-  <text x="540" y="80" font-size="13.5" font-weight="600" text-anchor="middle" fill="#0b0b0b">Heap in use</text>
+  <text x="180" y="72" font-size="13.5" font-weight="600" text-anchor="middle" fill="#0b0b0b">Goroutines leaked</text>
+  <text x="540" y="72" font-size="13.5" font-weight="600" text-anchor="middle" fill="#0b0b0b">Heap in use</text>
 
   <!-- baselines -->
   <line x1="60" y1="330" x2="320" y2="330" stroke="#e0e0dc" stroke-width="2"/>
