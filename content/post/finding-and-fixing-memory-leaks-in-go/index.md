@@ -88,6 +88,10 @@ curl -s "http://localhost:6060/debug/pprof/goroutine?debug=1" | head -1
 
 If that number climbs and never comes back down, you have a goroutine leak, and the stack traces in the full profile (`debug=2`) tell you exactly where they are parked.
 
+Here is that goroutine profile as a graph, after 2,000 requests through a client that builds a new transport every call. Every one of those goroutines is a `persistConn` read or write loop (plus the server side) parked in `runtime.gopark`, waiting on a connection that will never be touched again:
+
+![pprof goroutine profile of the leaky client: about 6,000 goroutines parked in runtime.gopark](goroutine-leak.png)
+
 ## The real fixes
 
 Our leak came from HTTP and gRPC client lifecycle. Here are the three patterns we fixed, generalized out of the actual code.
@@ -218,5 +222,11 @@ Go's garbage collector handles memory you stop referencing. It cannot help with 
 1. Expose `net/http/pprof` and diff two heap snapshots with `go tool pprof -base`.
 2. Watch the goroutine count, because a rising count is a leak you can't see in the heap alone.
 3. Build clients (HTTP and gRPC) once and reuse them; give every ticker and goroutine a context to exit on; close the short-lived ones explicitly.
+
+I put the leaky and fixed clients, the goroutine-leak tests, the benchmark, and the pprof graphs into a runnable repo: [github.com/abtris/go-http-transport-leak](https://github.com/abtris/go-http-transport-leak). Running 2,000 requests through each client shows the gap:
+
+![Leaky vs fixed after 2,000 requests: 6,000 goroutines and 52.8 MB against 3 goroutines and 1.4 MB](leaky-vs-fixed.svg)
+
+Same workload, same server. The only difference is whether the transport is built once or per call. `make graphs` in the repo regenerates the profiles yourself.
 
 If you want the companion piece on getting the *timeouts* right on those same clients, I wrote about [basic HTTP client settings in Go](/post/watch_out_for_basic_http_client_settings_in_go/) earlier. For a deeper reference on detection, Datadog's [guide to Go memory leaks](https://www.datadoghq.com/blog/go-memory-leaks/) and JetBrains' [escape analysis explainer](https://blog.jetbrains.com/go/2026/07/20/escape-analysis/) are both worth a read.
