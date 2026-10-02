@@ -7,7 +7,7 @@ draft: false
 menu:
   how-to-make-oncall:
     parent: Intro
-    weight: 9
+    weight: 90
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
 weight: 14

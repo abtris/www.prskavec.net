@@ -1,5 +1,5 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
-import { dirname, extname, join, normalize, relative, resolve } from 'node:path'
+import { basename, dirname, extname, join, normalize, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(fileURLToPath(import.meta.url), '..', '..')
@@ -88,6 +88,15 @@ const localExists = (file, url) => {
     candidates.push(resolve(dirname(file), base))
     candidates.push(resolve(dirname(file), base, 'index.md'))
   }
+
+  // Clean Hugo URLs resolve from the rendered page directory, not the .md file's directory.
+  const pageDir = ['index.md', '_index.md'].includes(basename(file))
+    ? dirname(file)
+    : file.slice(0, -3)
+  const pageTarget = (base.startsWith('/')
+    ? join(contentDir, base)
+    : resolve(pageDir, base)).replace(/\/$/, '')
+  candidates.push(`${pageTarget}.md`, join(pageTarget, 'index.md'), join(pageTarget, '_index.md'))
 
   const target = candidates.find((p) => existsSync(p) && statSync(p).isFile())
   if (!target) return false

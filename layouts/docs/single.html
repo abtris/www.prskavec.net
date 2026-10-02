@@ -41,7 +41,7 @@
     {{/* ── Article ─────────────────────────────────────────────────── */}}
     <article class="min-w-0 rise">
       <div class="flex flex-wrap items-baseline gap-3 mb-6">
-        <span class="mono-tag mono-tag-signal">◆ Chapter</span>
+        <span class="mono-tag mono-tag-signal">◆ Chapter{{ with .Params.chapter_number }} {{ . }}{{ end }}</span>
         {{ with .Parent }}
         <a href="{{ .RelPermalink }}" class="mono-label hover:text-[color:var(--color-paper)] transition-colors">{{ .Title }}</a>
         {{ end }}
