@@ -115,10 +115,30 @@ test.describe('OnCall Guide', () => {
     await page.goto('/courses/how-to-make-oncall/');
     const links = page.locator('a[href*="how-to-make-oncall"]');
     expect(await links.count()).toBeGreaterThan(3);
+    const chapterNumbers = Array.from({ length: 15 }, (_, i) => String(i + 1).padStart(2, '0'));
+    chapterNumbers.splice(7, 0, '7.1');
     await expect(page.locator('.talk-date')).toHaveText(
-      Array.from({ length: 15 }, (_, i) => String(i + 1).padStart(2, '0')),
+      chapterNumbers,
     );
-    await expect(page.locator('.talk-row').nth(10)).toHaveAttribute('href', /chapter10a/);
+    await expect(page.locator('.talk-row').nth(11)).toHaveAttribute('href', /chapter10a/);
+
+    await page.locator('.talk-row').filter({ hasText: 'Choosing an on-call pattern' }).click();
+    await expect(page).toHaveURL(/\/chapter07\/$/);
+    await expect(page.locator('.table-scroll table').first()).toContainText('Business-hours only');
+    const sidebar = page.getByRole('navigation', { name: 'Chapters', exact: true });
+    await expect(sidebar.getByRole('link', { name: '7.1 Weekly rotations: a worked example', exact: true })).toBeVisible();
+    await expect(sidebar.getByRole('link', { name: '08 OnCall Market', exact: true })).toBeVisible();
+
+    await page.getByRole('navigation', { name: 'Chapter navigation', exact: true })
+      .getByRole('link', { name: /Next.*Weekly rotations/ }).click();
+    await expect(page).toHaveURL(/\/chapter07-1\/$/);
+    await expect(page.locator('h1')).toHaveText('Weekly rotations: a worked example');
+    await expect(page.getByRole('heading', { name: 'One site', exact: true })).toBeVisible();
+    const pager = page.getByRole('navigation', { name: 'Chapter navigation', exact: true });
+    await expect(pager.getByRole('link', { name: /Previous.*Choosing an on-call pattern/ }))
+      .toHaveAttribute('href', '/courses/how-to-make-oncall/chapter07/');
+    await pager.getByRole('link', { name: /Next.*OnCall Market/ }).click();
+    await expect(page).toHaveURL(/\/chapter08\/$/);
   });
 
   test('a chapter page loads and has content', async ({ page }) => {

@@ -18,10 +18,16 @@
   <h1 class="display text-5xl md:text-7xl mb-10">{{ .Title }}</h1>
   {{ with .Content }}<div class="prose-editorial mb-12">{{ . }}</div>{{ end }}
   <ul class="border-t border-[color:var(--color-rule)]">
-    {{ range $i, $page := $pages }}
+    {{ $chapter := 0 }}
+    {{ range $pages }}
+      {{ $number := .Params.chapter_number }}
+      {{ if not $number }}
+        {{ $chapter = add $chapter 1 }}
+        {{ $number = printf "%02d" $chapter }}
+      {{ end }}
       <li>
         <a href="{{ .RelPermalink }}" class="talk-row">
-          <span class="talk-date">{{ printf "%02d" (add $i 1) }}</span>
+          <span class="talk-date">{{ $number }}</span>
           <div>
             <div class="talk-title">{{ .Title }}</div>
           </div>
