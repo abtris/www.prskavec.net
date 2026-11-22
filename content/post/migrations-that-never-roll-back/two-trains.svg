@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" viewBox="0 0 720 340" role="img" aria-label="Fast train for migrations and slow train for the service, linked by a CI check against the production schema version">
+  <defs>
+    <marker id="b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a78d6"/></marker>
+    <marker id="g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#8a8985"/></marker>
+  </defs>
+  <rect width="718" height="338" x="1" y="1" fill="#fcfcfb" stroke="#e6e5e1" rx="14"/>
+  <text x="40" y="36" fill="#0b0b0b" font-size="17" font-weight="700">Schema first, then the code that needs it</text>
+
+  <text x="40" y="68" fill="#1f5ca6" font-size="12.5" font-weight="600">Fast train: migrations, several times a sprint, never rolled back</text>
+  <g text-anchor="middle">
+    <rect x="40" y="80" width="150" height="58" rx="8" fill="#eaf2fc" stroke="#2a78d6"/>
+    <text x="115" y="104" font-size="13" font-weight="600" fill="#0b0b0b">Migration PR</text>
+    <text x="115" y="123" font-size="11.5" fill="#1f5ca6" font-family="ui-monospace, Menlo, Consolas, monospace">052_….up.sql</text>
+    <rect x="210" y="80" width="150" height="58" rx="8" fill="#eaf2fc" stroke="#2a78d6"/>
+    <text x="285" y="104" font-size="13" font-weight="600" fill="#0b0b0b">Image</text>
+    <text x="285" y="123" font-size="11.5" fill="#1f5ca6" font-family="ui-monospace, Menlo, Consolas, monospace">tag 52-…</text>
+    <rect x="380" y="80" width="150" height="58" rx="8" fill="#eaf2fc" stroke="#2a78d6"/>
+    <text x="455" y="113" font-size="13" font-weight="600" fill="#0b0b0b">Test environments</text>
+    <rect x="550" y="80" width="130" height="58" rx="8" fill="#2a78d6" stroke="#2a78d6"/>
+    <text x="615" y="104" font-size="13" font-weight="600" fill="#ffffff">Production</text>
+    <text x="615" y="123" font-size="11.5" fill="#ffffff" font-family="ui-monospace, Menlo, Consolas, monospace">schema = 52</text>
+  </g>
+  <line x1="192" y1="109" x2="207" y2="109" stroke="#2a78d6" stroke-width="1.5" marker-end="url(#b)"/>
+  <line x1="362" y1="109" x2="377" y2="109" stroke="#2a78d6" stroke-width="1.5" marker-end="url(#b)"/>
+  <line x1="532" y1="109" x2="547" y2="109" stroke="#2a78d6" stroke-width="1.5" marker-end="url(#b)"/>
+
+  <path d="M615,140 L615,170 L314,170 L314,217" fill="none" stroke="#2a78d6" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+  <text x="330" y="163" fill="#1f5ca6" font-size="12">the check reads the version deployed in production</text>
+
+  <text x="40" y="208" fill="#52514e" font-size="12.5" font-weight="600">Slow train: the service</text>
+  <g text-anchor="middle">
+    <rect x="40" y="220" width="100" height="58" rx="8" fill="#ffffff" stroke="#c9c8c3"/>
+    <text x="90" y="244" font-size="12.5" font-weight="600" fill="#0b0b0b">Service PR</text>
+    <text x="90" y="262" font-size="11" fill="#52514e">uses column</text>
+    <rect x="152" y="220" width="100" height="58" rx="8" fill="#ffffff" stroke="#c9c8c3"/>
+    <text x="202" y="244" font-size="12.5" font-weight="600" fill="#0b0b0b">Manifest</text>
+    <text x="202" y="262" font-size="11" fill="#52514e" font-family="ui-monospace, Menlo, Consolas, monospace">min = 52</text>
+    <rect x="264" y="220" width="100" height="58" rx="8" fill="#fdf1ea" stroke="#eb6834" stroke-width="2"/>
+    <text x="314" y="244" font-size="12.5" font-weight="600" fill="#0b0b0b">CI check</text>
+    <text x="314" y="262" font-size="11" fill="#b0461a" font-family="ui-monospace, Menlo, Consolas, monospace">prod ≥ 52?</text>
+    <rect x="376" y="220" width="100" height="58" rx="8" fill="#ffffff" stroke="#c9c8c3"/>
+    <text x="426" y="253" font-size="12.5" font-weight="600" fill="#0b0b0b">Merge</text>
+    <rect x="488" y="220" width="100" height="58" rx="8" fill="#ffffff" stroke="#c9c8c3"/>
+    <text x="538" y="253" font-size="12.5" font-weight="600" fill="#0b0b0b">Rollout</text>
+    <rect x="600" y="220" width="80" height="58" rx="8" fill="#ffffff" stroke="#c9c8c3"/>
+    <text x="640" y="244" font-size="12.5" font-weight="600" fill="#0b0b0b">Start-up</text>
+    <text x="640" y="262" font-size="12.5" font-weight="600" fill="#0b0b0b">gate</text>
+  </g>
+  <line x1="141" y1="249" x2="150" y2="249" stroke="#8a8985" stroke-width="1.5" marker-end="url(#g)"/>
+  <line x1="253" y1="249" x2="262" y2="249" stroke="#8a8985" stroke-width="1.5" marker-end="url(#g)"/>
+  <line x1="365" y1="249" x2="374" y2="249" stroke="#8a8985" stroke-width="1.5" marker-end="url(#g)"/>
+  <line x1="477" y1="249" x2="486" y2="249" stroke="#8a8985" stroke-width="1.5" marker-end="url(#g)"/>
+  <line x1="589" y1="249" x2="598" y2="249" stroke="#8a8985" stroke-width="1.5" marker-end="url(#g)"/>
+
+  <rect x="214" y="292" width="200" height="26" rx="6" fill="#eb6834"/>
+  <text x="314" y="310" fill="#ffffff" font-size="12" font-weight="600" text-anchor="middle">merge blocked while prod is 51</text>
+</svg>
